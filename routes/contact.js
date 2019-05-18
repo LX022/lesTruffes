@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-    res.render('contact', { title: 'Association Une truffe et des pattes' });        //Page title
+    res.render('contact', { title: "Contacter l'association" });        //Page title
 });
 
 module.exports = router;
