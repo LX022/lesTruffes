@@ -6,9 +6,9 @@ var expect   = require('expect.js');
 var request  = require('supertest');
 
 describe('user creation page', function () {
-    before(function () {
-        return require('../../models').sequelize.sync();
-    });
+    // before(function () {
+    //     return require('../../models').sequelize.sync();
+    // });
 
     beforeEach(function () {
         this.models = require('../../models');
