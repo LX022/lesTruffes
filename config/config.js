@@ -1,21 +1,18 @@
+// COMME INDIQUE DANS LE PDF "05b-Node.js-Deployment.pdf" PAGE 12
+// LAISSER CE FICHIER TEL QUEL SVP
 require('dotenv').config();
 module.exports = {
+
     development: {
-        dialect: "sqlite",
-        storage: "./db.development.sqlite"
+        use_env_variable: "DB_CONNECTION",
+        dialect: "mysql"
     },
-
     test: {
-        dialect: "sqlite",
-        storage: ":memory:"
+        use_env_variable: "DB_CONNECTION",
+        dialect: "mysql"
     },
-
     production: {
-        username: process.env.DB_USERNAME,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-        host: process.env.DB_HOSTNAME,
-        dialect: 'mysql',
-        use_env_variable: 'http://localhost/phpmyadmin/db_structure.php?server=1&db=truffes'
+        use_env_variable: "DB_CONNECTION",
+        dialect: "mysql"
     }
 };
