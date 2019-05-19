@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('animal', {
+  return sequelize.define('Animal', {
     idAnimal: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -90,7 +90,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       field: 'Sexe'
     }
-  }, {
-    tableName: 'Animal'
-  });
+  },
+      {
+        timestamps: false,
+        freezeTableName: true,
+        tableName: 'Animal'
+        }
+    );
 };
