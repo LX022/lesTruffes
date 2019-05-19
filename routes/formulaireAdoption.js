@@ -3,9 +3,9 @@ var router = express.Router();
 var models = require('../models');
 
 
-/* GET home page. */
+/* GET fa page. */
 router.get('/', async function(req, res, next) {
-    res.render('index', { title: 'Une truffe et des pattes'});
+    res.render('formulaireAdoption', { title: "Adopter une truffe"});
 });
 
 module.exports = router;
