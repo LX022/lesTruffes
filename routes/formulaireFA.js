@@ -4,7 +4,7 @@ var models = require('../models');
 
 
 /* GET fa page. */
-router.get('/', async function(req, res, next) {
+router.get('/', function(req, res, next) {
     res.render('formulaireFA', { title: "Devenir famille d'accueil"});
 });
 

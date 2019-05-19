@@ -4,7 +4,7 @@ var models = require('../models');
 
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
+router.get('/', function(req, res, next) {
     res.render('index', { title: 'Une truffe et des pattes'});
 });
 
