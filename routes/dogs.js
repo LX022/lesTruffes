@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET dogs page. */
-router.get('/dogs', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
     let animals = models.Animal.findAll({});
 

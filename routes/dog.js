@@ -3,7 +3,7 @@ var router = express.Router();
 var models = require('../models');
 
 /* GET dog page. */
-router.get('/dog', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
     res.render('dog', { title: 'Oscar' });        //Page title
 
