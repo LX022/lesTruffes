@@ -1,9 +1,13 @@
+var models  = require('../models');
 var express = require('express');
 var router = express.Router();
 
 /* GET dogs page. */
-router.get('/', function(req, res, next) {
-    res.render('dogs', { title: 'Nos truffes à adopter' });        //Page title
+router.get('/', async function(req, res, next) {
+
+    let dogs = await models.Animal.findAll({});
+
+    res.render('dogs', { title: 'Nos truffes à adopter', dogs : dogs });        //Page title
 });
 
 module.exports = router;

@@ -3,9 +3,9 @@
 var expect = require('expect.js');
 
 describe('models/adopt', function () {
-    before(function () {
-        return require('../../models').sequelize.sync();
-    });
+    // before(function () {
+    //     return require('../../models').sequelize.sync();
+    // });
 
     beforeEach(function () {
         this.Person = require('../../models').Person;
