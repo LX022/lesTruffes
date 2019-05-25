@@ -6,10 +6,10 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
-var router = express.Router();
 var models = require('../models');
 var handlebars = require('handlebars');
-
+var app = express();
+var router = express.Router();
 
 var connection = mysql.createConnection({
     host     : 'localhost',
@@ -18,37 +18,27 @@ var connection = mysql.createConnection({
     database : 'truffes'
 });
 
-var app = express.Router();
 
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Une truffe et des pattes'});
+router.get('/', function(req,res,next){
+    res.render('/');
 });
 
-app.post('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
 
     if (username && password) {
-        connection.query('SELECT * FROM personne WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+        connection.query('SELECT privilege FROM personne WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
             if (results.length > 0) {
                 req.session.loggedin = true;
                 req.session.username = username;
+                req.session.privilege = JSON.stringify(results[0]).replace(/\D/g,'');
 
-                handlebars.registerHelper("username", function(input) {
-                    return req.session.username;
-                })
+                handlebars.registerHelper('username', function() {
+                    return 'hey';
+                });
 
                 //log in successful!
-
                 res.redirect('about');
 
             } else {
@@ -62,11 +52,8 @@ app.post('/', function(req, res, next) {
     }
 });
 
-/* GET home page. */
-app = app.post('/', function(req, res, next) {
-    res.render('index', { title: 'Une truffe et des pattes'});
-});
-module.exports = app;
+module.exports = router;
+
 
 
 

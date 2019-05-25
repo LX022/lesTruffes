@@ -8,6 +8,7 @@ dotenvExpand(myEnv);
 // Libraries
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -35,6 +36,16 @@ HandlebarsIntl.registerWith(hbs);
 
 // Express app
 var app = express();
+
+// session variables
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+    username: 'empty'
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 
 
 // view engine setup
