@@ -2,13 +2,15 @@ var models  = require('../models');
 var express = require('express');
 var router = express.Router();
 
-/* GET dogs page. */
+/* GET vet page. */
 router.get('/', async function(req, res, next) {
 
-    let id = req.body.idVeterinaire;
-    let veterinaire = await models.Veterinaire.findByPk(id);
 
-    res.render('dogs', { title: 'Nos truffes à adopter', veterinaire : veterinaire });        //Page title
+    let id = req.query.idVeterinaire;
+    let veto = await models.veterinaire.findByPk(id);
+    let nom = veto.nomV +" " + veto.prenomV;
+
+    res.render('vet', { title: nom, veto : veto });        //Page title
 });
 
 module.exports = router;

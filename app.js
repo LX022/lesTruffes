@@ -25,7 +25,9 @@ var formulaireAdoption  = require('./routes/formulaireAdoption');
 var formulaireFA  = require('./routes/formulaireFA');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
+var vet  = require('./routes/vet');
 var vets  = require('./routes/vets');
+
 
 // View engine
 var hbs = require('hbs');
@@ -64,6 +66,7 @@ app.use('/formulaireAdoption', formulaireAdoption);
 app.use('/formulaireFA', formulaireFA);
 app.use('/persons', persons);
 app.use('/reserveddogs', reserveddogs);
+app.use('/vet', vet);
 app.use('/vets', vets);
 
 

@@ -1,6 +1,4 @@
-<header class="header navbar-fixed-top" id="main_menu">
-    <div id="header"></div>
-</header>
+
 <!-- End of header-->
 <section class="aboutus margin-top-120" id="aboutus">
     <div class="container">
@@ -12,14 +10,9 @@
                         <thead>
                         <!-- En-tête du tableau-->
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Prenom</th>
-                            <th scope="col">Nom du cabinet</th>
-                            <th scope="col">Adresse</th>
-                            <th scope="col">Localite</th>
-                            <th scope="col">NPA</th>
-                            <th scope="col">T&eacute;l&eacute;phone</th>
-                            <th scope="col">Courriel</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,28 +23,12 @@
                                     <td>{{this.idVeterinaire}}</td>
                                     <td>{{this.nomV}}</td>
                                     <td>{{this.prenomV}}</td>
-                                    <td>{{this.cliniqueV}}</td>
-                                    <td>{{this.rueV}}</td>
-                                    <td>{{this.idLieu}}</td>
-                                    <td>{{this.specialiteV}}</td>
-                                    <td>{{this.commentaireV}}</td>
-                                    <td>{{this.tarifs}}</td>
-                                    <td>{{this.bloque}}</td>
-                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
-                                        <input type="submit" value="Cette truffe m'intéresse"></td>
+                                    <td><input type="hidden" type="number" name="idVeterinaire" value={{this.idVeterinaire}}>
+                                        <input type="submit" value="Infos"></td>
                                 </tr>
                             </form>
                         {{/each}}
-                        <tr>
-                            <td>Simpson</td>
-                            <td>Homer</td>
-                            <td>Spring field vets</td>
-                            <td>12.20.1956</td>
-                            <td>Spring field</td>
-                            <td>12554</td>
-                            <td>+1 414548 58</td>
-                            <td>homer@veto.com</td>
-                        </tr>
+
                         </tbody>
                     </table>
                 </div>
