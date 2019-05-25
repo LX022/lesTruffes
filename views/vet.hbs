@@ -1,0 +1,156 @@
+<!-- translate from html with https://pughtml.com/, god bless this website-->
+<!-- About Section-->
+<div class="container">
+    <div class="col-sm-12">
+        <div class="main_about_area">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="signle_about_left"><img src="images/animals/veterinaire.jpg" width="292" /></div>
+                </div>
+                <div class="col-sm-6 col-sm-push-1">
+
+                    <div class="single_about">
+                        <div class="separator2"></div>
+                        <div class="column" style="width:100%;">
+                            <div class="column-content">
+                                <div class="clearfix">
+
+                                    <div style="text-align: left;">
+                                        <form id="myveto" action="/vets" method="get">
+                                         <h4 style="text-align: right;" >  <input style="background:gold"  type="submit" value="Delete"></h4>
+                                            <table class="table">
+                                                <tr><th></th><td ><input type="hidden" type="number" name="idmyveto" value={{veto.idVeterinaire}}>
+                                                  </td></tr>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <td>{{veto.idVeterinaire}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Nom</th>
+                                                    <td>{{veto.nomV}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Prénom</th>
+                                                    <td>{{veto.prenomV}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Clinique</th>
+                                                    <td>{{veto.cliniqueV}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Rue</th>
+                                                    <td>{{veto.rueV}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Lieu</th>
+                                                    <td>{{veto.idLieu}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Spécialité</th>
+                                                    <td>{{veto.specialiteV}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Commentaires</th>
+                                                    <td>{{veto.commentaireV}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tarifs</th>
+                                                    <td>{{veto.tarifs}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Bloqué</th>
+                                                    <td>{{veto.bloque}}</td>
+                                                </tr>
+                                            </table>
+
+                                            </tr>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- End of header-->
+                <section class="aboutus margin-top-120" id="aboutus">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+<br>
+                                <h2 style="color: slateblue">Modifier les données de ce vétérinaire</h2>
+                                <!-- End of head title-->
+                                <div>
+                                    <table class="table">
+
+                                        <tbody>
+
+                                        <form id="updateveto" action="/vet" method="post">
+                                            <tr> <td></td><td></td> <td style="text-align:right"><h4><input style="background:gold" type="submit" value="Update"></h4></td></tr>
+                                            <tr>
+                                                <td><label>ID
+                                                    <input type="number" name="idVeterinaire" value="{{veto.idVeterinaire}}" readonly>
+                                                </label></td>
+                                                <td><label>Nom
+                                                    <input type="text" name="nomV" value="{{veto.nomV}}" required>
+                                                </label></td>
+                                                <td><label>Prénom
+                                                    <input type="text" name="prenomV" value="{{veto.prenomV}}">
+                                                </label></td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Clinique
+                                                    <input type="text" name="cliniqueV" value="{{veto.cliniqueV}}">
+                                                </label></td>
+                                                <td><label>Rue
+                                                    <input type="text" name="rueV" value="{{veto.rueV}}">
+                                                </label></td>
+                                                <td><label>Lieu
+                                                    <input type="number" name="idLieu" value="{{veto.idLieu}}" required>
+                                                </label></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><label>Spécialité
+                                                    <input type="text" name="specialiteV" value="{{veto.specialiteV}}">
+                                                </label></td>
+                                                <td><label>Tarifs
+                                                    <input type="number" name="tarifs" value="{{veto.tarifs}}">
+                                                </label></td>
+                                                <td><label>Bloqué
+                                                    <input type="number" name="bloque" value="{{veto.bloque}}">
+                                                </label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Commentaires
+                                                    <input type="text" name="commentaireV" value="{{veto.commentaireV}}">
+                                                </label></td>
+
+                                            </tr>
+
+                                        </form>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- End of col-sm-12-->
+                        </div>
+                        <!-- End of row-->
+                    </div>
+                    <!-- End of Container-->
+                    <hr/>
+
+                </section>
+
+                <!-- End of col-sm-12-->
+
+                <!-- End of Container-->
+                <!-- End of about Section-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
