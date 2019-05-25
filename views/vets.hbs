@@ -13,9 +13,19 @@
                             <th scope="col">ID</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Prenom</th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
+                       
+                        <form id="vetos" action="/vets" method="post">
+                            <tr>
+                                <td><input type="number" name="idVeterinaire" min="{{max}}" required></td>
+                                <td><input type="text" name="nomV" required></td>
+                                <td><input type="text" name="prenomV" required></td>
+                                <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
+                            </tr>
+                        </form>
                         <!-- data-->
                         {{#each veterinaires}}
                             <form id="vetos" action="/vet" method="get">
@@ -39,4 +49,5 @@
     </div>
     <!-- End of Container-->
     <hr/>
+
 </section>

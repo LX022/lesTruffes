@@ -1,11 +1,34 @@
-
 <div class="container">
+<div class="container-fluid">
     <h5 style="text-align:center"><a href="adoption">Comment adopter ?</a></h5>
+    <br>
+        <div class="row">
+            <div class="col-sm-6" >
+                <div style="text-align: right;"><img src="images/oscar-fiche-1.jpg" width="292" /></div>
+            </div>
+            <div class="col-sm-6">
+                <h4>ID : {{dog.idAnimal}}</h4>
+                <h4>ICAD : {{dog.icad}}</h4>
+                <h4>Nom : {{dog.nomAnimal}}</h4>
+                <h4>Sexe : {{dog.sexe}}</h4>
+                <h4>Date de naissance : {{dog.dateNaissAnimal}}</h4>
+                <h4>Espèce : {{dog.especeAnimal}}</h4>
+                <h4>Couleur(s) : {{dog.couleursAnimal}}</h4>
+                <h4>Race : {{dog.race}}</h4>
+            </div>
+        </div>
+    </div>
+    <br>
+
     <form action="action_page.php">
+        <input for="idAnimal" value="{{dog.idAnimal}}" hidden></input>
 
-        <h2 style="color:slateblue">Coordonnées</h2>
+        <label for="j">Jour souhaité de l'adoption</label>
+        <input type="text" id="j" name="jouradoption" placeholder="Jour/Mois/Année..." required></input>
 
-        <label for="fname">Nom : {{dog.nomAnimal}}</label>
+        <h2 style="color:slateblue">Vos coordonnées</h2>
+        <label for="fname">Nom</label>
+        <input type="text" id="fname" name="lastname" placeholder="Votre nom..." required>
 
         <label for="lname">Prénom</label>
         <input type="text" id="lname" name="lastname" placeholder="Votre prénom..." required>
@@ -31,22 +54,9 @@
         <label for="dn">Date de naissance</label>
         <textarea data-type="control_datetime" id="dn" name="datenaissance" placeholder="Votre date de naissance..." required></textarea>
 
-        <h2 style="color:slateblue">Vos souhaits</h2>
 
-        <label for="esp">Espèce</label>
-        <input type="text" id="esp" name="espece" value ={{dog.espece}} required></input>
 
-        <label for="sex">Sexe</label>
-        <input type="text" id="sex" name="sexe" placeholder="Mâle / Femelle / indifférent..." required></input>
 
-        <label for="agechien">Age du chien</label>
-        <input type="text" id="agechien" name="ageduchien" placeholder="Mâle / Femelle / indifférent..." required></input>
-
-        <label for="t">Taille du chien</label>
-        <input type="text" id="t" name="taille" placeholder="Mini (moins de 10kg) / Moyen (10-20kg) / Grand (20-40kg) / Maxi (plus de 40kg) / Indifférent..." required></input>
-
-        <label for="j">Jour de l'adoption</label>
-        <input type="text" id="j" name="jouradoption" placeholder="Jour/Mois/Année..." required></input>
 
         <h2 style="color:slateblue">Votre environnement</h2>
 
