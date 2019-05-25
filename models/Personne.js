@@ -88,6 +88,8 @@ module.exports = function(sequelize, DataTypes) {
             field: 'FA'
         }
     }, {
+        timestamps: false,
+        freezeTableName: true,
         tableName: 'Personne'
     });
 };

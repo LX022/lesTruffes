@@ -38,6 +38,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'nomPays'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Pays'
   });
 };

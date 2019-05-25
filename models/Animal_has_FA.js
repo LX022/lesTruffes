@@ -44,6 +44,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'idPersonne'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Animal_has_FA'
   });
 };

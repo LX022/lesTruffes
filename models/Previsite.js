@@ -39,6 +39,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'commentairePrev'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Previsite'
   });
 };
