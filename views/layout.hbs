@@ -52,7 +52,12 @@
                                     <a onclick="document.getElementById('id01').style.display='block'">Se connecter</a>
                                     <body>
                                     <div id="id01" class="modal">
-                                        <form class="modal-content animate"> <!--action="/action_page.php"-->
+                                        <form action="auth" method="POST">
+                                            <input type="text" name="username" placeholder="Username" required>
+                                            <input type="password" name="password" placeholder="Password" required>
+                                            <input type="submit">
+                                        </form>
+                                        <!-- <form class="modal-content animate"> <!--action="/action_page.php"
 
                                             <div class="imgcontainer">
                                                 <span onclick="document.getElementById('id01').style.display='none'"
@@ -83,8 +88,8 @@
                                                 <img src="../images/logo.png" width="100px" height="90%"
                                                      alt="Avatar"
                                                      class="avatar"
-                                                     style="text-align: center">
-                                                     -->
+                                                     style="text-align: center"> //comment here
+
 
                                                 <div style="background-color:#f1f1f1;padding: 16px; vertical-align: center">
                                                     <button type="button"
@@ -94,7 +99,7 @@
                                                     <span class="psw"><a href="#">Mot de passe oublié?</a></span>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </form> -->
                                     </div>
                                     </body>
 
