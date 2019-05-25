@@ -5,40 +5,21 @@
             <div class="main_mix_content text-center margin-top-30">
                 <div>
                     <table class="table">
-                        <thead>
-                        <!-- En-tête du tableau-->
-                        <tr style="text-align: center">
-                            <th style="text-align: center">Nom</th>
-                            <th style="text-align: center">Espèce</th>
-                            <th style="text-align: center">ICAD</th>
-                            <th style="text-align: center">Race</th>
-                            <th style="text-align: center">Sexe</th>
-                        </tr>
-                        </thead>
-                           <!-- data-->
-                        <tbody>
                             {{#each dogs}}
-                                <tr>
-                                    <td>{{this.nomAnimal}}</td>
-                                    <td>{{this.especeAnimal}}</td>
-                                    <td>{{this.icad}}</td>
-                                    <td>{{this.race}}</td>
-                                    <td>{{this.sexe}}</td>
-                                </tr>
+                            <form id="onedog" action="/dog" method="get">
+                            <tr>
+                                <div class="col-sm-4 col-xs-12 mix category-2">
+                                        <img class="card-img-top" src="/images/animals/{{this.nomAnimal}}_{{this.idAnimal}}_0.jpg"
+                                              width="200" height="200" onerror="this.onerror=null;this.src='/images/animals/no_picture.png'">
+                                    <p>{{this.nomAnimal}}</p>
+                                    <p>{{this.dateNaissAnimal}}</p>
+                                    <input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
+                                    <input type="submit" value="Cette truffe m'intéresse">
+                                </div>
+                            </tr>
+                            </form>
                             {{/each}}
-                        </tbody>
                     </table>
-                    <table class="table">
-                        <tr>
-                            <div class="col-sm-4 col-xs-12 mix category-2"><a href="dog"><img src="images/oscar-avatar.jpg" alt="oscar"/></a></div>
-                        </tr>
-                        <tr>
-                            <div class="col-sm-4 col-xs-12 mix category-2"><a href="dog"><img src="images/oscar-avatar.jpg" alt="oscar"/></a></div>
-                        </tr>
-                    </table>
-                    <ul id="testId">
-
-                    </ul>
                 </div>
             </div>
         </div>
