@@ -1,0 +1,67 @@
+<!-- translate from html with https://pughtml.com/, god bless this website-->
+<!-- About Section-->
+<div class="container">
+    <div class="col-sm-12">
+        <div class="main_about_area">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="signle_about_left"><img src="images/oscar-fiche-1.jpg" width="292" /></div>
+                </div>
+                <div class="col-sm-6 col-sm-push-1">
+                    <div class="single_about">
+                        <div class="separator2"></div>
+                        <div class="column" style="width:100%;">
+                            <div class="column-content">
+                                <div class="clearfix">
+
+                                    <div>
+                                        <table class="table">
+                                            <tr>
+                                                <th>ICAD</th>
+                                                <td>{{dog.icad}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nom</th>
+                                                <td>{{dog.nomAnimal}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Race</th>
+                                                <td>{{dog.race}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Genre</th>
+                                                <td>{{dog.sexe}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Couleur</th>
+                                                <td>{{dog.couleursAnimal}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Date de naissance</th>
+                                                <td>{{dog.dateNaissAnimal}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Espèce</th>
+                                                <td>{{dog.especeAnimal}}</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <form id="adoptthisdog" action="/formulaireAdoption" method="get">
+                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
+                                        <input type="submit" class="btn btn-default" value="Adopter"></td>
+
+                            </form>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of col-sm-12-->
+</div>
+<!-- End of Container-->
+<!-- End of about Section-->
