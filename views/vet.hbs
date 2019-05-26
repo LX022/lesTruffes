@@ -42,8 +42,12 @@
                                                     <td>{{veto.rueV}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Lieu</th>
-                                                    <td>{{veto.idLieu}}</td>
+                                                    <th>Code postal</th>
+                                                    <td>{{lieu.codePostal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Localité</th>
+                                                    <td>{{lieu.ville}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Spécialité</th>
@@ -65,6 +69,8 @@
 
                                             </tr>
                                         </form>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -106,8 +112,13 @@
                                                 <td><label>Rue
                                                     <input type="text" name="rueV" value="{{veto.rueV}}">
                                                 </label></td>
-                                                <td><label>Lieu
-                                                    <input type="number" name="idLieu" value="{{veto.idLieu}}" required>
+                                                <td><label>ID Lieu
+                                                    <input list="lieux" type="text" name="idLieu" required>
+                                                    <datalist id="lieux">
+                                                    {{#each lieux}}
+                                                            <option value="{{this.idLieu}}">
+                                                    {{/each}}
+                                                    </datalist>
                                                 </label></td>
 
                                             </tr>
@@ -132,6 +143,26 @@
                                         </form>
 
                                         </tbody>
+                                    </table>
+<br>
+                                    <h2 style="color: slateblue">Lieux</h2>
+                                    <table class="table">
+                                        <tr>
+                                            <th>ID Lieu</th>
+                                            <th>Code postal</th>
+                                            <th>Ville</th>
+                                        </tr>
+                                    {{#each lieux}}
+                                        <tr>
+                                            <td>{{this.idLieu}}
+                                            </td>
+                                            <td>{{this.codePostal}}
+                                            </td>
+                                            <td>{{this.ville}}
+                                            </td>
+
+                                        </tr>
+                                    {{/each}}
                                     </table>
                                 </div>
                             </div>
