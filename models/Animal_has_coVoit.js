@@ -23,6 +23,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'idcoVoit'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Animal_has_coVoit'
   });
 };

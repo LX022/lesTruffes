@@ -14,6 +14,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'etatStatut'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Statut'
   });
 };
