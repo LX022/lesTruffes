@@ -5,7 +5,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    if(req.session.privilege == '2') {
+    if(req.session.privilege == '1') {
         res.render('vets', { title: 'Vétérinaires enregistrés' });        //Page title
     }
     else {
