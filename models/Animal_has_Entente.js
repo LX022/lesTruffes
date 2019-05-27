@@ -23,6 +23,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'idEntente'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Animal_has_Entente'
   });
 };

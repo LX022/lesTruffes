@@ -1,39 +1,44 @@
-<header class="header navbar-fixed-top" id="main_menu">
-    <div id="header"></div>
-</header>
+
 <!-- End of header-->
 <section class="aboutus margin-top-120" id="aboutus">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <!-- End of head title-->
                 <div>
                     <table class="table">
                         <thead>
                         <!-- En-tête du tableau-->
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Prenom</th>
-                            <th scope="col">Nom du cabinet</th>
-                            <th scope="col">Adresse</th>
-                            <th scope="col">Localite</th>
-                            <th scope="col">NPA</th>
-                            <th scope="col">T&eacute;l&eacute;phone</th>
-                            <th scope="col">Courriel</th>
+                            <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
+
+                        <form id="vetos" action="/vets" method="post">
+                            <tr>
+                                <td><input type="number" name="idVeterinaire" min="{{max}}" required></td>
+                                <td><input type="text" name="nomV" required></td>
+                                <td><input type="text" name="prenomV" required></td>
+                                <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
+                            </tr>
+                        </form>
                         <!-- data-->
-                        <tr>
-                            <td>Simpson</td>
-                            <td>Homer</td>
-                            <td>Spring field vets</td>
-                            <td>12.20.1956</td>
-                            <td>Spring field</td>
-                            <td>12554</td>
-                            <td>+1 414548 58</td>
-                            <td>homer@veto.com</td>
-                        </tr>
+                        {{#each veterinaires}}
+                            <form id="vetos" action="/vet" method="get">
+                                <tr>
+                                    <td>{{this.idVeterinaire}}</td>
+                                    <td>{{this.nomV}}</td>
+                                    <td>{{this.prenomV}}</td>
+                                    <td><input type="hidden" type="number" name="idVeterinaire" value={{this.idVeterinaire}}>
+                                        <input type="submit" value="Infos"></td>
+                                </tr>
+                            </form>
+                        {{/each}}
+
                         </tbody>
                     </table>
                 </div>
@@ -44,4 +49,5 @@
     </div>
     <!-- End of Container-->
     <hr/>
+
 </section>

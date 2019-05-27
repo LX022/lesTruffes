@@ -88,9 +88,7 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
-.idea/lesTruffes.iml
-.idea/misc.xml
-.idea/workspace.xml
+.idea/
 
 node_modules
 npm-debug.log

@@ -39,6 +39,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'dateVeto'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Animal_has_Vétérinaire'
   });
 };

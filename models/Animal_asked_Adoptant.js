@@ -62,6 +62,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'Paiement'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Animal_asked_Adoptant'
   });
 };

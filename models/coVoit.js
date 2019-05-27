@@ -14,6 +14,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'nomCovoit'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'coVoit'
   });
 };

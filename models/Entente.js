@@ -14,6 +14,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'okEntente'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Entente'
   });
 };
