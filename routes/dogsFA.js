@@ -15,7 +15,7 @@ router.get('/', async function (req, res, next) {
     //Calcule le plus grand id de la table
 
 
-    res.render('dogsAdmin', {title: 'Gestion des chiens'});        //Page title
+    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil"});        //Page title
 });
 
 
@@ -30,7 +30,7 @@ router.post('/', async function (req, res) {
 
     //id max de la table
 
-    res.render('dogsAdmin', {title: 'Gestion des chiens'});        //Page title
+    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil"});        //Page title
 
 });
 

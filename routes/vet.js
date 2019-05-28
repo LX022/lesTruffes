@@ -8,6 +8,7 @@ router.get('/', async function(req, res, next) {
     let id = req.query.idVeterinaire;
     let veto = await models.veterinaire.findByPk(id);
 
+
     //Recherche le lieu du véto et les lieux en général
     let lieu = await models.lieu.findByPk(veto.idLieu);
     let pays = await models.pays.findAll();
