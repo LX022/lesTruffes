@@ -28,36 +28,36 @@ router.post('/', function(req, res, next) {
     var jouradoption = req.body.jouradoption;
 
     var logement = "Appartement";
-    if(req.body.typelogementMaison == true)
+    if(req.body.typelogement.value = "maison")
         logement = "Maison";
 
     var surfacelogement = req.body.surfacelogement;
 
     var j = "sans";
-    if(req.body.jOui == true)
+    if(req.body.j.value == "jOui")
         j = "oui";
 
-    if(req.body.jNon == true)
+    if(req.body.j.value == "jNon")
         j = "non";
 
     var enfant = "non";
-    if(req.body.enfantOui == true)
+    if(req.body.enfant.value == "enfantOui")
         enfant = "oui";
 
     var animaux = "non";
-    if(req.body.animauxOui == true)
+    if(req.body.animaux.value == "animauxOui")
         animaux = "oui";
 
     var propre = "non";
-    if(req.body.propreOui == true)
+    if(req.body.propre.value = "propreOui")
         propre = "oui";
 
     var maltraitance = "non";
-    if(req.body.maltraitanceOui == true)
+    if(req.body.maltraitance.value = "maltraitanceOui")
         maltraitance = "oui";
 
     var soins = "non";
-    if(req.body.soinsOui == true)
+    if(req.body.soins.value = "soinsOui")
         soins = "oui";
 
     var autreinfo = req.body.autreinfo;
@@ -78,7 +78,7 @@ router.post('/', function(req, res, next) {
         "Sexe : " + sexe +  + "\n" +
         "Age du chien : " + ageduchien + "\n" +
         "Taille du chien : " + taille + "\n" +
-        "Jour de l'adoption : " + jouradoption + "\n\n" +
+        "Période de disponibilité : " + jouradoption + "\n\n" +
         "Type d'environnement : " + "\n" +
         "**********************************************************" + "\n" +
         "Logement : " + logement + "\n" +
@@ -112,7 +112,7 @@ router.post('/', function(req, res, next) {
         text: message,
     });
 
-    res.redirect('contact');
+    res.redirect('formulaireFA');
 })
 
 module.exports = router;

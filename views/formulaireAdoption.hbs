@@ -31,7 +31,7 @@
         <input type="text" id="fname" name="lastname" placeholder="Votre nom..." required>
 
         <label for="lname">Prénom</label>
-        <input type="text" id="lname" name="lastname" placeholder="Votre prénom..." required>
+        <input type="text" id="lname" name="firstname" placeholder="Votre prénom..." required>
 
         <label for="mail">E-mail</label>
         <textarea type="mail" id="mail" name="email" placeholder="Votre mail..." required></textarea>
@@ -46,7 +46,7 @@
         <input type="text" id="adrs" name="adresse" placeholder="Votre adresse..." required></input>
 
         <label for="npa">NPA</label>
-        <input type="text" id="npa" name="numpostal" placeholder="Votre code postal..." required></input>
+        <input type="text" id="npa" name="npa" placeholder="Votre code postal..." required></input>
 
         <label for="loc">Localité</label>
         <input type="text" id="loc" name="localite" placeholder="Votre localité..." required></input>
@@ -55,14 +55,11 @@
         <textarea data-type="control_datetime" id="dn" name="datenaissance" placeholder="Votre date de naissance..." required></textarea>
 
 
-
-
-
         <h2 style="color:slateblue">Votre environnement</h2>
 
         <label for="typelogement">Type de logement</label>
-        <div><input type="radio" name="typelogement" value="Maison"></input> Maison</div>
-        <div><input type="radio" name="typelogement" value="Appartement"></input> Appartement</div>
+        <div><input type="radio" name="typelogement" value="maison"></input> Maison</div>
+        <div><input type="radio" name="typelogement" value="appartment"></input> Appartement</div>
 
         <p></p>
 
@@ -72,46 +69,46 @@
         <p></p>
 
         <label for="j">Extérieur</label>
-        <div><input type="radio" name="j" value="Avec jardin"></input> Avec jardin</div>
-        <div><input type="radio" name="j" value="Sans jardin"></input> Sans jardin</div>
-        <div><input type="radio" name="j" value="Rien"></input> Pas d'extérieur</div>
+        <div><input type="radio" name="j" value="jOui"></input> Avec jardin</div>
+        <div><input type="radio" name="j" value="jNon"></input> Sans jardin</div>
+        <div><input type="radio" name="j" value="jSans"></input> Pas d'extérieur</div>
 
         <p></p>
 
         <label for="enfant">L'animal cotoiera-t-il régulièrement des enfants ?</label>
-        <div><input type="radio" name="enfant" value="Enfant"></input> Oui</div>
-        <div><input type="radio" name="enfant" value="Pas enfant"></input> Non</div>
+        <div><input type="radio" name="enfant" value="enfantOui"></input> Oui</div>
+        <div><input type="radio" name="enfant" value="enfantNon"></input> Non</div>
 
         <p></p>
 
         <label for="animaux">Avez-vous d'autres animaux ?</label>
-        <div><input type="radio" name="animaux" value="animaux"></input> Oui</div>
-        <div><input type="radio" name="animuax" value="pas autres animaux"></input> Non</div>
+        <div><input type="radio" name="animaux" value="animauxOui"></input> Oui</div>
+        <div><input type="radio" name="animuax" value="animauxNon"></input> Non</div>
 
         <p></p>
 
         <label for="propre">Accepteriez-vous de parfaire son éducation si l'animal confié n'est pas propre ?</label>
-        <div><input type="radio" name="propre" value="propre"></input> Oui</div>
-        <div><input type="radio" name="propre" value="pas propre"></input> Non</div>
+        <div><input type="radio" name="propre" value="propreOui"></input> Oui</div>
+        <div><input type="radio" name="propre" value="propreNon"></input> Non</div>
 
         <p></p>
 
         <label for="maltraitance">Accepteriez-vous d'accueillir un animal craintif, ayant subi des maltraitances ? </label>
-        <div><input type="radio" name="maltraitance" value="maltraite"></input> Oui</div>
-        <div><input type="radio" name="maltraitance" value="pas maltraite"></input> Non</div>
+        <div><input type="radio" name="maltraitance" value="maltraitanceOui"></input> Oui</div>
+        <div><input type="radio" name="maltraitance" value="maltraitanceNon"></input> Non</div>
 
         <p></p>
 
         <label for="soins">Accepteriez-vous d'accueillir un animal qui nécessite des soins ou des traitements vétérinaires spécifiques ? </label>
-        <div><input type="radio" name="soins" value="soins"></input> Oui</div>
-        <div><input type="radio" name="soins" value="pas soins"></input> Non</div>
+        <div><input type="radio" name="soins" value="soinsOui"></input> Oui</div>
+        <div><input type="radio" name="soins" value="soinsNon"></input> Non</div>
 
         <p></p>
 
         <label for="autre">Souhaitez-vous indiquer des informations supplémentaires ? </label>
         <textarea data-type="control_textbox" id="autre" name="autreinfo" placeholder="Autres informations..." required></textarea>
 
-        <input class="btn" type="submit" value="envoyer">
+        <input formmethod="post" formaction="/formulaireAdoption" class="btn" type="submit" value="envoyer">
 
     </form>
 </div>
