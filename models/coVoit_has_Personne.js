@@ -23,6 +23,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'idPersonne'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'coVoit_has_Personne'
   });
 };

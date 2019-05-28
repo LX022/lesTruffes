@@ -59,6 +59,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'Bloque'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'Vétérinaire'
   });
 };

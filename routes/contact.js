@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
     res.render('contact', { title: "Contacter l'association" });        //Page title
 });
 
+/* POST contact page. */
+router.post('/', function(req, res, next) {
+   res.send('working');
+});
+
 module.exports = router;

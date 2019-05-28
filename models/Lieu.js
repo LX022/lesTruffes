@@ -28,6 +28,8 @@ module.exports = function(sequelize, DataTypes) {
             field: 'idPays'
         }
     }, {
+        timestamps: false,
+        freezeTableName: true,
         tableName: 'Lieu'
     });
 };

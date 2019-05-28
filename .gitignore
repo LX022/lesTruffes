@@ -1,3 +1,6 @@
+# AJOUT TEMPORAIRE DE models/index.js
+models/index.js
+
 # Logs
 logs
 *.log
@@ -85,9 +88,7 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
-.idea/lesTruffes.iml
-.idea/misc.xml
-.idea/workspace.xml
+.idea/
 
 node_modules
 npm-debug.log

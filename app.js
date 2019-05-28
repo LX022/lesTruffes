@@ -8,6 +8,7 @@ dotenvExpand(myEnv);
 // Libraries
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -18,15 +19,19 @@ var routes = require('./routes/index');
 var about  = require('./routes/about');
 var adoption = require('./routes/adoption');
 var contact = require('./routes/contact');
+var contactSend = require('./routes/contactSend');
 var dog  = require('./routes/dog');
 var dogs  = require('./routes/dogs');
 var fa  = require('./routes/fa');
 var formulaireAdoption  = require('./routes/formulaireAdoption');
 var formulaireFA  = require('./routes/formulaireFA');
 var personForm  = require('./routes/personForm');
+var login = require('./routes/login');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
+var vet  = require('./routes/vet');
 var vets  = require('./routes/vets');
+
 
 // View engine
 var hbs = require('hbs');
@@ -35,6 +40,16 @@ HandlebarsIntl.registerWith(hbs);
 
 // Express app
 var app = express();
+
+// session variables
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+    username: 'empty'
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 
 
 // view engine setup
@@ -58,14 +73,17 @@ app.use('/', routes);
 app.use('/about', about);
 app.use('/adoption', adoption);
 app.use('/contact', contact);
+app.use('/contactSend', contactSend);
 app.use('/dog', dog);
 app.use('/dogs', dogs);
 app.use('/fa', fa);
 app.use('/formulaireAdoption', formulaireAdoption);
 app.use('/formulaireFA', formulaireFA);
 app.use('/personForm', personForm);
+app.use('/login', login);
 app.use('/persons', persons);
 app.use('/reserveddogs', reserveddogs);
+app.use('/vet', vet);
 app.use('/vets', vets);
 
 

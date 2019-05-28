@@ -9,6 +9,8 @@ module.exports = function(sequelize, DataTypes) {
       field: 'idFamilleAccueil'
     }
   }, {
+      timestamps: false,
+      freezeTableName: true,
     tableName: 'FamilleAccueil'
   });
 };
