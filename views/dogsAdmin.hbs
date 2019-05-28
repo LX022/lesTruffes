@@ -1,0 +1,56 @@
+
+<!-- End of header-->
+<section class="aboutus margin-top-120" id="aboutus">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- End of head title-->
+                <div>
+                    <table class="table">
+                        <thead>
+                        <!-- En-tête du tableau-->
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">ICAD</th>
+                            <th scope="col">Nom de l'animal</th>
+                            <th scope="col">Date d'entrée</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <form id="dogsAdmin" action="/dogsAdmin" method="post">
+                            <tr>
+                                <td><input type="number" name="idAnimal" min="{{max}}" required></td>
+                                <td><input type="number" name="icad"></td>
+                                <td><input type="text" name="nomAnimal" required></td>
+                                <td><input type="date" name="dateEntreeAnimal"></td>
+                                <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
+                            </tr>
+                        </form>
+                        <!-- data-->
+                        {{#each dogs}}
+                            <form id="alldogs" action="/dogAdmin" method="get">
+                                <tr>
+                                    <td>{{this.idAnimal}}</td>
+                                    <td>{{this.icad}}</td>
+                                    <td>{{this.nomAnimal}}</td>
+                                    <td>{{this.dateEntreeAnimal}}</td>
+                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
+                                        <input type="submit" value="Infos"></td>
+                                </tr>
+                            </form>
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- End of col-sm-12-->
+        </div>
+        <!-- End of row-->
+    </div>
+    <!-- End of Container-->
+    <hr/>
+
+</section>
