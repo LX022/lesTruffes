@@ -14,6 +14,10 @@ router.get('/', function(req, res, next) {
 /* POST contact page. */
 router.post('/', function(req, res, next) {
 
+    var name = req.body.contactName;
+    var email = req.body.email;
+    var message = req.body.message;
+
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -28,10 +32,10 @@ router.post('/', function(req, res, next) {
     });
 
     let info = transporter.sendMail({
-        from: '"Les Truffes" <nicolas.solioz@bluewin.ch>',
-        to: "nicolas.solioz@bluewin.ch",
-        subject: "Hello Truffes!",
-        text: "This is a test mate",
+        from: '"Les Truffes" <' + email + '>',
+        to: "lestruffesdesierre@gmail.com",
+        subject: "Email from " + name + " : " + email + " @ Les Truffes",
+        text: message,
     });
 
     res.redirect('contact');
