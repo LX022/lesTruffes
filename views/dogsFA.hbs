@@ -1,10 +1,10 @@
+<br><div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div>
 
 <!-- End of header-->
 <section class="aboutus margin-top-80" id="aboutus">
 
     <div class="container">
-
-        <div class="row">
+         <div class="row">
             <div class="col-md-12">
                 <!-- End of head title-->
                 <div>
@@ -26,12 +26,9 @@
                             <tr>
                                 <td><input type="number" name="idAnimal" min="{{max}}" required></td>
                                 <td><input type="number" name="idPerson"></td>
-                                <td><input type="text" name="adoptionValidee" required></td>
-                                <td><input type="text" name="contratAdoption"></td>
-                                <td><input type="date" name="dateContratRecu"></td>
-                                <td><input type="text" name="commentaires"></td>
-                                <td><input type="date" name="dateCessionIcad"></td>
-                                <td><input type="text" name="paiement"></td>
+                                <td><input type="date" name="dateDebut" required></td>
+                                <td><input type="date" name="dateFin"></td>
+                                <td><input type="text" name="commentaire"></td>
                                 <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
                             </tr>
                         </form>
@@ -40,13 +37,10 @@
                             <form id="alldogsasked" action="/dogAsked" method="get">
                                 <tr>
                                     <td>{{this.idAnimal}}</td>
-                                    <td>{{this.idPerson}}</td>
-                                    <td>{{this.adoptionValidee}}</td>
-                                    <td>{{this.contratAdoption}}</td>
-                                    <td>{{this.dateContratRecu}}</td>
-                                    <td>{{this.commentaires}}</td>
-                                    <td>{{this.dateCessionIcad}}</td>
-                                    <td>{{this.paiement}}</td>
+                                    <td>{{this.idPersonne}}</td>
+                                    <td>{{this.dateDebut}}</td>
+                                    <td>{{this.dateFin}}</td>
+                                    <td>{{this.commentaire}}</td>
                                     <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
                                         <input type="submit" value="Infos"></td>
                                 </tr>

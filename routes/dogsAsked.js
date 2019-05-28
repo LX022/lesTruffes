@@ -42,7 +42,7 @@ router.post('/', async function (req, res) {
         }
     }
     max = max +1;
-    res.render('dogsAdmin', {title: 'Gestion des adoptions', dogs:dogs, max:max});        //Page title
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max});        //Page title
 
 });
 
