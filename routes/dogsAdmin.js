@@ -26,13 +26,6 @@ router.get('/', async function (req, res, next) {
 /* POST dogsAdmin page. */
 router.post('/', async function (req, res) {
 
-
-    await models.animalAskedAdoptant.destroy({where:{idAnimal:req.body.idmydog}});
-    await models.animalHasFa.destroy({where:{idAnimal:req.body.idmydog}});
-    await models.animalHasVeterinaire.destroy({where:{idAnimal:req.body.idmydog}});
-    await models.Animal.destroy({where: {idAnimal: req.body.idmydog}});
-
-
     //TESTER les paramètres rentrés, car ils sont de types number et date, le type texte ne pose pas de problème si rien n'est rentré
 
     if(req.body.dateEntreeAnimal===undefined || req.body.dateEntreeAnimal==null || req.body.dateEntreeAnimal===''){
