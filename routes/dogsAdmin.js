@@ -5,6 +5,7 @@ var router = express.Router();
 /* GET dogsAdmin page. */
 router.get('/', async function (req, res, next) {
 
+
     //Si on est sûr que le chien existe, on le destroy
     if(req.query.idmydog!==undefined && req.query.idmydog !==null){
         await models.Animal.destroy({where:{idAnimal:req.query.idmydog}});

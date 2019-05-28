@@ -1,0 +1,70 @@
+
+<!-- End of header-->
+<section class="aboutus margin-top-80" id="aboutus">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- End of head title-->
+                <div>
+                    <table class="table">
+                        <thead>
+                        <!-- En-tête du tableau-->
+                        <tr>
+                            <th scope="col">ID Animal</th>
+                            <th scope="col">ID Personne</th>
+                            <th scope="col">Adoption validée</th>
+                            <th scope="col">Contrat d'adoption</th>
+                            <th scope="col">Date du contrat</th>
+                            <th scope="col">Commentaires</th>
+                            <th scope="col">Date cession ICAD</th>
+                            <th scope="col">Paiement</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <form id="dogsAsked" action="/dogsAsked" method="post">
+                            <tr>
+                                <td><input type="number" name="idAnimal" min="{{max}}" required></td>
+                                <td><input type="number" name="idPerson"></td>
+                                <td><input type="text" name="adoptionValidee" required></td>
+                                <td><input type="text" name="contratAdoption"></td>
+                                <td><input type="date" name="dateContratRecu"></td>
+                                <td><input type="text" name="commentaires"></td>
+                                <td><input type="date" name="dateCessionIcad"></td>
+                                <td><input type="text" name="paiement"></td>
+                                <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
+                            </tr>
+                        </form>
+                        <!-- data-->
+                        {{#each dogs}}
+                            <form id="alldogsasked" action="/dogAsked" method="get">
+                                <tr>
+                                    <td>{{this.idAnimal}}</td>
+                                    <td>{{this.idPerson}}</td>
+                                    <td>{{this.adoptionValidee}}</td>
+                                    <td>{{this.contratAdoption}}</td>
+                                    <td>{{this.dateContratRecu}}</td>
+                                    <td>{{this.commentaires}}</td>
+                                    <td>{{this.dateCessionIcad}}</td>
+                                    <td>{{this.paiement}}</td>
+                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
+                                        <input type="submit" value="Infos"></td>
+                                </tr>
+
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- End of col-sm-12-->
+        </div>
+        <!-- End of row-->
+    </div>
+    <!-- End of Container-->
+    <hr/>
+
+</section>

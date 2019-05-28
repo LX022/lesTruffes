@@ -5,32 +5,44 @@ var router = express.Router();
 /* GET dogsAdmin page. */
 router.get('/', async function (req, res, next) {
 
+
     //Si on est sûr que le lien existe, on le destroy
-    if(req.query.idmydogasked!==undefined && req.query.idmydogasked !==null && req.query.idPersonne!==undefined && req.query.idPersonne !==null){
-        await models.animalAskedAdoptant.destroy({where:{idAnimal:req.query.idmydogasked, idPersonne:req.body.idPersonne}});
+    if(req.query.idAnimal!==undefined && req.query.idAnimal !==null){
+        await models.animalAskedAdoptant.destroy({where:{idAnimal:req.query.idAnimal}});
     }
 
-    //Liste des liens avec le nom des chiens et des personnes (include)
+    //Liste des chiens par ordre alphabétique
+    let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'DESC']]});
 
     //Calcule le plus grand id de la table
+    let max = 0;
+    for(let i =0;i<dogs.length;i++){
+        if(dogs[i].idAnimal > max){
+            max = dogs[i].idAnimal;
+        }
+    }
+    max = max +1;
 
-
-    res.render('dogsAsked', {title: 'Gestion des adoptions'});        //Page title
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max});        //Page title
 });
 
 
 
-/* POST dogsFA page. */
+/* POST dogsAdmin page. */
 router.post('/', async function (req, res) {
 
-    //créer une association dog/adoptant
-
-    //récupérer la liste des liens à jour
-
+    //récupérer la liste des chiens à jour
+    let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'DESC']]});
 
     //id max de la table
-
-    res.render('dogsAsked', {title: 'Gestion des adoptions'});        //Page title
+    let max = 0;
+    for(let i =0;i<dogs.length;i++){
+        if(dogs[i].idAnimal > max){
+            max = dogs[i].idAnimal;
+        }
+    }
+    max = max +1;
+    res.render('dogsAdmin', {title: 'Gestion des adoptions', dogs:dogs, max:max});        //Page title
 
 });
 
