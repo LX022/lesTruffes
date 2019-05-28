@@ -3,7 +3,7 @@
 var models  = require('../models');
 var express = require('express');
 var router = express.Router();
-var request = require('ajax-request');
+var nodemailer = require("nodemailer");
 
 
 router.get('/', function(req, res, next) {
@@ -14,41 +14,27 @@ router.get('/', function(req, res, next) {
 /* POST contact page. */
 router.post('/', function(req, res, next) {
 
-    var jsdom = require('jsdom');
-    const { JSDOM } = jsdom;
-    const { window } = new JSDOM();
-    const { document } = (new JSDOM('')).window;
-    global.document = document;
-
-    var $ = jQuery = require('jquery')(window);
-
-
-    $.ajax({
-        type: "POST",
-        url: "https://mandrillapp.com/api/1.0/messages/send.json",
-        data: {
-            'key': '95d3b13c0c2766eecc43cae32a7f1d53-us20',
-            'message': {
-                'from_email': 'nicolas.solioz@bluewin.ch',
-                'to': [
-                    {
-                        'email': 'nicolas.solioz@bluewin.ch',
-                        'name': 'Nicolas Solioz',
-                        'type': 'to'
-                    }
-                ],
-                'autotext': 'true',
-                'subject': 'YOUR SUBJECT HERE!',
-                'html': 'here is your email!'
-            }
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+            user: 'lestruffesdesierre@gmail.com',
+            pass: 'Le$Truffes_396O'
+        },
+        tls: {
+            rejectUnauthorized: false
         }
-    }).done(function(response) {
-        console.log(response); // if you're into that sorta thing
     });
 
+    let info = transporter.sendMail({
+        from: '"Les Truffes" <nicolas.solioz@bluewin.ch>',
+        to: "nicolas.solioz@bluewin.ch",
+        subject: "Hello Truffes!",
+        text: "This is a test mate",
+    });
 
-    res.send('email sent');
-
+    res.redirect('contact');
 });
 
 module.exports = router;

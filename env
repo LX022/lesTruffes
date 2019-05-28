@@ -28,3 +28,5 @@ DB_CONNECTION=$DB_PROTOCOL://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_DATABAS
 #####################################################################################
 PORT=10007
 NODE_ENV=development|production
+NODE_TLS_REJECT_UNAUTHORIZED='0'
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
