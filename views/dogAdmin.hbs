@@ -11,7 +11,7 @@
                 <div class="col-sm-4">
                     <div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div>
                     <br> <br> <br> <br>
-                    <div style="text-align: center;"><input type="image" class="card-img-top" src="/images/animals/{{this.nomAnimal}}_{{this.idAnimal}}_0.jpg"
+                    <div style="text-align: center;"><input type="image" class="card-img-top" src="/images/animals/{{chien.nomAnimal}}_{{chien.idAnimal}}_0.jpg"
                                                             width="200" height="200" onerror="this.onerror=null;this.src='/images/animals/no_picture.png'"></div>
                 </div>
                 <div class="col-sm-6 col-sm-push-1">
@@ -23,10 +23,11 @@
                                 <div class="clearfix">
 
                                     <div style="text-align: left;">
-                                        <form id="idmydog" action="/dogsAdmin" method="get">
+                                        <form id="idmydog" action="/dogsAdmin" method="post">
+                                            <input type="hidden" name="idmydog" value="{{chien.idAnimal}}">
                                             <h4 style="text-align: right;" >  <input style="background:gold"  type="submit" value="Supprimer"></h4>
                                             <table class="table">
-                                                <tr><th></th><td ><input type="hidden" type="number" name="idmydog" value={{chien.idAnimal}}>
+                                                <tr><th></th><td >
                                                 </td></tr>
                                                 <tr>
                                                     <th>ID</th>
