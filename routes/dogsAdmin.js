@@ -22,7 +22,7 @@ router.get('/', async function (req, res, next) {
     }
     max = max +1;
 
-    res.render('dogsAdmin', {title: 'Mes petits toutous', dogs:dogs, max:max});        //Page title
+    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs, max:max});        //Page title
 });
 
 
@@ -64,7 +64,7 @@ router.post('/', async function (req, res) {
         }
     }
     max = max +1;
-    res.render('dogsAdmin', {title: 'Mes petits toutous', dogs:dogs, max:max});        //Page title
+    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs, max:max});        //Page title
 
 });
 
