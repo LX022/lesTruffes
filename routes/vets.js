@@ -21,22 +21,19 @@ router.get('/', async function (req, res, next) {
 
 /* POST vets page. */
 router.post('/', async function (req, res) {
-   let trouve = models.veterinaire.findAll({where:{idVeterinaire:req.body.idVeterinaire}});
-    if(trouve !==undefined && trouve !== null ){
-        await models.veterinaire.create({idVeterinaire:req.body.idVeterinaire, nomV: req.body.nomV, prenomV:req.body.prenomV});
-        let veterinaires = await models.veterinaire.findAll({order: [['idVeterinaire', 'ASC']]});
-        let max = 0;
-        for(let i =0;i<veterinaires.length;i++){
-            if(veterinaires[i].idVeterinaire > max){
-                max = veterinaires[i].idVeterinaire;
-            }
+
+    await models.veterinaire.create({idVeterinaire:req.body.idVeterinaire, nomV: req.body.nomV, prenomV:req.body.prenomV});
+    let veterinaires = await models.veterinaire.findAll({order: [['idVeterinaire', 'DESC']]});
+    let max = 0;
+    for(let i =0;i<veterinaires.length;i++){
+        if(veterinaires[i].idVeterinaire > max){
+            max = veterinaires[i].idVeterinaire;
         }
-        max = max +1;
-        res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, max:max});        //Page title
     }
-    else {
-        res.render('about', { title: 'Qui sommes-nous ?' });
-    }
+    max = max +1;
+    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, max:max});        //Page title
+
+
 });
 
 module.exports = router;
