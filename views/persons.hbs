@@ -29,21 +29,24 @@
                         </thead>
                         <tbody>
                         <!-- data-->
-                        <tr>
-                            <td>Simpson</td>
-                            <td>Homer</td>
-                            <td>test</td>
-                            <td>12.20.1956</td>
-                            <td>rue de truc 24, 45832 Vannes</td>
-                            <td>Maison</td>
-                            <td>Portable</td>
-                            <td>lieu</td>
-                            <td>email</td>
-                            <td>bloque</td>
-                            <td>pr&eacute;visite FA</td>
-                            <td>FA</td>
-                            <td>Statuts</td>
-                        </tr>
+                        {{#each persons}}
+                            <tr>
+                                <td>{{this.nomP}}</td>
+                                <td>{{this.prenomP}}</td>
+                                <td>{{this.facebookP}}</td>
+                                <td>{{this.dateNaissanceP}}</td>
+                                <td>{{this.rueP}}</td>
+                                <td>{{this.telDomicileP}}</td>
+                                <td>{{this.telPortableP}}</td>
+                                <td>{{this.telAutreP}}</td>
+                                <td>{{this.emailP}}</td>
+                                <td>{{this.commentaires}}</td>
+                                <td>{{this.FA}}</td>
+                                <td>test</td>
+                                <td>test</td>
+
+                            </tr>
+                        {{/each}}
                         </tbody>
                     </table>
                 </div>

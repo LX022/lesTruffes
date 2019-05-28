@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('personne', {
+    return sequelize.define('Personne', {
         idPersonne: {
             type: DataTypes.INTEGER(11),
             allowNull: false,
@@ -88,6 +88,8 @@ module.exports = function(sequelize, DataTypes) {
             field: 'FA'
         }
     }, {
+        timestamps: false,
+        freezeTableName: true,
         tableName: 'Personne'
     });
 };

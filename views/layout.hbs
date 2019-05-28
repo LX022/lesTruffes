@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
     <link rel="stylesheet" href="/stylesheets/responsive.css">
     <link rel="stylesheet" href="/stylesheets/slider-pro.css">
+    <script src="/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <!-- Style and onclick for login method inspire from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal-->
 </head>
 
-<header>
+<header id="">
 <div class="main_menu_bg">
     <div class="container">
         <div class="row">
@@ -52,7 +53,7 @@
                                     <a onclick="document.getElementById('id01').style.display='block'">Se connecter</a>
                                     <body>
                                     <div id="id01" class="modal">
-                                        <form class="modal-content animate"> <!--action="/action_page.php"-->
+                                        <form class="modal-content animate" action="/action_page.php"> <!---->
 
                                             <div class="imgcontainer">
                                                 <span onclick="document.getElementById('id01').style.display='none'"
@@ -62,22 +63,23 @@
                                                        name="uname"
                                                        required/>
 
-                                                <label for="psw"><b>Mot de passe</b></label>
-                                                <input type="password" class="form-control" placeholder="Mot de passe"
+                                                <label sfor="psw"><b>Mot de passe</b></label>
+                                                <input type="password" clas="form-control" placeholder="Mot de passe"
                                                        name="psw" required/>
 
                                                 <div style="text-align: center">
-                                                    <button type="submit" class="btn">Connexion</button>
-                                                    <br/>
-                                                    <br/>
-                                                    <label>
-                                                        <input type="checkbox" checked="checked" name="remember">Se
-                                                        souvenir
-                                                        de moi
-                                                    </label>
-                                                    <br/>
-                                                    <br/>
-                                                </div>
+                                                <button type="submit" class="btn">Connexion</button>
+                                                <a href="personForm" class="btn">Créer un compte</a>
+                                                <br/>
+                                                <br/>
+                                                <label>
+                                                    <input type="checkbox" checked="checked" name="remember">Se
+                                                    souvenir
+                                                    de moi
+                                                </label>
+                                                <br/>
+                                                <br/>
+                                            </div>
 
                                                 <!--
                                                 <img src="../images/logo.png" width="100px" height="90%"
@@ -85,6 +87,7 @@
                                                      class="avatar"
                                                      style="text-align: center">
                                                      -->
+
 
                                                 <div style="background-color:#f1f1f1;padding: 16px; vertical-align: center">
                                                     <button type="button"
