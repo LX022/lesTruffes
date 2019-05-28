@@ -34,18 +34,18 @@ router.post('/', function(req, res, next) {
     var surfacelogement = req.body.surfacelogement;
 
     var j = "sans";
-    if(req.body.j.value == "jOui")
+    if(req.body.j.value === "jOui")
         j = "oui";
 
-    if(req.body.j.value == "jNon")
+    if(req.body.j.value === "jNon")
         j = "non";
 
     var enfant = "non";
-    if(req.body.enfant.value == "enfantOui")
+    if(req.body.enfant.value === "enfantOui")
         enfant = "oui";
 
     var animaux = "non";
-    if(req.body.animaux.value == "animauxOui")
+    if(req.body.animaux.value === "animauxOui")
         animaux = "oui";
 
     var propre = "non";
