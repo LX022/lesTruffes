@@ -34,11 +34,14 @@ router.get('/', async function (req, res, next) {
 /* POST dogsAdmin page. */
 router.post('/', async function (req, res) {
 
-    //est-ce qu'il existe déjà une pareille association ?
-    let test = await models.animalAskedAdoptant.findAll({where:{idAnimal: req.body.InsertidAnimal, idPersonne:req.body.InsertidPerson}});
+    if(req.body.deleteidAnimal!==undefined && req.body.deleteidAnimal!==null  && req.body.deleteidPersonne!==undefined  && req.body.deleteidPersonne!==null){
+        await models.animalAskedAdoptant.destroy({where:{idAnimal:req.body.deleteidAnimal, idPersonne:req.body.deleteidPersonne}});
+    }
 
     //INSERT adoption
     if(req.body.InsertidAnimal!==undefined && req.body.InsertidPerson!==undefined){
+        //est-ce qu'il existe déjà une pareille association ?
+        let test = await models.animalAskedAdoptant.findAll({where:{idAnimal: req.body.InsertidAnimal, idPersonne:req.body.InsertidPerson}});
         if(test.length>0){}
         else{
         await models.animalAskedAdoptant.create({idAnimal: req.body.InsertidAnimal, idPersonne:req.body.InsertidPerson});

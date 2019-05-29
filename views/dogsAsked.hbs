@@ -70,8 +70,8 @@
                             {{#each dogs}}
                                 <form id="dogAskedDelete" action="/dogsAsked" method="post">
                                     <tr>
-                                        <input type="hidden" value="{{this.idAnimal}}">
-                                        <input type="hidden" value="{{this.idPersonne}}">
+                                        <input type="hidden" name="deleteidAnimal" value="{{this.idAnimal}}">
+                                        <input type="hidden" name="deleteidPersonne" value="{{this.idPersonne}}">
                                         <td>{{this.idAnimal}}</td>
                                         <td>{{this.idPersonne}}</td>
                                         <td>{{this.adoptionValidee}}</td>
