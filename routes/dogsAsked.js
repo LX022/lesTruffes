@@ -34,12 +34,15 @@ router.get('/', async function (req, res, next) {
 /* POST dogsAdmin page. */
 router.post('/', async function (req, res) {
 
+    //est-ce qu'il existe déjà une pareille association ?
+    let test = await models.animalAskedAdoptant.findAll({where:{idAnimal: req.body.InsertidAnimal, idPersonne:req.body.InsertidPerson}});
+
     //INSERT adoption
     if(req.body.InsertidAnimal!==undefined && req.body.InsertidPerson!==undefined){
+        if(test.length>0){}
+        else{
         await models.animalAskedAdoptant.create({idAnimal: req.body.InsertidAnimal, idPersonne:req.body.InsertidPerson});
-    }
-
-    let idAnimalAsked = req.body.idAnimalAsked;
+    }}
 
     //liste des personnes
     let personnes = await models.personne.findAll();
@@ -48,12 +51,14 @@ router.post('/', async function (req, res) {
     let myDogs = await models.Animal.findAll();
 
     let dogs ;
+
     //depuis la vue dogAdmin ?
     if(req.body.idAnimalAsked!==undefined){
+        //récupérer la liste des adoptions du chien
         dogs = await models.animalAskedAdoptant.findAll({where:{idAnimal:req.body.idAnimalAsked}});
     }
     else{
-        //récupérer la liste des chiens à jour
+        //récupérer la liste des adoptions
          dogs = await models.animalAskedAdoptant.findAll();
     }
 
@@ -73,7 +78,7 @@ router.post('/', async function (req, res) {
     max = max +1;
 
 
-    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max, info:info, personnes:personnes, myDogs:myDogs, idAnimalAsked:idAnimalAsked});        //Page title
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max, info:info, personnes:personnes, myDogs:myDogs});        //Page title
 
 });
 
