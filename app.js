@@ -32,11 +32,10 @@ var formulaireFA  = require('./routes/formulaireFA');
 var login = require('./routes/login');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
-var deleteDog  = require('./routes/deleteDog');
 var vet  = require('./routes/vet');
 var vets  = require('./routes/vets');
 
-
+ 
 // View engine
 var hbs = require('hbs');
 var HandlebarsIntl = require('handlebars-intl');
@@ -78,7 +77,6 @@ app.use('/about', about);
 app.use('/adoption', adoption);
 app.use('/contact', contact);
 app.use('/contactSend', contactSend);
-app.use('/deleteDog', deleteDog);
 app.use('/dog', dog);
 app.use('/dogAdmin', dogAdmin);
 app.use('/dogs', dogs);

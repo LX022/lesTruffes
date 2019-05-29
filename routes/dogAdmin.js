@@ -21,9 +21,11 @@ router.get('/', async function(req, res, next) {
 /* UPDATE dogAdmin page. */
 router.post('/', async function (req, res) {
 
+
     //TESTER les paramètres rentrés pour les types number et date : icad, dateEntreeAnimal, dateNaissAnimal, sterilisation, dateSterilisation
     //Si un champ reste vide, ça plante quand ce n'est pas du texte
     //Inconvénient, d'une fois qu'une valeur est rentrée, le champ est modifiable mais plus effaçable
+
 
     if(req.body.icad===undefined || req.body.icad===null || req.body.icad===''){
         //Sans icad
