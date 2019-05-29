@@ -309,97 +309,72 @@
                                         <form id="insertLieu" action="/vet" method="post">
                                             <tr><input type="hidden" name="idVeterinaire"  value="{{veto.idVeterinaire}}">
                                                 <td>
-                                                    <input type="number" name="insertIdLieu"  min="{{max}}" required>
+                                                    <input type="number" name="insertIdLieu" placeholder=">={{max}}" min="{{max}}" required>
                                                 </td>
                                                 <td>
                                                     <input type="number" name="insertCP" required>
                                                 </td>
                                                 <td>
                                                     <input type="text" name="insertVille" required>
-                                               </td>
+                                                </td>
                                                 <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
                                             </tr>
                                             </tr>
                                         </form>
                                     </table>
 
-                                    <h2 style="color: slateblue">Liste des lieux</h2>
+                                    <div class="container">
 
-                                    <table class="table">
+                                        <div class="row">
 
-                                        <tr>
+                                            <div class="col-md-6">
 
-                                            <th>ID Lieu</th>
+                                                <h2 style="color: slateblue">Liste des lieux</h2>
 
-                                            <th>Code postal</th>
+                                                <table class="table">
 
-                                            <th>Ville</th>
+                                                    <tr>
 
-                                        </tr>
+                                                        <th>ID Lieu</th>
 
-                                        {{#each lieux}}
+                                                        <th>Code postal</th>
 
-                                            <tr>
+                                                        <th>Ville</th>
 
-                                                <td>{{this.idLieu}}
+                                                        <th></th>
 
-                                                </td>
+                                                    </tr>
 
-                                                <td>{{this.codePostal}}
+                                                    {{#each lieux}}
+                                                        <form id="deleteLieu" action="/vet" method="get">
+                                                            <input type="hidden" name="idVeterinaire"  value="{{veto.idVeterinaire}}">
+                                                            <tr>
+                                                                <input type="hidden" name="deleteLieu" value="{{this.idLieu}}">
 
-                                                </td>
+                                                                <td>{{this.idLieu}}
 
-                                                <td>{{this.ville}}
+                                                                </td>
 
-                                                </td>
+                                                                <td>{{this.codePostal}}
 
+                                                                </td>
 
+                                                                <td>{{this.ville}}
 
-                                            </tr>
-
-                                        {{/each}}
-
-                                    </table>
-
-
-                                    <h2 style="color: slateblue">Mettre à jour un lieu</h2>
-
-                                    <table class="table">
-
-                                        <tr>
-
-                                            <th>ID Lieu</th>
-
-                                            <th>Code postal</th>
-
-                                            <th>Ville</th>
-
-                                        </tr>
-
-                                        {{#each lieux}}
-
-                                            <tr>
-
-                                                <td>{{this.idLieu}}
-
-                                                </td>
-
-                                                <td>{{this.codePostal}}
-
-                                                </td>
-
-                                                <td>{{this.ville}}
-
-                                                </td>
+                                                                </td>
+                                                                <td><h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4></td>
 
 
+                                                            </tr>
+                                                        </form>
+                                                    {{/each}}
 
-                                            </tr>
+                                                </table>
 
-                                        {{/each}}
 
-                                    </table>
-
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
