@@ -59,8 +59,10 @@ if(req.body.idAnimal!==undefined) {
             });
         }
     }
-}else{
+}
 
+
+    if(req.body.idmydog!==undefined) {
     //DELETE un chien
     await models.animalAskedAdoptant.destroy({where:{idAnimal:req.body.idmydog}});
     await models.animalHasFa.destroy({where:{idAnimal:req.body.idmydog}});
