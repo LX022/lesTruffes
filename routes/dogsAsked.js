@@ -5,11 +5,14 @@ var router = express.Router();
 /* GET dogsAdmin page. */
 router.get('/', async function (req, res, next) {
 
+    //liste des personnes
+    let personnes = await models.personne.findAll();
 
-    //Si on est sûr que le lien existe, on le destroy
-    if(req.query.idAnimal!==undefined && req.query.idAnimal !==null){
-        await models.animalAskedAdoptant.destroy({where:{idAnimal:req.query.idAnimal}});
-    }
+    //liste des chiens
+    let myDogs = await models.Animal.findAll();
+
+    //Destroy
+
 
     //Liste des chiens par ordre alphabétique
     let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'DESC']]});
@@ -23,13 +26,26 @@ router.get('/', async function (req, res, next) {
     }
     max = max +1;
 
-    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max});        //Page title
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max, personnes:personnes, myDogs:myDogs});        //Page title
 });
 
 
 
 /* POST dogsAdmin page. */
 router.post('/', async function (req, res) {
+
+    //INSERT adoption
+    if(req.body.InsertidAnimal!==undefined && req.body.InsertidPerson!==undefined){
+        await models.animalAskedAdoptant.create({idAnimal: req.body.InsertidAnimal, idPersonne:req.body.InsertidPerson});
+    }
+
+    let idAnimalAsked = req.body.idAnimalAsked;
+
+    //liste des personnes
+    let personnes = await models.personne.findAll();
+
+    //liste des chiens
+    let myDogs = await models.Animal.findAll();
 
     let dogs ;
     //depuis la vue dogAdmin ?
@@ -41,12 +57,10 @@ router.post('/', async function (req, res) {
          dogs = await models.animalAskedAdoptant.findAll();
     }
 
+    //Afficher une info s'il n'y a pas d'adoption en cours pour le chien sélectionné
     let info;
     if(dogs.length<1 ){
         info ="Il n'y a pas d'adoption en cours"
-    }
-    else{
-        info = "Adoption(s) en cours"
     }
 
     //id max de la table
@@ -57,7 +71,9 @@ router.post('/', async function (req, res) {
         }
     }
     max = max +1;
-    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max, info:info});        //Page title
+
+
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max, info:info, personnes:personnes, myDogs:myDogs, idAnimalAsked:idAnimalAsked});        //Page title
 
 });
 

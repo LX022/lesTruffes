@@ -6,6 +6,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <div class="container">
+                    <div class="row">
+                <div class="col-md-4">
                 <h2 style="color:red">{{info}}</h2>
                 <!-- End of head title-->
                 <div><h2>Ajouter une adoption</h2>
@@ -15,12 +18,6 @@
                         <tr>
                             <th scope="col">ID Animal</th>
                             <th scope="col">ID Personne</th>
-                            <th scope="col">Adoption validée</th>
-                            <th scope="col">Contrat d'adoption</th>
-                            <th scope="col">Date du contrat</th>
-                            <th scope="col">Commentaires</th>
-                            <th scope="col">Date cession ICAD</th>
-                            <th scope="col">Paiement</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
@@ -28,21 +25,25 @@
 
                         <form id="dogsAsked" action="/dogsAsked" method="post">
                             <tr>
-                                <td><input type="number" name="idAnimal" min="{{max}}" required></td>
-                                <td><input type="number" name="idPerson"></td>
-                                <td><input type="text" name="adoptionValidee" required></td>
-                                <td><input type="text" name="contratAdoption"></td>
-                                <td><input type="date" name="dateContratRecu"></td>
-                                <td><input type="text" name="commentaires"></td>
-                                <td><input type="date" name="dateCessionIcad"></td>
-                                <td><input type="text" name="paiement"></td>
+                                <td><input list="InsertidAnimal" name="InsertidAnimal" required></td>
+                                <datalist id="InsertidAnimal">
+                                    {{#each myDogs}}
+                                        <option value="{{this.idAnimal}}">{{this.nomAnimal}}</option>
+                                    {{/each}}
+                                </datalist>
+                                <td><input list="InsertidPerson" name="InsertidPerson" required></td>
+                                <datalist id="InsertidPerson">
+                                    {{#each personnes}}
+                                        <option value="{{this.idPersonne}}">{{this.prenomP}} {{this.nomP}}</option>
+                                    {{/each}}
+                                </datalist>
                                 <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
                             </tr>
                         </form>
                         </tbody>
                     </table>
-
-
+                </div>
+                </div></div>
 
 <br><br>
                     <div>
