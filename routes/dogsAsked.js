@@ -31,8 +31,23 @@ router.get('/', async function (req, res, next) {
 /* POST dogsAdmin page. */
 router.post('/', async function (req, res) {
 
-    //récupérer la liste des chiens à jour
-    let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'DESC']]});
+    let dogs ;
+    //depuis la vue dogAdmin ?
+    if(req.body.idAnimalAsked!==undefined){
+        dogs = await models.animalAskedAdoptant.findAll({where:{idAnimal:req.body.idAnimalAsked}});
+    }
+    else{
+        //récupérer la liste des chiens à jour
+         dogs = await models.animalAskedAdoptant.findAll();
+    }
+
+    let info;
+    if(dogs.length<1 ){
+        info ="Il n'y a pas d'adoption en cours"
+    }
+    else{
+        info = "Adoption(s) en cours"
+    }
 
     //id max de la table
     let max = 0;
@@ -42,7 +57,7 @@ router.post('/', async function (req, res) {
         }
     }
     max = max +1;
-    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max});        //Page title
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, max:max, info:info});        //Page title
 
 });
 
