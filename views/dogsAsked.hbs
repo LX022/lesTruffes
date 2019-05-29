@@ -109,7 +109,12 @@
                                     <tr>
                                         <td><input type="number" name="UidAnimal" value="{{this.idAnimal}}" readonly></td>
                                         <td><input type="number" name="UidPerson" value="{{this.idPersonne}}" readonly></td>
-                                        <td><input type="text" name="UadoptionValidee" value="{{this.adoptionValidee}}"></td>
+                                        <td><input list="adoptionValidee" name="UadoptionValidee" value="{{this.adoptionValidee}}">
+                                            <datalist id="adoptionValidee">
+                                                <option value="1">Oui</option>
+                                                <option value="0">Non</option>
+                                                <option value="3">?</option>
+                                            </datalist></td>
                                         <td><input type="text" name="UcontratAdoption" value="{{this.contratAdoption}}"></td>
                                         <td><input type="date" name="UdateContratRecu" value="{{this.dateContratRecu}}"></td>
                                         <td><input type="text" name="Ucommentaires" value="{{this.commentaires}}"></td>

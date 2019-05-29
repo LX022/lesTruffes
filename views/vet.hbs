@@ -234,7 +234,7 @@
 
                                                         {{#each lieux}}
 
-                                                        <option value="{{this.idLieu}}">
+                                                            <option value="{{this.idLieu}}">{{this.codePostal}} {{this.ville}}</option>
 
                                                         {{/each}}
 
@@ -262,7 +262,8 @@
 
                                                 <td><label>Bloqué
 
-                                                    <input type="number" name="bloque" value="{{veto.bloque}}">
+                                                    <input list="bloque" name="bloque" value="{{veto.bloque}}">
+                                                    <datalist id="bloque"><option value="1">Oui</option><option value="0">Non</option></datalist>
 
                                                 </label></td>
 
@@ -292,7 +293,76 @@
 
                                     <br>
 
-                                    <h2 style="color: slateblue">Lieux</h2>
+                                    <h2 style="color: slateblue">Ajouter un lieu</h2>
+
+                                    <table class="table">
+
+                                        <tr>
+
+                                            <th>ID Lieu</th>
+
+                                            <th>Code postal</th>
+
+                                            <th>Ville</th>
+
+                                        </tr>
+                                        <form id="insertLieu" action="/vet" method="post">
+                                            <tr><input type="hidden" name="idVeterinaire"  value="{{veto.idVeterinaire}}">
+                                                <td>
+                                                    <input type="number" name="insertIdLieu"  min="{{max}}" required>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="insertCP" required>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="insertVille" required>
+                                               </td>
+                                                <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
+                                            </tr>
+                                            </tr>
+                                        </form>
+                                    </table>
+
+                                    <h2 style="color: slateblue">Liste des lieux</h2>
+
+                                    <table class="table">
+
+                                        <tr>
+
+                                            <th>ID Lieu</th>
+
+                                            <th>Code postal</th>
+
+                                            <th>Ville</th>
+
+                                        </tr>
+
+                                        {{#each lieux}}
+
+                                            <tr>
+
+                                                <td>{{this.idLieu}}
+
+                                                </td>
+
+                                                <td>{{this.codePostal}}
+
+                                                </td>
+
+                                                <td>{{this.ville}}
+
+                                                </td>
+
+
+
+                                            </tr>
+
+                                        {{/each}}
+
+                                    </table>
+
+
+                                    <h2 style="color: slateblue">Mettre à jour un lieu</h2>
 
                                     <table class="table">
 
