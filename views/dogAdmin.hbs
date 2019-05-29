@@ -1,13 +1,26 @@
 <!-- translate from html with https://pughtml.com/, god bless this website-->
 <!-- About Section-->
-
+<div class="container">
+    <div class="row">
+<div class="col-md-12" style="text-align: center;">
+<p>
+    <form id="isDogAsked" action="/dogsAsked" method="post">
+        <input type="hidden" name="idAnimalAsked" value="{{chien.idAnimal}}" required>
+        <input type="submit" style="background-color:#9acfea"  value="Adoption en cours ?">
+    </form>
+    </p>
+    <p>
+    <form id="isDogAsked" action="/dogsFA" method="post">
+        <input type="hidden" name="idAnimalFA" value="{{chien.idAnimal}}" required>
+        <input type="submit" style="background-color:#9acfea"  value="En famille d'accueil ?">
+    </form>
+    </p>
+</div></div></div>
 
 <div class="container">
     <div class="col-sm-12">
         <div class="main_about_area">
-
             <div class="row">
-
                 <div class="col-sm-4">
                     <div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div>
                     <br> <br> <br> <br>
@@ -104,19 +117,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
 
-                    <form id="isDogAsked" action="/dogsAsked" method="post">
-                        <input type="hidden" name="idAnimalAsked" value="{{chien.idAnimal}}" required>
-                        <input type="submit" style="background-color:#9acfea"  value="Adoption en cours ?">
-                    </form>
-
-                    <form id="isDogAsked" action="/dogsFA" method="post">
-                        <input type="hidden" name="idAnimalFA" value="{{chien.idAnimal}}" required>
-                        <input type="submit" style="background-color:#9acfea"  value="En famille d'accueil ?">
-                    </form>
-
-                </div>
 
 
                 <!-- End of header-->

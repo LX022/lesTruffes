@@ -68,7 +68,7 @@ router.post('/', async function (req, res) {
     //Afficher une info s'il n'y a pas d'adoption en cours pour le chien sélectionné
     let info;
     if(dogs.length<1 ){
-        info ="Il n'y a pas d'adoption en cours"
+        info ="Il n'y a pas d'adoption en cours concernant ce chien"
     }
 
     //id max de la table

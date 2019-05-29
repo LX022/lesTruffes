@@ -1,6 +1,6 @@
 
 <!-- End of header-->
-<section class="aboutus margin-top-80" id="aboutus">
+<section class="aboutus margin-top-100" id="aboutus">
 
     <div class="container">
        
@@ -9,10 +9,12 @@
                 <!-- End of head title-->
                 <div>
                     <table class="table">
-                        <h2>Liste de toutes les truffes</h2>
-
-                        <div style="text-align: right;"> <a href="dogsFA"><button style="background:#9acfea; color:black">Chiens en famille d'accueil</button></a>
+                        <div style="text-align: center;"> <a href="dogsFA"><button style="background:#9acfea; color:black">Chiens en famille d'accueil</button></a>
                             <a href="dogsAsked"><button style="background:#9acfea; color:black">Gestion des adoptions</button></a></div>
+                        <br>
+                        <h2>Ajouter un chien</h2>
+
+
 
                         <thead>
                         <!-- En-tête du tableau-->
@@ -28,13 +30,29 @@
 
                         <form id="dogsAdmin" action="/dogsAdmin" method="post">
                             <tr>
-                                <td><input type="number" name="idAnimal" min="{{max}}" required></td>
+                                <td><input type="number" name="idAnimal" min="{{max}}" placeholder=">= {{max}}" required></td>
                                 <td><input type="number" name="icad"></td>
                                 <td><input type="text" name="nomAnimal" required></td>
                                 <td><input type="date" name="dateEntreeAnimal"></td>
                                 <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
                             </tr>
                         </form>
+
+                        <div></div></tbody></table>
+
+                            <table class="table">
+                                <h2>Liste de tous les chiens</h2>
+                                <thead>
+                                <!-- En-tête du tableau-->
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">ICAD</th>
+                                    <th scope="col">Nom de l'animal</th>
+                                    <th scope="col">Date d'entrée</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
                         <!-- data-->
                         {{#each dogs}}
                             <form id="alldogs" action="/dogAdmin" method="get">
