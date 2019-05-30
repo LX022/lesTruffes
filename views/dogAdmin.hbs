@@ -1,35 +1,29 @@
 <!-- translate from html with https://pughtml.com/, god bless this website-->
 <!-- About Section-->
-<div class="container">
-    <div class="row">
-<div class="col-md-12" style="text-align: center;">
-<p>
-    <form id="isDogAsked" action="/dogsAsked" method="post">
-        <input type="hidden" name="idAnimalAsked" value="{{chien.idAnimal}}" required>
-        <input type="submit" style="background-color:#9acfea"  value="Adoption en cours ?">
-    </form>
-    </p>
-    <p>
-    <form id="isDogFA" action="/dogsFA" method="post">
-        <input type="hidden" name="idAnimalFA" value="{{chien.idAnimal}}" required>
-        <input type="submit" style="background-color:#9acfea"  value="En famille d'accueil ?">
-    </form>
-    </p>
-    <p>
-    <form id="hasDogVet" action="/dogVeterinaire" method="post">
-        <input type="hidden" name="idAnimalVeterinaire" value="{{chien.idAnimal}}" required>
-        <input type="submit" style="background-color:#9acfea"  value="Est-il suivi par un vétérinaire ?">
-    </form>
-    </p>
-</div></div></div>
 
 <div class="container">
     <div class="col-sm-12">
         <div class="main_about_area">
             <div class="row">
-                <div class="col-sm-4">
-                    <div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div>
-                    <br> <br> <br> <br>
+                <div class="col-sm-4"><br>
+                    <p>
+                    <form id="isDogAsked" action="/dogsAsked" method="post">
+                        <input type="hidden" name="idAnimalAsked" value="{{chien.idAnimal}}" required>
+                        <h4><input type="submit" style="background-color:#9acfea"  value="Adoption en cours ?"></h4>
+                    </form>
+                    </p>
+                    <p>
+                    <form id="isDogFA" action="/dogsFA" method="post">
+                        <input type="hidden" name="idAnimalFA" value="{{chien.idAnimal}}" required>
+                        <h4><input type="submit" style="background-color:#9acfea"  value="En famille d'accueil ?"></h4>
+                    </form>
+                    </p>
+                    <p>
+                    <form id="hasDogVet" action="/dogVeterinaire" method="post">
+                        <input type="hidden" name="idAnimalVeterinaire" value="{{chien.idAnimal}}" required>
+                        <h4><input type="submit" style="background-color:#9acfea"  value="Est-il suivi par un vétérinaire ?"></h4>
+                    </form>
+                    </p><br><br><br>
                     <div style="text-align: center;"><input type="image" class="card-img-top" src="/images/animals/{{chien.nomAnimal}}_{{chien.idAnimal}}_0.jpg"
                                                             width="200" height="200" onerror="this.onerror=null;this.src='/images/animals/no_picture.png'"></div>
                 </div>

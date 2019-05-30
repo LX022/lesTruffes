@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
       field: 'idPersonne'
     },
     adoptionValidee: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING(1),
       allowNull: true,
       field: 'adoptionValidee'
     },
