@@ -83,7 +83,7 @@
                                                     <td>{{chien.tatouage}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Décès</th>
+                                                    <th>Décès (0=non  1=oui)</th>
                                                     <td>{{chien.deces}}</td>
                                                 </tr>
                                                 <tr>
@@ -173,9 +173,13 @@
                                                 <td><label>Tatouage
                                                     <input type="text" name="tatouage" value="{{chien.tatouage}}">
                                                 </label></td>
-                                                <td><label>Décès (D si décédé)
-                                                    <input type="text" name="deces" value="{{chien.deces}}" >
-                                                </label></td>
+                                                <td><label>Décès (D si décédé)</label><br>
+                                                    <input list="deces" name="deces" value="{{chien.deces}}" >
+                                                    <datalist id="deces">
+                                                        <option value="D">Décédé</option>
+                                                        <option value="">Vivant</option>
+                                                    <option value="?">?</option></datalist>
+                                                </td>
                                                 <td><label>Son histoire
                                                     <input type="text" name="histoireAnimal" value="{{chien.histoireAnimal}}">
                                                 </label></td>
@@ -185,9 +189,13 @@
                                                 <td><label>Description
                                                     <input type="text" name="descriptionAnimal" value="{{chien.descriptionAnimal}}">
                                                 </label></td>
-                                                <td><label>Stérilisation (1=oui  0=non  3=???)
-                                                    <input type="number" name="sterilisation" value="{{chien.sterilisation}}">
-                                                </label></td>
+                                                <td><label>Stérilisation</label><br>
+                                                    <input list="statutSterilisation" name="sterilisation" value="{{chien.sterilisation}}">
+                                                    <datalist id="statutSterilisation">
+                                                        <option value="0">Pas stérilisé</option>
+                                                    <option value="1">Stérilisé</option>
+                                                    <option value="2">???</option></datalist>
+                                                </td>
                                                 <td><label>Date de stérilisation
                                                     <input type="date" name="dateSterilisation" value="{{chien.dateSterilisation}}">
                                                 </label></td>
