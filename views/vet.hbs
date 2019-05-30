@@ -346,9 +346,10 @@
                                                     </tr>
 
                                                     {{#each lieux}}
-                                                        <form id="deleteLieu" action="/vet" method="get">
-                                                            <input type="hidden" name="idVeterinaire"  value="{{veto.idVeterinaire}}">
+                                                        <form id="deleteLieu" action="/lieu" method="post">
+
                                                             <tr>
+                                                                <input type="hidden" name="idVeterinaire"  value={{veto.idVeterinaire}}>
                                                                 <input type="hidden" name="deleteLieu" value="{{this.idLieu}}">
 
                                                                 <td>{{this.idLieu}}
