@@ -5,45 +5,64 @@ var router = express.Router();
 /* GET dogsFA page. */
 router.get('/', async function (req, res, next) {
 
+    //liste des personnes
+    let personnes = await models.personne.findAll();
 
-    //Si on est sûr que le lien existe, on le destroy
-    if(req.query.idAnimal!==undefined && req.query.idAnimal !==null){
-        await models.animalHasFa.destroy({where:{idAnimal:req.query.idAnimal}});
-    }
+    //liste des chiens
+    let dogs = await models.Animal.findAll();
 
-    //Liste des chiens par ordre alphabétique
-    let dogs = await models.animalHasFa.findAll({order: [['idAnimal', 'DESC']]});
+    //Liste liens dogsFA
+    let dogsFA = await models.animalAskedAdoptant.findAll();
 
-    //Calcule le plus grand id de la table
-    let max = 0;
-    for(let i =0;i<dogs.length;i++){
-        if(dogs[i].idAnimal > max){
-            max = dogs[i].idAnimal;
-        }
-    }
-    max = max +1;
 
-    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogs:dogs, max:max});        //Page title
+    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogs:dogs, personnes:personnes, dogsFA:dogsFA});        //Page title
 });
-
-
 
 /* POST dogsFA page. */
-router.post('/', async function (req, res) {
+router.post('/', async function (req, res, next) {
 
-    //récupérer la liste des chiens à jour
-    let dogs = await models.animalHasFa.findAll({order: [['idAnimal', 'DESC']]});
 
-    //id max de la table
-    let max = 0;
-    for(let i =0;i<dogs.length;i++){
-        if(dogs[i].idAnimal > max){
-            max = dogs[i].idAnimal;
-        }
+    //DESTROY
+    if(req.body.idAnimalFA!==undefined && req.body.idPersonneFA!==undefined && req.body.dateDebutFA!==undefined){
+        await models.animalHasFa.destroy({where:{idAnimal:req.body.idAnimalFA, idPersonne:req.body.idPersonneFA, dateDebut:req.body.dateDebutFA}});
     }
-    max = max +1;
-    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogs:dogs, max:max});        //Page title
 
+    //INSERT lien dog/fa
+    if(req.body.InsertidFA!==undefined && req.body.InsertidAnimal!==undefined && req.body.InsertdateDebut!==undefined){
+        let existe= await models.animalHasFa.findAll({where:{idAnimal:req.body.InsertidAnimalFA, idPersonne: req.body.InsertidFA, dateDebut:req.body.InsertdateDebut
+            }});
+        if(existe.length<1){
+            if(req.body.dateFin!==undefined){
+                await models.animalHasFa.create({idAnimal: req.body.InsertidAnimal, idPersonne:req.body.InsertidFA, dateDebut: req.body.InsertdateDebut, dateFin:req.body.insertDateFin, commentaires:insertCommentaires});
+            }}
+    }
+
+    //Liste des chiens
+    let dogs = await models.Animal.findAll();
+
+    //Liste des personnes
+    let personnes = await models.personne.findAll();
+
+    //Liste des chiens dans des FA
+    let dogsFA = await models.animalHasFa.findAll();
+    let info;
+
+    //Si c'est depuis la page chien
+    if( req.body.idAnimal!==undefined){
+        dogsFA = await models.animalHasVeterinaire.findAll({where:{idAnimal:req.body.idAnimal}});
+        if(soins.length<1){info="Famille(s) d'accueil de ce chien";}
+    }
+    //TODO Si c'est depuis la page FA
+
+
+
+
+
+
+    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogsFA:dogsFA, info:info, dogs:dogs, personnes:personnes});        //Page title
 });
+
+
+
 
 module.exports = router;

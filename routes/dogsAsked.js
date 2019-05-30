@@ -32,10 +32,7 @@ router.get('/', async function (req, res, next) {
 /* POST dogsAdmin page. */
 router.post('/', async function (req, res) {
 
-    console.log(req.body.UdateContratRecu);
-    console.log(req.body.UdateCessionIcad);
     //UPDATE
-
     if(req.body.UidAnimal!==undefined && req.body.UidPerson!==undefined) {
         if (req.body.UdateContratRecu !== undefined && req.body.UdateContratRecu !=='' && req.body.UdateContratRecu !==null ) {
             if(req.body.UdateCessionIcad!==undefined && req.body.UdateCessionIcad!=='' && req.body.UdateCessionIcad!==null){

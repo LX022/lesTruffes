@@ -7,7 +7,7 @@
          <div class="row">
             <div class="col-md-12">
                 <!-- End of head title-->
-                <div>
+                <div><h2>Ajouter un chien dans une familles d'accueil</h2>
                     <table class="table">
                         <thead>
                         <!-- En-tête du tableau-->
@@ -22,19 +22,80 @@
                         </thead>
                         <tbody>
 
-                        <form id="dogsFA" action="/dogsFA" method="post">
+                        <form id="InsertDogFA" action="/dogsFA" method="post">
                             <tr>
-                                <td><input type="number" name="idAnimal" min="{{max}}" required></td>
-                                <td><input type="number" name="idPerson"></td>
-                                <td><input type="date" name="dateDebut" required></td>
-                                <td><input type="date" name="dateFin"></td>
-                                <td><input type="text" name="commentaire"></td>
+                                <td><input list="InsertidAnimal"  name="InsertidAnimal"required>
+                                <datalist id="InsertidAnimal">
+                                    {{#each dogs}}
+                                    <option value="{{this.idAnimal}}">{{this.nomAnimal}}</option>
+                                    {{/each}}
+                                </datalist></td>
+                                <td><input list="InsertidFA" name="InsertidFA"  required>
+                                    <datalist id="InsertidFA">
+                                        {{#each personnes}}
+                                            <option value="{{this.idPersonne}}">{{this.nomP}} {{this.prenomP}}</option>
+                                        {{/each}}
+                                    </datalist></td>
+                                </td>
+                                <td><input type="date" name="InsertdateDebut, " required></td>
+                                <td><input type="date" name="insertDateFin"></td>
+                                <td><input type="text" name="insertCommentaires"></td>
                                 <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
                             </tr>
                         </form>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div><h2>Chiens en familles d'accueil</h2>
+                    <table class="table">
+                        <thead>
+                        <!-- En-tête du tableau-->
+                        <tr>
+                            <th scope="col">ID Animal</th>
+                            <th scope="col">ID Personne</th>
+                            <th scope="col">Date de début</th>
+                            <th scope="col">Date de fin</th>
+                            <th scope="col">Commentaires</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <!-- data-->
-                        {{#each dogs}}
-                            <form id="alldogsasked" action="/dogFA" method="get">
+                        {{#each dogsFA}}
+                            <form id="deleteDogFA" action="/dogsFA" method="post">
+                                <tr>
+                                    <td>{{this.idAnimal}}</td>
+                                    <td>{{this.idPersonne}}</td>
+                                    <td>{{this.dateDebut}}</td>
+                                    <td>{{this.dateFin}}</td>
+                                    <td>{{this.commentaire}}</td>
+                                    <td><input type="hidden"  name="idAnimalFA" value={{this.idAnimal}}>
+                                        <input type="hidden" name="idPersonneFA" value={{this.idPersonne}}>
+                                        <input type="hidden" name="dateDebutFA" value={{this.idPersonne}}>
+                                        <input type="submit" value="Supprimer"></td>
+                                </tr>
+
+                        {{/each}}
+                        </form>
+                        </tbody></table><br></div>
+
+                <div><h2>Modifier</h2>
+                    <table class="table">
+                        <thead>
+                        <!-- En-tête du tableau-->
+                        <tr>
+                            <th scope="col">ID Animal</th>
+                            <th scope="col">ID Personne</th>
+                            <th scope="col">Date de début</th>
+                            <th scope="col">Date de fin</th>
+                            <th scope="col">Commentaires</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each dogsFA}}
+                            <form id="updateDogFA" action="/dogsFA" method="post">
                                 <tr>
                                     <td>{{this.idAnimal}}</td>
                                     <td>{{this.idPersonne}}</td>
@@ -42,7 +103,7 @@
                                     <td>{{this.dateFin}}</td>
                                     <td>{{this.commentaire}}</td>
                                     <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
-                                        <input type="submit" value="Infos"></td>
+                                        <input type="submit" value="Mettre à jour"></td>
                                 </tr>
 
                         {{/each}}
