@@ -10,9 +10,15 @@
     </form>
     </p>
     <p>
-    <form id="isDogAsked" action="/dogsFA" method="post">
+    <form id="isDogFA" action="/dogsFA" method="post">
         <input type="hidden" name="idAnimalFA" value="{{chien.idAnimal}}" required>
         <input type="submit" style="background-color:#9acfea"  value="En famille d'accueil ?">
+    </form>
+    </p>
+    <p>
+    <form id="hasDogVet" action="/dogVeterinaire" method="post">
+        <input type="hidden" name="idAnimalVeterinaire" value="{{chien.idAnimal}}" required>
+        <input type="submit" style="background-color:#9acfea"  value="Est-il suivi par un vétérinaire ?">
     </form>
     </p>
 </div></div></div>

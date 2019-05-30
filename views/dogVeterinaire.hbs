@@ -1,0 +1,95 @@
+
+<!-- End of header-->
+<section class="aboutus margin-top-120" id="aboutus">
+<div class="container">
+<div class="row">
+   <div class="col-sm-12">
+
+<h2>Ajouter une visite chez le vétérinaire</h2>
+<table class="table">
+    <tr>
+        <th>Vétérinaire</th>
+        <th>Chien</th>
+        <th>Soins</th>
+        <th>Devis</th>
+        <th>Date véto</th>
+        <th></th>
+    </tr>
+    <form id="soins" action="/dogVeterinaire" method="post">
+        <tr><td><input list="vet" name="InsertidVeterinaire" required>
+        <datalist id="vet">{{#each veterinaires}}<option value="{{this.idVeterinaire}}">{{this.nomV}} {{this.prenomV}}</option>{{/each}} </datalist></td>
+            <td>
+        <input list="dog" name="InsertidAnimal"  required>
+        <datalist id="dog"> {{#each chiens}}<option value="{{this.idAnimal}}">{{this.nomAnimal}}</option> {{/each}}</datalist></td>
+            </td>
+        <td>
+            <input type="text" name="soins" >
+        </td>
+            <td>
+                <input type="text" name="devis" >
+            </td>
+            <td>
+                <input type="date" name="dateVeto" required>
+            </td>
+            <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Lier"></h4></td>
+        </tr>
+        </tr>
+    </form>
+</table>
+
+
+<h2>Liste des visites</h2>
+
+            <table class="table">
+
+                <tr>
+
+                    <th>ID Vétérinaire</th>
+
+                    <th>ID Animal</th>
+
+                    <th>Soins</th>
+
+                    <th>Devis</th>
+
+                    <th>dateVeto</th>
+
+                    <th></th>
+
+                </tr>
+
+                {{#each soins}}
+                    <form id="soins" action="/dogVeterinaire" method="post">
+
+                        <tr>
+
+
+                            <td><input type="hidden" name="idV"  value={{this.idVeterinaire}}>
+                                {{this.idVeterinaire}}
+                            </td>
+
+                            <td>
+                                <input type="hidden" name="idA" value="{{this.idAnimal}}">
+                                {{this.idAnimal}}
+                            </td>
+
+                            <td>{{this.soins}}
+
+                            </td>
+                            <td>{{this.devis}}
+
+                            </td>
+                            <td><input type="hidden" name="dateV" value="{{this.dateVeto}}"> {{this.dateVeto}}
+
+                            </td>
+                            <td><h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4></td>
+
+
+                        </tr>
+                    </form>
+                {{/each}}
+
+            </table>
+   </div></div></div>
+
+</section>
