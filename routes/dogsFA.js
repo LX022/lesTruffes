@@ -21,6 +21,14 @@ router.get('/', async function (req, res, next) {
 /* POST dogsFA page. */
 router.post('/', async function (req, res, next) {
 
+    //UPDATE
+    if(req.body.updateidAnimal!==undefined && req.body.updateidPersonne!==undefined && req.body.updatedateDebut!==undefined){
+        if(req.body.updatedateFin!==undefined && req.body.updatedateFin!=='' && req.body.updatedateFin!==null){
+            await models.animalHasFa.update({dateFin:req.body.updatedateFin, commentaire:req.body.updatecommentaire}, {where:{idAnimal:req.body.updateidAnimal, idPersonne:req.body.updateidPersonne, dateDebut:req.body.updatedateDebut}});
+        }else {
+            await models.animalHasFa.update({commentaire:req.body.updatecommentaire}, {where:{idAnimal:req.body.updateidAnimal, idPersonne:req.body.updateidPersonne, dateDebut:req.body.updatedateDebut}});
+        }
+    }
 
     //DESTROY
     if(req.body.idAnimalFA!==undefined && req.body.idPersonneFA!==undefined && req.body.dateDebutFA!==undefined){

@@ -102,7 +102,7 @@ router.post('/', async function (req, res) {
     }
 
     //id max de la table
-    let idcount = dogs = await models.animalAskedAdoptant.findAll();
+    let idcount = await models.animalAskedAdoptant.findAll();
     let max = 0;
     for(let i =0;i<idcount.length;i++){
         if(idcount[i].idAnimal > max){

@@ -98,17 +98,16 @@
                         {{#each dogsFA}}
                             <form id="updateDogFA" action="/dogsFA" method="post">
                                 <tr>
-                                    <td>{{this.idAnimal}}</td>
-                                    <td>{{this.idPersonne}}</td>
-                                    <td>{{this.dateDebut}}</td>
-                                    <td>{{this.dateFin}}</td>
-                                    <td>{{this.commentaire}}</td>
-                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
-                                        <input type="submit" value="Mettre à jour"></td>
+                                    <td><input type="number" name="updateidAnimal" value="{{this.idAnimal}}" readonly required></td>
+                                    <td><input type="number" name="updateidPersonne" value="{{this.idPersonne}}" readonly required></td>
+                                    <td><input type="date" name="updatedateDebut" value="{{this.dateDebut}}" readonly required></td>
+                                    <td><input type="date" name="updatedateFin" value="{{this.dateFin}}"></td>
+                                    <td><input type="text" name="updatecommentaire" value="{{this.commentaire}}"></td>
+                                       <td> <input type="submit" value="Mettre à jour"></td>
                                 </tr>
 
-                        {{/each}}
-                        </form>
+
+                        </form>   {{/each}}
                         </tbody>
                     </table>
                 </div>
