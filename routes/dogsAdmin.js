@@ -6,8 +6,8 @@ var router = express.Router();
 router.get('/', async function (req, res, next) {
 
 
-    //Liste des chiens par ordre alphabétique
-    let dogs = await models.Animal.findAll({order: [['idAnimal', 'DESC']]});
+    //Liste des chiens
+    let dogs = await models.Animal.findAll({order: [['idAnimal', 'ASC']]});
 
     //Calcule le plus grand id de la table
     let max = 0;
@@ -72,7 +72,7 @@ if(req.body.idAnimal!==undefined) {
     await models.Animal.destroy({where: {idAnimal: req.body.idmydog}});
 }
     //récupérer la liste des chiens à jour
-    let dogs = await models.Animal.findAll({order: [['idAnimal', 'DESC']]});
+    let dogs = await models.Animal.findAll({order: [['idAnimal', 'ASC']]});
 
     //id max de la table
     let max = 0;

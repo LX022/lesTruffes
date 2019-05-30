@@ -13,13 +13,14 @@ router.get('/', async function (req, res, next) {
 
 
     //Liste des chiens par ordre alphabétique
-    let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'DESC']]});
+    let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'ASC']]});
 
-    //Calcule le plus grand id de la table
+    //id max de la table
+    let idcount = dogs = await models.animalAskedAdoptant.findAll();
     let max = 0;
-    for(let i =0;i<dogs.length;i++){
-        if(dogs[i].idAnimal > max){
-            max = dogs[i].idAnimal;
+    for(let i =0;i<idcount.length;i++){
+        if(idcount[i].idAnimal > max){
+            max = idcount[i].idAnimal;
         }
     }
     max = max +1;
@@ -101,10 +102,11 @@ router.post('/', async function (req, res) {
     }
 
     //id max de la table
+    let idcount = dogs = await models.animalAskedAdoptant.findAll();
     let max = 0;
-    for(let i =0;i<dogs.length;i++){
-        if(dogs[i].idAnimal > max){
-            max = dogs[i].idAnimal;
+    for(let i =0;i<idcount.length;i++){
+        if(idcount[i].idAnimal > max){
+            max = idcount[i].idAnimal;
         }
     }
     max = max +1;

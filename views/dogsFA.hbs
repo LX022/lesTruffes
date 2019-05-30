@@ -1,5 +1,6 @@
-<br><div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div>
-
+<br><div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div><br>
+<div style="text-align: center;"><h2 style="color:red">{{warning}}</h2></div><br>
+    <div style="text-align: center;"><h2 style="color:red">{{info}}</h2> </div>
 <!-- End of header-->
 <section class="aboutus margin-top-80" id="aboutus">
 
@@ -37,7 +38,7 @@
                                         {{/each}}
                                     </datalist></td>
                                 </td>
-                                <td><input type="date" name="InsertdateDebut, " required></td>
+                                <td><input type="date" name="InsertdateDebut" required></td>
                                 <td><input type="date" name="insertDateFin"></td>
                                 <td><input type="text" name="insertCommentaires"></td>
                                 <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
@@ -72,12 +73,12 @@
                                     <td>{{this.commentaire}}</td>
                                     <td><input type="hidden"  name="idAnimalFA" value={{this.idAnimal}}>
                                         <input type="hidden" name="idPersonneFA" value={{this.idPersonne}}>
-                                        <input type="hidden" name="dateDebutFA" value={{this.idPersonne}}>
+                                        <input type="hidden" name="dateDebutFA" value={{this.dateDebut}}>
                                         <input type="submit" value="Supprimer"></td>
                                 </tr>
 
-                        {{/each}}
-                        </form>
+
+                        </form>{{/each}}
                         </tbody></table><br></div>
 
                 <div><h2>Modifier</h2>
