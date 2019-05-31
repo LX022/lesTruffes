@@ -6,101 +6,115 @@
         <h2 style="color:slateblue">Coordonnées</h2>
 
         <label for="fname">Nom</label>
-        <input type="text" id="fname" name="lastname" placeholder="Votre nom..." required>
+        <input type="text" id="fname" name="lastname" placeholder="Votre nom..." required >
 
         <label for="lname">Prénom</label>
-        <input type="text" id="lname" name="firstname" placeholder="Votre prénom..." required>
+        <input type="text" id="lname" name="firstname" placeholder="Votre prénom..." required >
 
         <label for="mail">E-mail</label>
-        <textarea type="mail" id="mail" name="email" placeholder="Votre mail..." required></textarea>
+        <textarea type="mail" id="mail" name="email" placeholder="Votre mail..." required ></textarea>
 
         <label for="fb">Pseudo Facebook</label>
-        <input type="text" id="fb" name="facebook" placeholder="Votre pseudo facebook..." required></input>
+        <input type="text" id="fb" name="facebook" placeholder="Votre pseudo facebook..." ></input>
 
         <label for="tel">Téléphone</label>
-        <textarea data-type="control_textbox" id="tel" name="telephone" placeholder="Votre numéro de téléphone..." required></textarea>
+        <textarea data-type="control_textbox" id="tel" name="telephone" placeholder="Votre numéro de téléphone..." required ></textarea>
 
         <label for="adrs">Adresse</label>
-        <input type="text" id="adrs" name="adresse" placeholder="Votre adresse..." required></input>
+        <input type="text" id="adrs" name="adresse" placeholder="Votre adresse..." required ></input>
 
         <label for="npa">NPA</label>
-        <input type="text" id="npa" name="npa" placeholder="Votre code postal..." required></input>
+        <input type="text" id="npa" name="npa" placeholder="Votre code postal..." required ></input>
 
         <label for="loc">Localité</label>
-        <input type="text" id="loc" name="localite" placeholder="Votre localité..." required></input>
+        <input type="text" id="loc" name="localite" placeholder="Votre localité..." required ></input>
 
         <label for="dn">Date de naissance</label>
-        <textarea data-type="control_datetime" id="dn" name="datenaissance" placeholder="Votre date de naissance..." required></textarea>
+        <textarea data-type="control_datetime" id="dn" name="datenaissance" placeholder="Votre date de naissance..." required ></textarea>
 
         <h2 style="color:slateblue">Vos souhaits</h2>
 
         <label for="esp">Espèce</label>
-        <input type="text" id="esp" name="espece" placeholder="Nom de l'espèce..." required></input>
+        <input type="text" id="esp" name="espece" placeholder="Nom de l'espèce..." required ></input>
 
         <label for="sex">Sexe</label>
-        <input type="text" id="sex" name="sexe" placeholder="Mâle / Femelle / indifférent..." required></input>
+        <input type="text" id="sex" name="sexe" placeholder="Mâle / Femelle / indifférent..." required ></input>
 
         <label for="agechien">Age du chien</label>
-        <input type="text" id="agechien" name="ageduchien" placeholder="Mâle / Femelle / indifférent..." required></input>
+        <input type="text" id="agechien" name="ageduchien" placeholder="Mâle / Femelle / indifférent..." required ></input>
 
         <label for="t">Taille du chien</label>
-        <input type="text" id="t" name="taille" placeholder="Mini (moins de 10kg) / Moyen (10-20kg) / Grand (20-40kg) / Maxi (plus de 40kg) / Indifférent..." required></input>
+        <input type="text" id="t" name="taille" placeholder="Mini (moins de 10kg) / Moyen (10-20kg) / Grand (20-40kg) / Maxi (plus de 40kg) / Indifférent..." required ></input>
 
         <label for="j">Jour de l'accueil</label>
-        <input type="text" id="j" name="jouradoption" placeholder="Jour/Mois/Année..." required></input>
+        <input type="text" id="j" name="jouradoption" placeholder="Jour/Mois/Année..."  required></input>
 
         <h2 style="color:slateblue">Votre environnement</h2>
 
-        <label for="typelogement">Type de logement</label>
-        <div><input type="radio" name="typelogement" value="maison"></input> Maison</div>
-        <div><input type="radio" name="typelogement" value="appartement"></input> Appartement</div>
+        <label for="typeLogement">Type de logement</label>
+        <select name="typeLogement">
+            <option value="maison">Maison</option>
+            <option value="appartement">Appartement</option>
+        </select>
 
         <p></p>
 
         <label for="surface">Surface du logement</label>
-        <input type="text" id="surface" name="surfacelogement" placeholder="Surface en m2..." required></input>
+        <input type="text" id="surface" name="surfacelogement" placeholder="Surface en m2..."  required></input>
 
         <p></p>
 
         <label for="j">Extérieur</label>
-        <div><input type="radio" name="j" value="jOui"></input> Avec jardin</div>
-        <div><input type="radio" name="j" value="jNon"></input> Sans jardin</div>
-        <div><input type="radio" name="j" value="jSans"></input> Pas d'extérieur</div>
+        <select name="j">
+            <option value="jOui">Avec jardin</option>
+            <option value="jNon">Sans jardin</option>
+            <option value="jSans">Pas d'extérieur</option>
+        </select>
 
         <p></p>
 
         <label for="enfant">L'animal cotoiera-t-il régulièrement des enfants ?</label>
-        <div><input type="radio" name="enfant" value="enfantOui"></input> Oui</div>
-        <div><input type="radio" name="enfant" value="enfantNon"></input> Non</div>
+        <select name="enfant">
+            <option value="enfantOui">Oui</option>
+            <option value="enfantNon">Non</option>
+        </select>
 
         <p></p>
 
         <label for="animaux">Avez-vous d'autres animaux ?</label>
-        <div><input type="radio" name="animaux" value="animaux"></input> Oui</div>
-        <div><input type="radio" name="animaux" value="animauxNon"></input> Non</div>
+        <select name="animaux">
+            <option value="animauxOui">Oui</option>
+            <option value="animauxNon">Non</option>
+        </select>
 
         <p></p>
 
         <label for="propre">Accepteriez-vous de parfaire son éducation si l'animal confié n'est pas propre ?</label>
-        <div><input type="radio" name="propre" value="propreOui"></input> Oui</div>
-        <div><input type="radio" name="propre" value="propreNon"></input> Non</div>
+        <select name="propre">
+            <option value="propreOui">Oui</option>
+            <option value="propreNon">Non</option>
+        </select>
 
         <p></p>
 
         <label for="maltraitance">Accepteriez-vous d'accueillir un animal craintif, ayant subi des maltraitances ? </label>
-        <div><input type="radio" name="maltraitance" value="maltraitanceOui"></input> Oui</div>
-        <div><input type="radio" name="maltraitance" value="maltraitanceNon"></input> Non</div>
+        <select name="maltraitance">
+            <option value="maltraitanceOui">Oui</option>
+            <option value="maltraitanceNon">Non</option>
+        </select>
 
         <p></p>
 
         <label for="soins">Accepteriez-vous d'accueillir un animal qui nécessite des soins ou des traitements vétérinaires spécifiques ? </label>
-        <div><input type="radio" name="soins" value="soinsOui"></input> Oui</div>
-        <div><input type="radio" name="soins" value="soinsNon"></input> Non</div>
+        <select name="soins">
+            <option value="soinsOui">Oui</option>
+            <option value="soinsNon">Non</option>
+        </select>
 
         <p></p>
 
         <label for="autre">Souhaitez-vous indiquer des informations supplémentaires ? </label>
-        <textarea data-type="control_textbox" id="autre" name="autreinfo" placeholder="Autres informations..." required></textarea>
+        <textarea data-type="control_textbox" id="autre" name="autreinfo" placeholder="Autres informations..."  required></textarea>
 
         <input formmethod="post" formaction="/formulaireFA" class="btn" type="submit" value="envoyer">
 

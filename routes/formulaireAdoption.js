@@ -34,36 +34,36 @@ router.post('/', async function (req, res, next) {
     var jouradoption = req.body.jouradoption;
 
     var logement = "Appartement";
-    if(req.body.typelogement.value = "maison")
+    if(req.body.typelogement == "maison")
         logement = "Maison";
 
     var surfacelogement = req.body.surfacelogement;
 
     var j = "sans";
-    if(req.body.j.value = "jOui")
+    if(req.body.j == "jOui")
         j = "oui";
 
-    if(req.body.j.value = "jNon")
+    if(req.body.j == "jNon")
         j = "non";
 
     var enfant = "non";
-    if(req.body.enfant.value = "enfantOui")
+    if(req.body.enfant == "enfantOui")
         enfant = "oui";
 
     var animaux = "non";
-    if(req.body.animaux.value = "animauxOui")
+    if(req.body.animaux == "animauxOui")
         animaux = "oui";
 
     var propre = "non";
-    if(req.body.propre.value = "propreOui")
+    if(req.body.propre == "propreOui")
         propre = "oui";
 
     var maltraitance = "non";
-    if(req.body.maltraitance.value = "maltraitanceOui")
+    if(req.body.maltraitance == "maltraitanceOui")
         maltraitance = "oui";
 
     var soins = "non";
-    if(req.body.soins.value = "soinsOui")
+    if(req.body.soins = "soinsOui")
         soins = "oui";
 
     var autreinfo = req.body.autreinfo;
@@ -79,14 +79,6 @@ router.post('/', async function (req, res, next) {
         "Telephone : " + telephone + "\n" +
         "Adresse : " + adresse + ", " + npa + "-" + localite + "\n" +
         "Date de naissance : " + datenaissance + "\n\n" +
-        "Type de chiens désirés : " + "\n" +
-        "**********************************************************" + "\n" +
-        "Espèce : " + espece + "\n" +
-        "Sexe : " + sexe +  + "\n" +
-        "Age du chien : " + ageduchien + "\n" +
-        "Taille du chien : " + taille + "\n" +
-        "Jour de l'adoption souhaité : " + jouradoption + "\n\n" +
-        "Type d'environnement : " + "\n" +
         "**********************************************************" + "\n" +
         "Logement : " + logement + "\n" +
         "Surface du logement : " + surfacelogement + "\n" +
@@ -121,7 +113,7 @@ router.post('/', async function (req, res, next) {
 
     /* STILL HAVE TO CODE : CHANGE STATUS OF DOG IN DATABASE */
 
-    res.redirect('formulaireFA');
+    res.redirect('dogs');
 });
 
 
