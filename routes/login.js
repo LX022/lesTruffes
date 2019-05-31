@@ -11,11 +11,11 @@ var handlebars = require('handlebars');
 var app = express();
 var router = express.Router();
 
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'IbanezXiphos7',
-    database : 'truffes'
+    var connection = mysql.createConnection({
+        host     : 'localhost',
+        user     : 'root',
+        password : 'IbanezXiphos7',
+        database : 'truffes'
 });
 
 
