@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "ajax-request": "^1.2.3",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "connect-session-sequelize": "^6.0.0",
     "cookie-parser": "^1.4.4",
@@ -16,6 +17,7 @@
     "ejs": "^2.6.1",
     "express": "^4.17.0",
     "express-fileupload": "^1.1.4",
+    "express-flash": "0.0.2",
     "express-session": "^1.16.1",
     "favicon": "0.0.2",
     "fs": "0.0.1-security",
@@ -33,6 +35,7 @@
     "req-flash": "0.0.3",
     "sequelize": "^5.8.6",
     "sequelize-cli": "^5.4.0",
-    "sqlite3": "^4.0.8"
+    "sqlite3": "^4.0.8",
+    "superagent": "^5.0.5"
   }
 }
