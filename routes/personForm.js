@@ -21,7 +21,7 @@ router.post('/',  function (req, res) {
             facebookP: req.body.facebookP,
             //telPortableP: req.body.telPortableP,
             rueP: req.body.rueP,
-            //dateNaissanceP : req.body.dateNaissanceP,
+            dateNaissanceP : req.body.dateNaissanceP,
             //idPrevisiteFa: 1
         });
 
