@@ -86,6 +86,21 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(45),
             allowNull: true,
             field: 'FA'
+        },
+        username: {
+            type: DataTypes.STRING(45),
+            allowNull: true,
+            field: 'username'
+        },
+        password: {
+            type: DataTypes.STRING(45),
+            allowNull: true,
+            field: 'password'
+        },
+        privilege: {
+            type: DataTypes.INTEGER(2),
+            allowNull: true,
+            field: 'emailP'
         }
     }, {
         timestamps: false,
