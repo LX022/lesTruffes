@@ -42,6 +42,7 @@ HandlebarsIntl.registerWith(hbs);
 var app = express();
 
 // session variables
+app.set('trust proxy', 1) // trust first proxy
 app.use(session({
     secret: 'secret',
     resave: true,
