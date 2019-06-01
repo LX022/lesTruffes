@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER(11),
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
             field: 'idPersonne'
         },
         nomP: {
@@ -74,8 +75,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         idPrevisiteFa: {
             type: DataTypes.INTEGER(11),
-            allowNull: false,
-            defaultValue: '0',
+            allowNull: true,
+            // defaultValue: '0',
             references: {
                 model: 'Previsite',
                 key: 'idPrevisite'
@@ -86,6 +87,21 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(45),
             allowNull: true,
             field: 'FA'
+        },
+        privilege: {
+            type: DataTypes.INTEGER(5),
+            allowNull: true,
+            field: 'Privilege'
+        },
+        username: {
+            type:DataTypes.STRING(25),
+            allowNull: true,
+            field: 'Username'
+        },
+        password: {
+            type:DataTypes.STRING(25),
+            allowNull: true,
+            field: 'Password'
         }
     }, {
         timestamps: false,

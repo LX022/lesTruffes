@@ -31,5 +31,12 @@ module.exports = function(sequelize, DataTypes) {
         timestamps: false,
         freezeTableName: true,
         tableName: 'Lieu'
+    },
+    {
+        classMethods: {
+            associate: function (models) {
+                Pays.hasOne(models.Personne, {as: "idLieu"});
+            }
+        }
     });
 };
