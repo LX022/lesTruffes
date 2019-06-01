@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET dogs page. */
 router.get('/', async function (req, res, next) {
 
-    let dogsToAdopt = await models.Animal.findAll({order: [['NomAnimal', 'ASC']]});
+    let dogsToAdopt = await models.animal.findAll({order: [['NomAnimal', 'ASC']]});
     let adoptedDogs = await models.animalAskedAdoptant.findAll();
     let dogs = [];
     let isAdopted;

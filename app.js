@@ -29,11 +29,11 @@ var dogVeterinaire = require('./routes/dogVeterinaire');
 var fa  = require('./routes/fa');
 var formulaireAdoption  = require('./routes/formulaireAdoption');
 var formulaireFA  = require('./routes/formulaireFA');
-<<<<<<< HEAD
+
 var personForm  = require('./routes/personForm');
-=======
+
 var lieu = require('./routes/lieu');
->>>>>>> didine
+
 var login = require('./routes/login');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
@@ -92,11 +92,11 @@ app.use('/dogVeterinaire', dogVeterinaire);
 app.use('/fa', fa);
 app.use('/formulaireAdoption', formulaireAdoption);
 app.use('/formulaireFA', formulaireFA);
-<<<<<<< HEAD
+
 app.use('/personForm', personForm);
-=======
+
 app.use('/lieu', lieu);
->>>>>>> didine
+
 app.use('/login', login);
 app.use('/persons', persons);
 app.use('/reserveddogs', reserveddogs);
