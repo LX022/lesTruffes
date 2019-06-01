@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     {
         classMethods: {
             associate: function (models) {
-                Pays.hasOne(models.Personne, {as: "idLieu"});
+                // Pays.hasOne(models.Personne, {as: "idLieu"});
             }
         }
     });

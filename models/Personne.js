@@ -52,10 +52,10 @@ module.exports = function(sequelize, DataTypes) {
         idLieu: {
             type: DataTypes.INTEGER(11),
             allowNull: true,
-            references: {
-                model: 'Lieu',
-                key: 'idLieu'
-            },
+            // references: {
+            //     model: 'Lieu',
+            //     key: 'idLieu'
+            // },
             field: 'idLieu'
         },
         emailP: {
@@ -77,10 +77,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER(11),
             allowNull: true,
             // defaultValue: '0',
-            references: {
-                model: 'Previsite',
-                key: 'idPrevisite'
-            },
+            // references: {
+            //     model: 'Previsite',
+            //     key: 'idPrevisite'
+            // },
             field: 'idPrevisiteFA'
         },
         fa: {

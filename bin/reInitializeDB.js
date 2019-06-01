@@ -39,6 +39,8 @@ var disFKcheck = fs.readFileSync(directorySql + 'disableFKcheck.sql', 'utf8');
 var enFKcheck = fs.readFileSync(directorySql + 'enableFKcheck.sql', 'utf8');
 var popAnim = fs.readFileSync(directorySql + 'populateAnimal.sql', 'utf8');
 var popPers = fs.readFileSync(directorySql + 'populatePersonne.sql', 'utf-8');
+var popNico = fs.readFileSync(directorySql + 'addNicolas.sql', 'utf-8');
+
 var popAnimAskedAdopt =  fs.readFileSync(directorySql + 'populateAnimal_asked_Adoptant.sql', 'utf-8');
 
 models.sequelize.sync(
@@ -54,6 +56,7 @@ models.sequelize.sync(
     sequelize.query(popAnim);
 }).then( function() {
        sequelize.query(popPers);
+    sequelize.query(popNico);
 });
 
 setTimeout(function popAAA() {
