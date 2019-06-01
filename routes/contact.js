@@ -1,6 +1,7 @@
 var models  = require('../models');
 var express = require('express');
 var router = express.Router();
+var nodemailer = require('nodemailer');
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
@@ -9,7 +10,32 @@ router.get('/', function(req, res, next) {
 
 /* POST contact page. */
 router.post('/', function(req, res, next) {
-   res.send('working');
+
+    var name = req.body.contactName;
+    var email = req.body.email;
+    var message = req.body.message;
+
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+            user: 'lestruffesdesierre@gmail.com',
+            pass: 'Le$Truffes_396O'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    let info = transporter.sendMail({
+        from: '"Les Truffes" <' + email + '>',
+        to: "lestruffesdesierre@gmail.com",
+        subject: "Email from " + name + " : " + email + " @ Les Truffes",
+        text: message,
+    });
+
+    res.redirect('contact');
 });
 
 module.exports = router;
