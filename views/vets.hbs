@@ -2,8 +2,21 @@
 <!-- End of header-->
 <section class="aboutus margin-top-120" id="aboutus">
     <div class="container">
+
+
         <div class="row">
             <div class="col-md-12">
+                <div class="col-md-4">
+
+                <form id="lieuxV" action="/vets" method="post">
+                    <input list="lieuV" name="lieuV" required>
+                    <datalist id="lieuV">
+                        {{#each lieux}}
+                            <option value="{{this.idLieu}}">{{this.ville}}</option>
+                        {{/each}}
+                    </datalist>
+                    <input type="submit" style="background-color:#9acfea"  value="Rechercher par région">
+                </form></div>
                 <!-- End of head title-->
                 <div>
                     <table class="table">
@@ -20,9 +33,9 @@
 
                         <form id="vetos" action="/vets" method="post">
                             <tr>
-                                <td><input type="number" name="idVeterinaire" min="{{max}}" required></td>
+                                <td><input type="number" name="idVeterinaire" placeholder=">={{max}}" min="{{max}}" required></td>
                                 <td><input type="text" name="nomV" required></td>
-                                <td><input type="text" name="prenomV" required></td>
+                                <td><input type="text" name="prenomV"></td>
                                 <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
                             </tr>
                         </form>

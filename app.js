@@ -15,24 +15,33 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 //Routers
-var routes = require('./routes/index');
+var routes = require('./routes/about');
 var about  = require('./routes/about');
 var adoption = require('./routes/adoption');
 var contact = require('./routes/contact');
 var contactSend = require('./routes/contactSend');
 var dog  = require('./routes/dog');
+var dogAdmin  = require('./routes/dogAdmin');
 var dogs  = require('./routes/dogs');
+var dogsAdmin  = require('./routes/dogsAdmin');
+var dogsAsked = require('./routes/dogsAsked');
+var dogsFA = require('./routes/dogsFA');
+var dogVeterinaire = require('./routes/dogVeterinaire');
 var fa  = require('./routes/fa');
 var formulaireAdoption  = require('./routes/formulaireAdoption');
 var formulaireFA  = require('./routes/formulaireFA');
+<<<<<<< HEAD
 var personForm  = require('./routes/personForm');
+=======
+var lieu = require('./routes/lieu');
+>>>>>>> didine
 var login = require('./routes/login');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
 var vet  = require('./routes/vet');
 var vets  = require('./routes/vets');
 
-
+ 
 // View engine
 var hbs = require('hbs');
 var HandlebarsIntl = require('handlebars-intl');
@@ -76,11 +85,20 @@ app.use('/adoption', adoption);
 app.use('/contact', contact);
 app.use('/contactSend', contactSend);
 app.use('/dog', dog);
+app.use('/dogAdmin', dogAdmin);
 app.use('/dogs', dogs);
+app.use('/dogsAdmin', dogsAdmin);
+app.use('/dogsAsked', dogsAsked);
+app.use('/dogsFA', dogsFA);
+app.use('/dogVeterinaire', dogVeterinaire);
 app.use('/fa', fa);
 app.use('/formulaireAdoption', formulaireAdoption);
 app.use('/formulaireFA', formulaireFA);
+<<<<<<< HEAD
 app.use('/personForm', personForm);
+=======
+app.use('/lieu', lieu);
+>>>>>>> didine
 app.use('/login', login);
 app.use('/persons', persons);
 app.use('/reserveddogs', reserveddogs);

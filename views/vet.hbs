@@ -1,187 +1,429 @@
 <!-- translate from html with https://pughtml.com/, god bless this website-->
+
 <!-- About Section-->
+
 <div class="container">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+            <form id="hasVetDogs" action="/dogVeterinaire" method="post">
+                <input type="hidden" name="idVetDog" value="{{veto.idVeterinaire}}" required>
+                <input type="submit" style="background-color:#9acfea"  value="Chiens soignés par ce vétérinaire">
+            </form>
+            </p>
+        </div></div></div>
+
+<div class="container">
+
     <div class="col-sm-12">
+
         <div class="main_about_area">
+
             <div class="row">
+
                 <div class="col-sm-4">
+
                     <div class="signle_about_left"><img src="images/animals/veterinaire.jpg" width="292" /></div>
+
                 </div>
+
                 <div class="col-sm-6 col-sm-push-1">
 
-                    <div class="single_about">
-                        <div class="separator2"></div>
+
+
+                    <div >
+
+                        <div></div>
+
                         <div class="column" style="width:100%;">
+
                             <div class="column-content">
+
                                 <div class="clearfix">
 
+
+
                                     <div style="text-align: left;">
+
                                         <form id="myveto" action="/vets" method="get">
-                                         <h4 style="text-align: right;" >  <input style="background:gold"  type="submit" value="Delete"></h4>
+
+                                            <h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4>
+
                                             <table class="table">
-                                                <tr><th></th><td ><input type="hidden" type="number" name="idmyveto" value={{veto.idVeterinaire}}>
-                                                  </td></tr>
+
+                                                <tr><th></th><td ><input type="hidden" type="number" name="idmyveto" value="{{veto.idVeterinaire}}">
+
+                                                </td></tr>
+
                                                 <tr>
+
                                                     <th>ID</th>
+
                                                     <td>{{veto.idVeterinaire}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Nom</th>
+
                                                     <td>{{veto.nomV}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Prénom</th>
+
                                                     <td>{{veto.prenomV}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Clinique</th>
+
                                                     <td>{{veto.cliniqueV}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Rue</th>
+
                                                     <td>{{veto.rueV}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Code postal</th>
+
                                                     <td>{{lieu.codePostal}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Localité</th>
+
                                                     <td>{{lieu.ville}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Spécialité</th>
+
                                                     <td>{{veto.specialiteV}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Commentaires</th>
+
                                                     <td>{{veto.commentaireV}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Tarifs</th>
+
                                                     <td>{{veto.tarifs}}</td>
+
                                                 </tr>
+
                                                 <tr>
+
                                                     <th>Bloqué</th>
+
                                                     <td>{{veto.bloque}}</td>
+
                                                 </tr>
+
                                             </table>
 
+
+
                                             </tr>
+
                                         </form>
+
+
+
 
 
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
 
 
+
+
+
                     </div>
+
                 </div>
+
                 <!-- End of header-->
+
                 <section class="aboutus margin-top-120" id="aboutus">
+
                     <div class="container">
+
                         <div class="row">
+
                             <div class="col-md-12">
-<br>
+
+                                <br>
+
                                 <h2 style="color: slateblue">Modifier les données de ce vétérinaire</h2>
+
                                 <!-- End of head title-->
+
                                 <div>
+
                                     <table class="table">
+
+
 
                                         <tbody>
 
+
+
                                         <form id="updateveto" action="/vet" method="post">
-                                            <tr> <td></td><td></td> <td style="text-align:right"><h4><input style="background:gold" type="submit" value="Update"></h4></td></tr>
+
+                                            <tr> <td></td><td></td> <td style="text-align:right"><h4><input style="background:gold" type="submit" value="Mettre à jour"></h4></td></tr>
+
                                             <tr>
+
                                                 <td><label>ID
+
                                                     <input type="number" name="idVeterinaire" value="{{veto.idVeterinaire}}" readonly>
+
                                                 </label></td>
+
                                                 <td><label>Nom
+
                                                     <input type="text" name="nomV" value="{{veto.nomV}}" required>
+
                                                 </label></td>
+
                                                 <td><label>Prénom
+
                                                     <input type="text" name="prenomV" value="{{veto.prenomV}}">
+
                                                 </label></td></td>
+
                                             </tr>
+
                                             <tr>
+
                                                 <td><label>Clinique
+
                                                     <input type="text" name="cliniqueV" value="{{veto.cliniqueV}}">
+
                                                 </label></td>
+
                                                 <td><label>Rue
+
                                                     <input type="text" name="rueV" value="{{veto.rueV}}">
+
                                                 </label></td>
+
                                                 <td><label>ID Lieu
-                                                    <input list="lieux" type="text" name="idLieu" placeholder="{{veto.idLieu}}" required>
+
+                                                    <input list="lieux" type="text" name="idLieu" placeholder="{{veto.idLieu}}">
+
                                                     <datalist id="lieux">
-                                                    {{#each lieux}}
-                                                            <option value="{{this.idLieu}}">
-                                                    {{/each}}
+
+                                                        {{#each lieux}}
+
+                                                            <option value="{{this.idLieu}}">{{this.codePostal}} {{this.ville}}</option>
+
+                                                        {{/each}}
+
                                                     </datalist>
+
                                                 </label></td>
 
+
+
                                             </tr>
+
                                             <tr>
+
                                                 <td><label>Spécialité
+
                                                     <input type="text" name="specialiteV" value="{{veto.specialiteV}}">
+
                                                 </label></td>
+
                                                 <td><label>Tarifs
+
                                                     <input type="number" name="tarifs" value="{{veto.tarifs}}">
+
                                                 </label></td>
+
                                                 <td><label>Bloqué
-                                                    <input type="number" name="bloque" value="{{veto.bloque}}">
-                                                </label></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label>Commentaires
-                                                    <input type="text" name="commentaireV" value="{{veto.commentaireV}}">
+
+                                                    <input list="bloque" name="bloque" value="{{veto.bloque}}">
+                                                    <datalist id="bloque"><option value="1">Oui</option><option value="0">Non</option></datalist>
+
                                                 </label></td>
 
                                             </tr>
+
+                                            <tr>
+
+                                                <td><label>Commentaires
+
+                                                    <input type="text" name="commentaireV" value="{{veto.commentaireV}}">
+
+                                                </label></td>
+
+
+
+                                            </tr>
+
+
 
                                         </form>
 
+
+
                                         </tbody>
+
                                     </table>
-<br>
-                                    <h2 style="color: slateblue">Lieux</h2>
+
+                                    <br>
+
+                                    <h2 style="color: slateblue">Ajouter un lieu</h2>
+
                                     <table class="table">
+
                                         <tr>
+
                                             <th>ID Lieu</th>
+
                                             <th>Code postal</th>
+
                                             <th>Ville</th>
-                                        </tr>
-                                    {{#each lieux}}
-                                        <tr>
-                                            <td>{{this.idLieu}}
-                                            </td>
-                                            <td>{{this.codePostal}}
-                                            </td>
-                                            <td>{{this.ville}}
-                                            </td>
 
                                         </tr>
-                                    {{/each}}
+                                        <form id="insertLieu" action="/vet" method="post">
+                                            <tr><input type="hidden" name="idVeterinaire"  value="{{veto.idVeterinaire}}">
+                                                <td>
+                                                    <input type="number" name="insertIdLieu" placeholder=">={{max}}" min="{{max}}" required>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="insertCP" required>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="insertVille" required>
+                                                </td>
+                                                <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
+                                            </tr>
+                                            </tr>
+                                        </form>
                                     </table>
+
+                                    <div class="container">
+
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+
+                                                <h2 style="color: slateblue">Liste des lieux</h2>
+
+                                                <table class="table">
+
+                                                    <tr>
+
+                                                        <th>ID Lieu</th>
+
+                                                        <th>Code postal</th>
+
+                                                        <th>Ville</th>
+
+                                                        <th></th>
+
+                                                    </tr>
+
+                                                    {{#each lieux}}
+                                                        <form id="deleteLieu" action="/lieu" method="post">
+
+                                                            <tr>
+                                                                <input type="hidden" name="idVeterinaire"  value={{veto.idVeterinaire}}>
+                                                                <input type="hidden" name="deleteLieu" value="{{this.idLieu}}">
+
+                                                                <td>{{this.idLieu}}
+
+                                                                </td>
+
+                                                                <td>{{this.codePostal}}
+
+                                                                </td>
+
+                                                                <td>{{this.ville}}
+
+                                                                </td>
+                                                                <td><h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4></td>
+
+
+                                                            </tr>
+                                                        </form>
+                                                    {{/each}}
+
+                                                </table>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
+
                             <!-- End of col-sm-12-->
+
                         </div>
+
                         <!-- End of row-->
+
                     </div>
+
                     <!-- End of Container-->
+
                     <hr/>
+
+
 
                 </section>
 
+
+
                 <!-- End of col-sm-12-->
 
+
+
                 <!-- End of Container-->
+
                 <!-- End of about Section-->
+
             </div>
 
 
+
+
+
         </div>
+
     </div>
+
 </div>
