@@ -46,8 +46,11 @@
                                 <td>test</td>
                                 <td>test</td>
                                 <td>
+                                    <form id="oneperson" action="/personInfo/{{this.idPersonne}}" method="get" >
+                                        <button type="submit">&Eacute;diter</button>
+                                    </form>
+
                                     <button onclick="deletePersonne('{{this.idPersonne}}')">Supprimer</button>
-                                    <button onclick="updatePersonne('{{this.idPersonne}}')">&Eacute;diter</button>
                                 </td>
 
                             </tr>

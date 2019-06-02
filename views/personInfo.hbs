@@ -1,0 +1,42 @@
+<div class="container">
+    <h5 style="text-align:center">Créer un compte</h5>
+    <form action="/persons" method="put">
+
+        <h2 style="color:slateblue">Profil</h2>
+
+        <label for="nomP">Nom</label>
+        <input type="text" id="nomP" name="nomP" value={{person.nomP}}  required>
+
+        <label for="prenomP">Prénom</label>
+        <input type="text" id="prenomP" name="prenomP" value={{person.prenomP}} required>
+
+        <label for="emailP">E-mail</label>
+        <textarea type="mail" id="emailP" name="emailP" value={{person.emailP}}></textarea>
+
+        <label for="facebookP">Pseudo Facebook</label>
+        <input type="text" id="facebookP" name="facebookP" value={{person.facebookP}} required></input>
+
+        <label for="telPortableP">Téléphone</label>
+        <textarea data-type="control_textbox" id="telPortableP" name="telPortableP" value={{person.telPortbleP}} required></textarea>
+
+        <label for="rueP">Adresse</label>
+        <input type="text" id="rueP" name="rueP" value={{person.rueP}} required></input>
+
+        <label for="npa">NPA</label>
+        <input type="text" id="npa" name="numpostal" value="a poper" required></input>
+
+        <label for="loc">Localité</label>
+        <input type="text" id="loc" name="localite" value="a poper" required></input>
+
+        <label for="dateNaissanceP">Date de naissance</label>
+        <input type="date" id="dateNaissanceP" name="dateNaissanceP" max="2019-01-01" value="{{person.dateNaissanceP}}" required></input>
+
+        <label for="autre">Souhaitez-vous indiquer des informations supplémentaires ? </label>
+        <textarea data-type="control_textbox" id="autre" name="autreinfo" value={{person.commentaires}}></textarea>
+
+        <button onclick="updatePersonne('{{person.idPersonne}}',
+                document.getElementById('Personne-{{person.idPersonne}}').value)">Confirmer</button>
+
+    </form>
+
+</div>

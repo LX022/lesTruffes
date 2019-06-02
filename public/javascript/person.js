@@ -1,15 +1,8 @@
-/* Delete Personne*/
-function deletePersonne(idPersonne) {
-    superagent.delete(`/persons/${idPersonne}`)
-        .then(() => {
-            window.location.href = '/persons';
-        });
-}
-
 /* Update Personne*/
-function updatePersonne(idPersonne) {
+function updatePersonne(idPersonne, nomP, prenomP, emailP, facebookP, telPortableP, rueP, dateNaissanceP) {
     superagent.put('/persons')
         .send({
+            idPersonne: idPersonne,
             nomP: nomP,
             prenomP: prenomP,
             emailP: emailP,
@@ -19,5 +12,13 @@ function updatePersonne(idPersonne) {
             dateNaissanceP: dateNaissanceP,
             //idPrevisiteFa: 1
         })
-
 }
+
+/* Delete Personne*/
+function deletePersonne(idPersonne) {
+    superagent.delete(`/persons/${idPersonne}`)
+        .then(() => {
+            window.location.href = '/persons';
+        });
+}
+

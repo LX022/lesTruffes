@@ -13,24 +13,26 @@ router.get('/', async function (req, res, next) {
 // Update put
 router.put('/', (req, res, next) => {
     models.Personne.update({
-        idPersonne: req.body.idPersonne,
         nomP: req.body.nomP,
         prenomP: req.body.prenomP,
         emailP: req.body.emailP,
         facebookP: req.body.facebookP,
         //telPortableP: req.body.telPortableP,
         rueP: req.body.rueP,
-        dateNaissanceP : req.body.dateNaissanceP,
+        dateNaissanceP: req.body.dateNaissanceP,
         //idPrevisiteFa: 1
+    }, {
+        where: {id: req.body.id}
+    }).then((nbRows) => {
+        res.send(`item updated!'`)
     });
+    //res.render('persons', {title: 'Membres', persons: persons});
 });
 
 // DELETE
 router.delete('/:idPersonne', (req, res, next) => {
     models.Personne.destroy({
         where: {idPersonne: req.params.idPersonne}
-    }).then((nbRows) => {
-        res.send(`item deleted!'`);
     });
 })
 
