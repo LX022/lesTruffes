@@ -17,16 +17,8 @@ router.get('/', async function (req, res, next) {
     //récupérer les lieux
     let lieux = await models.lieu.findAll();
 
-    let idcount = await models.veterinaire.findAll();
-    let max = 0;
-    for(let i =0;i<idcount.length;i++){
-        if(idcount[i].idVeterinaire > max){
-            max = idcount[i].idVeterinaire;
-        }
-    }
-    max = max +1;
 
-    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, max:max, lieux:lieux});        //Page title
+    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux});        //Page title
 });
 
 /* POST vets page. */
@@ -41,23 +33,15 @@ router.post('/', async function (req, res) {
         veterinaires = await models.veterinaire.findAll({where:{idLieu:req.body.lieuV}, order: [['idVeterinaire', 'ASC']]});
     }
 
-    if(req.body.idVeterinaire!==undefined){
+    if(req.body.nomV!==undefined){
     //ADD vet
-    await models.veterinaire.create({idVeterinaire:req.body.idVeterinaire, nomV: req.body.nomV, prenomV:req.body.prenomV});
+    await models.veterinaire.create({nomV: req.body.nomV, prenomV:req.body.prenomV});
     veterinaires = await models.veterinaire.findAll({order: [['idVeterinaire', 'ASC']]});}
 
     //récupérer les lieux
     let lieux = await models.lieu.findAll();
 
-    let idcount = await models.veterinaire.findAll();
-    let max = 0;
-    for(let i =0;i<idcount.length;i++){
-        if(idcount[i].idVeterinaire > max){
-            max = idcount[i].idVeterinaire;
-        }
-    }
-    max = max +1;
-    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, max:max,  lieux:lieux});        //Page title
+    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux});        //Page title
 
 
 });

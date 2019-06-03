@@ -9,7 +9,7 @@ router.get('/', async function (req, res, next) {
     let personnes = await models.personne.findAll();
 
     //liste des chiens
-    let dogs = await models.Animal.findAll();
+    let dogs = await models.animal.findAll();
 
     //Liste liens dogsFA
     let dogsFA = await models.animalHasFa.findAll();

@@ -4,9 +4,10 @@ var router = express.Router();
 
 /* GET dogAdmin page. */
 router.get('/', async function(req, res, next) {
+
     //Recherche du chien à afficher
     let id = req.query.idAnimal;
-    let chien = await models.Animal.findByPk(id);
+    let chien = await models.animal.findByPk(id);
 
     //titre
     let nom = chien.nomAnimal;
@@ -41,12 +42,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -54,12 +55,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({sterilisation:req.body.sterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({sterilisation:req.body.sterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -72,12 +73,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -85,12 +86,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({sterilisation:req.body.sterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({sterilisation:req.body.sterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -107,12 +108,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -120,12 +121,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({dateSterilisation:req.body.dateSterilisation, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateSterilisation:req.body.dateSterilisation, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -138,12 +139,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({dateNaissAnimal:req.body.dateNaissAnimal, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateNaissAnimal:req.body.dateNaissAnimal, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({dateNaissAnimal:req.body.dateNaissAnimal, dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateNaissAnimal:req.body.dateNaissAnimal, dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -151,12 +152,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -177,12 +178,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({icad:req.body.icad, dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad, dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -190,12 +191,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad, sterilisation:req.body.sterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad, sterilisation:req.body.sterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({icad:req.body.icad, sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad, sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -208,12 +209,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -221,12 +222,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,sterilisation:req.body.sterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,sterilisation:req.body.sterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,sterilisation:req.body.sterilisation, dateSterilisation:req.body.dateSterilisation, dateNaissAnimal:req.body.dateNaissAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -243,12 +244,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -256,12 +257,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateSterilisation:req.body.dateSterilisation, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateSterilisation:req.body.dateSterilisation, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -274,12 +275,12 @@ router.post('/', async function (req, res) {
 
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, dateSterilisation:req.body.dateSterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -287,12 +288,12 @@ router.post('/', async function (req, res) {
                     //avec stérilisation
                     if(req.body.dateSterilisation===undefined || req.body.dateSterilisation===null || req.body.dateSterilisation===''){
                         //Sans date de stérilisation
-                        await models.Animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                     else{
                         //avec date de stérilisation
-                        await models.Animal.update({dateSterilisation:req.body.dateSterilisation, icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
+                        await models.animal.update({dateSterilisation:req.body.dateSterilisation, icad:req.body.icad,dateNaissAnimal:req.body.dateNaissAnimal, sterilisation:req.body.sterilisation, dateEntreeAnimal:req.body.dateEntreeAnimal, tatouage: req.body.tatouage, nomAnimal:req.body.nomAnimal, deces: req.body.deces, histoireAnimal: req.body.histoireAnimal, descriptionAnimal: req.body.descriptionAnimal, couleursAnimal: req.body.couleursAnimal, race:req.body.race, especeAnimal: req.body.especeAnimal, sexe:req.body.sexe}, {where: {idAnimal: req.body.idAnimal}});
 
                     }
                 }
@@ -302,7 +303,7 @@ router.post('/', async function (req, res) {
 
 
     //récupère le chien màj
-    let chien = await models.Animal.findByPk(req.body.idAnimal);
+    let chien = await models.animal.findByPk(req.body.idAnimal);
 
     //titre
     let nom = chien.nomAnimal;

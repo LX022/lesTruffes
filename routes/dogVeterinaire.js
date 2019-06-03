@@ -38,7 +38,7 @@ router.post('/', async function(req, res, next) {
 
     //récupérer le(s) vétérinaire(s) et les chiens
     let veterinaires = await models.veterinaire.findAll();
-    let chiens = await models.Animal.findAll();
+    let chiens = await models.animal.findAll();
 
     if(req.body.idAnimal!==undefined){
         veterinaires = await models.veterinaire.findAll({where:{idAnimal:req.body.idAnimal}});

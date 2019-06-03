@@ -5,18 +5,9 @@ var router = express.Router();
 /* GET vet page. */
 router.get('/', async function(req, res, next) {
 
-    //Créer un lieu ? s'il n'existe pas
-    let lieuDefaut = await models.lieu.findAll({where:{codePostal:0}});
-    if(lieuDefaut<1) {
-        let lieuInconnu = await models.lieu.create({idLieu: 0, codePostal: 0, ville: "?",idPays:0});
-    }
-
     //Recherche du vétérinaire à afficher
     let id = req.query.idVeterinaire;
     let veto = await models.veterinaire.findByPk(id);
-
-    console.log(id);
-
 
     //Recherche le lieu du véto et les lieux en général
     let lieu = await models.lieu.findByPk(veto.idLieu);
@@ -26,16 +17,8 @@ router.get('/', async function(req, res, next) {
     //titre
     let nom = veto.nomV +" " + veto.prenomV;
 
-    //récupérer dernier id lieu
-    let max = 0;
-    for(let i =0;i<lieux.length;i++){
-        if(lieux[i].idLieu > max){
-            max = lieux[i].idLieu;
-        }
-    }
-    max = max +1;
 
-    res.render('vet', { title: nom, veto : veto, lieux:lieux, lieu:lieu, pays:pays, max:max });   //Page title
+    res.render('vet', { title: nom, veto : veto, lieux:lieux, lieu:lieu, pays:pays });   //Page title
 });
 
 
@@ -49,8 +32,8 @@ router.post('/', async function (req, res) {
     if(laSuisse.length<1){
         laSuisse = await models.pays.create({idPays:0, codePays:0, alpha2:"CH", alpha3:"CH", nomEnGb:"Suisse", nomPays:"Suisse" });
     }
-    if(req.body.insertIdLieu!==undefined && req.body.insertCP!==undefined && req.body.insertVille!==undefined){
-        await models.lieu.create({idLieu:req.body.insertIdLieu, codePostal:req.body.insertCP, ville:req.body.insertVille, idPays:0});
+    if(req.body.insertCP!==undefined && req.body.insertVille!==undefined){
+        await models.lieu.create({codePostal:req.body.insertCP, ville:req.body.insertVille, idPays:0});
     }
 
     //Créer un lieu ? s'il n'existe pas
@@ -78,16 +61,9 @@ router.post('/', async function (req, res) {
     let pays = await models.pays.findAll();
     let lieux = await models.lieu.findAll({order: [['ville', 'ASC']]});
 
-    //récupérer dernier id lieu
-    let max = 0;
-    for(let i =0;i<lieux.length;i++){
-        if(lieux[i].idLieu > max){
-            max = lieux[i].idLieu;
-        }
-    }
-    max = max +1;
 
-    res.render('vet', { title: nom, veto : veto , lieux:lieux, lieu:lieu, pays:pays, max:max});        //Page title
+
+    res.render('vet', { title: nom, veto : veto , lieux:lieux, lieu:lieu, pays:pays});        //Page title
 
 });
 
