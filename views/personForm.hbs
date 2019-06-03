@@ -1,0 +1,44 @@
+<div class="container">
+    <h5 style="text-align:center">Créer un compte</h5>
+    <form action="/personForm" method="post">
+
+        <h2 style="color:slateblue">Coordonnées</h2>
+
+        <label for="idPersonne">ID</label>
+        <input type="number" name="idPersonne" min="{{max}}" required>
+
+        <label for="nomP">Nom</label>
+        <input type="text" id="nomP" name="nomP" placeholder="Votre nom..."  required>
+
+        <label for="prenomP">Prénom</label>
+        <input type="text" id="prenomP" name="prenomP" placeholder="Votre prénom..." required>
+
+        <label for="emailP">E-mail</label>
+        <textarea type="mail" id="emailP" name="emailP" placeholder="Votre mail..."></textarea>
+
+        <label for="facebookP">Pseudo Facebook</label>
+        <input type="text" id="facebookP" name="facebookP" placeholder="Votre pseudo facebook..." required></input>
+
+        <label for="telPortableP">Téléphone</label>
+        <textarea data-type="control_textbox" id="telPortableP" name="telPortableP" placeholder="Votre numéro de téléphone..." required></textarea>
+
+        <label for="rueP">Adresse</label>
+        <input type="text" id="rueP" name="rueP" placeholder="Votre adresse..." required></input>
+
+        <label for="npa">NPA</label>
+        <input type="text" id="npa" name="numpostal" placeholder="Votre code postal..." required></input>
+
+        <label for="loc">Localité</label>
+        <input type="text" id="loc" name="localite" placeholder="Votre localité..." required></input>
+
+        <label for="dateNaissanceP">Date de naissance</label>
+        <input type="date" id="dateNaissanceP" name="dateNaissanceP" max="2019-01-01" required></input>
+
+        <label for="autre">Souhaitez-vous indiquer des informations supplémentaires ? </label>
+        <textarea data-type="control_textbox" id="autre" name="autreinfo" placeholder="Autres informations..." ></textarea>
+
+        <input class="btn" type="submit" value="envoyer">
+
+    </form>
+
+</div>

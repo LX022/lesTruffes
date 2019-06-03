@@ -1,0 +1,229 @@
+<!-- translate from html with https://pughtml.com/, god bless this website-->
+<!-- About Section-->
+
+<div class="container">
+    <div class="col-sm-12">
+        <div class="main_about_area">
+            <div class="row">
+                <div class="col-sm-4"><br>
+                    <p>
+                    <form id="isDogAsked" action="/dogsAsked" method="post">
+                        <input type="hidden" name="idAnimalAsked" value="{{chien.idAnimal}}" required>
+                        <h4><input type="submit" style="background-color:#9acfea"  value="Adoption en cours ?"></h4>
+                    </form>
+                    </p>
+                    <p>
+                    <form id="isDogFA" action="/dogsFA" method="post">
+                        <input type="hidden" name="idAnimal" value="{{chien.idAnimal}}" required>
+                        <h4><input type="submit" style="background-color:#9acfea"  value="En famille d'accueil ?"></h4>
+                    </form>
+                    </p>
+                    <p>
+                    <form id="hasDogVet" action="/dogVeterinaire" method="post">
+                        <input type="hidden" name="idAnimalVeterinaire" value="{{chien.idAnimal}}" required>
+                        <h4><input type="submit" style="background-color:#9acfea"  value="Est-il suivi par un vétérinaire ?"></h4>
+                    </form>
+                    </p><br><br><br>
+                    <div style="text-align: center;"><input type="image" class="card-img-top" src="/images/animals/{{chien.nomAnimal}}_{{chien.idAnimal}}_0.jpg"
+                                                            width="200" height="200" onerror="this.onerror=null;this.src='/images/animals/no_picture.png'"></div>
+                </div>
+                <div class="col-sm-6 col-sm-push-1">
+
+                    <div class="single_about">
+                        <div></div>
+                        <div class="column" style="width:100%;">
+                            <div class="column-content">
+                                <div class="clearfix">
+
+                                    <div style="text-align: left;">
+                                        <form id="idmydog" action="/dogsAdmin" method="post">
+                                            <input type="hidden" name="idmydog" value="{{chien.idAnimal}}">
+                                            <h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4>
+                                            <table class="table">
+                                                <tr><th></th><td >
+                                                </td></tr>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <td>{{chien.idAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>ICAD</th>
+                                                    <td>{{chien.icad}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Nom</th>
+                                                    <td>{{chien.nomAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Couleur(s)</th>
+                                                    <td>{{chien.couleursAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Race</th>
+                                                    <td>{{chien.race}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Espèce</th>
+                                                    <td>{{chien.especeAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Sexe</th>
+                                                    <td>{{chien.sexe}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date d'entrée</th>
+                                                    <td>{{chien.dateEntreeAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date de naissance</th>
+                                                    <td>{{chien.dateNaissAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>tatouage</th>
+                                                    <td>{{chien.tatouage}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Décès (0=non  1=oui)</th>
+                                                    <td>{{chien.deces}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Son histoire</th>
+                                                    <td>{{chien.histoireAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <td>{{chien.descriptionAnimal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Stérilisation</th>
+                                                    <td>{{chien.sterilisation}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Date de stérilisation</th>
+                                                    <td>{{chien.dateSterilisation}}</td>
+                                                </tr>
+                                            </table>
+
+                                            </tr>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- End of header-->
+                <section class="aboutus margin-top-120" id="aboutus">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <br>
+                                <h2 style="color: slateblue">Modifier les données de ce toutou</h2>
+                                <!-- End of head title-->
+                                <div>
+                                    <table class="table">
+
+                                        <tbody>
+
+                                        <form id="updatedog" action="/dogAdmin" method="post">
+                                            <tr><td></td><td></td> <td style="text-align: right;"><h4><input style="background:gold" type="submit" value="Mettre à jour"></h4></td></tr>
+                                            <tr>
+                                                <td><label>ID
+                                                    <input type="number" name="idAnimal" value="{{chien.idAnimal}}" readonly>
+                                                </label></td>
+                                                <td><label>ICAD (0 si inconnu)
+                                                    <input type="number" name="icad" value="{{chien.icad}}" >
+                                                </label></td>
+                                                <td><label>Nom
+                                                    <input type="text" name="nomAnimal" value="{{chien.nomAnimal}}">
+                                                </label></td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Couleur(s)
+                                                    <input type="text" name="couleursAnimal" value="{{chien.couleursAnimal}}">
+                                                </label></td>
+                                                <td><label>Race
+                                                    <input type="text" name="race" value="{{chien.race}}">
+                                                </label></td>
+                                                <td><label>Espèce
+                                                    <input type="text" name="especeAnimal" value="{{chien.especeAnimal}}">
+                                                </label></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><label>Sexe
+                                                    <input type="text" name="sexe" value="{{chien.sexe}}">
+                                                </label></td>
+                                                <td><label>Date d'entrée
+                                                    <input type="date" name="dateEntreeAnimal" value="{{chien.dateEntreeAnimal}}">
+                                                </label></td>
+                                                <td><label>Date de naissance
+                                                    <input type="date" name="dateNaissAnimal" value="{{chien.dateNaissAnimal}}">
+                                                </label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label>Tatouage
+                                                    <input type="text" name="tatouage" value="{{chien.tatouage}}">
+                                                </label></td>
+                                                <td><label>Décès (D si décédé)</label><br>
+                                                    <input list="deces" name="deces" value="{{chien.deces}}" >
+                                                    <datalist id="deces">
+                                                        <option value="D">Décédé</option>
+                                                        <option value="">Vivant</option>
+                                                    <option value="?">?</option></datalist>
+                                                </td>
+                                                <td><label>Son histoire
+                                                    <input type="text" name="histoireAnimal" value="{{chien.histoireAnimal}}">
+                                                </label></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><label>Description
+                                                    <input type="text" name="descriptionAnimal" value="{{chien.descriptionAnimal}}">
+                                                </label></td>
+                                                <td><label>Stérilisation</label><br>
+                                                    <input list="statutSterilisation" name="sterilisation" value="{{chien.sterilisation}}">
+                                                    <datalist id="statutSterilisation">
+                                                        <option value="0">Pas stérilisé</option>
+                                                    <option value="1">Stérilisé</option>
+                                                    <option value="2">???</option></datalist>
+                                                </td>
+                                                <td><label>Date de stérilisation
+                                                    <input type="date" name="dateSterilisation" value="{{chien.dateSterilisation}}">
+                                                </label></td>
+
+                                            </tr>
+                                        </form>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <!-- End of col-sm-12-->
+                        </div>
+                        <!-- End of row-->
+                    </div>
+                    <!-- End of Container-->
+                    <hr/>
+
+                </section>
+
+                <!-- End of col-sm-12-->
+
+                <!-- End of Container-->
+                <!-- End of about Section-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
