@@ -10,6 +10,7 @@ var models = require('../models');
 var handlebars = require('handlebars');
 var app = express();
 var router = express.Router();
+var models  = require('../models');
 
     var connection = mysql.createConnection({
         host     : 'localhost',
@@ -19,20 +20,24 @@ var router = express.Router();
 });
 
 
-router.get('/', function(req,res,next){
+router.get('/', async function(req,res,next){
     res.render('/');
 });
 
-router.post('/', function(req, res, next) {
-    var username = req.body.username;
-    var password = req.body.password;
+router.post('/', async function(req, res, next) {
+    var insertedUsername = req.body.username;
+    var insertedPassword = req.body.password;
 
-    if (username && password) {
-        connection.query('SELECT privilege FROM personne WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-            if (results.length > 0) {
+    var results = await models.Personne.findAll(
+        {where: {username:insertedUsername, password:insertedPassword},
+        attributes: ['username', 'password', 'privilege']});
+
+    if (insertedUsername && insertedPassword) {
+
+            if (results != null) {
                 req.session.loggedin = true;
-                req.session.username = username;
-                req.session.privilege = JSON.stringify(results[0]).replace(/\D/g,'');
+                req.session.username = results[0].username;
+                req.session.privilege = results[0].privilege;
 
                 handlebars.registerHelper('username', function() {
                     return 'hey';
@@ -45,7 +50,7 @@ router.post('/', function(req, res, next) {
                 res.send('Incorrect Username and/or Password!');
             }
             res.end();
-        });
+
     } else {
         res.send('Please enter Username and Password!');
         res.end();
