@@ -4,21 +4,11 @@ var router = express.Router();
 
 /* GET dogsAdmin page. */
 router.get('/', async function (req, res, next) {
-
-
+    
     //Liste des chiens
-    let dogs = await models.Animal.findAll({order: [['idAnimal', 'ASC']]});
+    let dogs = await models.animal.findAll({order: [['idAnimal', 'ASC']]});
 
-    //Calcule le plus grand id de la table
-    let max = 0;
-    for(let i =0;i<dogs.length;i++){
-        if(dogs[i].idAnimal > max){
-            max = dogs[i].idAnimal;
-        }
-    }
-    max = max +1;
-
-    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs, max:max});        //Page title
+    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs});        //Page title
 });
 
 
