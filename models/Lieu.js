@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER(11),
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
             field: 'idLieu'
         },
         codePostal: {
@@ -31,5 +32,12 @@ module.exports = function(sequelize, DataTypes) {
         timestamps: false,
         freezeTableName: true,
         tableName: 'Lieu'
+    },
+    {
+        classMethods: {
+            associate: function (models) {
+                // Pays.hasOne(models.Personne, {as: "idLieu"});
+            }
+        }
     });
 };

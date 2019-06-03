@@ -1,11 +1,12 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('personne', {
+    return sequelize.define('Personne', {
         idPersonne: {
             type: DataTypes.INTEGER(11),
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
             field: 'idPersonne'
         },
         nomP: {
@@ -51,10 +52,10 @@ module.exports = function(sequelize, DataTypes) {
         idLieu: {
             type: DataTypes.INTEGER(11),
             allowNull: true,
-            references: {
-                model: 'Lieu',
-                key: 'idLieu'
-            },
+            // references: {
+            //     model: 'Lieu',
+            //     key: 'idLieu'
+            // },
             field: 'idLieu'
         },
         emailP: {
@@ -74,12 +75,12 @@ module.exports = function(sequelize, DataTypes) {
         },
         idPrevisiteFa: {
             type: DataTypes.INTEGER(11),
-            allowNull: false,
-            defaultValue: '0',
-            references: {
-                model: 'Previsite',
-                key: 'idPrevisite'
-            },
+            allowNull: true,
+            // defaultValue: '0',
+            // references: {
+            //     model: 'Previsite',
+            //     key: 'idPrevisite'
+            // },
             field: 'idPrevisiteFA'
         },
         fa: {
@@ -87,20 +88,20 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
             field: 'FA'
         },
-        username: {
-            type: DataTypes.STRING(45),
+        privilege: {
+            type: DataTypes.INTEGER(5),
             allowNull: true,
-            field: 'username'
+            field: 'Privilege'
+        },
+        username: {
+            type:DataTypes.STRING(25),
+            allowNull: true,
+            field: 'Username'
         },
         password: {
-            type: DataTypes.STRING(45),
+            type:DataTypes.STRING(25),
             allowNull: true,
-            field: 'password'
-        },
-        privilege: {
-            type: DataTypes.INTEGER(2),
-            allowNull: true,
-            field: 'emailP'
+            field: 'Password'
         }
     }, {
         timestamps: false,

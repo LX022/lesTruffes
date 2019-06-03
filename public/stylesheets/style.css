@@ -627,7 +627,8 @@ input::-ms-input-placeholder {
 service section css
 ==========================================================================*/
 .head_title{
-    margin-bottom:60px;
+    margin-bottom:20px;
+    text-align: center;
 }
 .head_title h2{
     font-size:3.125rem;

@@ -11,11 +11,11 @@
                     <table class="table">
                         <thead>
                         <!-- En-tête du tableau-->
-                        <tr>
+                        <tr style="text-align: center">
                             <th scope="col">Nom</th>
                             <th scope="col">Pr&eacute;nom</th>
                             <th scope="col">facebook</th>
-                            <th scope="col">Date de naissance</th>
+                            <th scope="col" data-type="date" data-format-string="DD MMMM YYYY">Date de naissance</th>
                             <th scope="col">Adresse</th>
                             <th scope="col">Maison</th>
                             <th scope="col">Portable</th>
@@ -25,27 +25,37 @@
                             <th scope="col">pr&eacute;visite FA</th>
                             <th scope="col">FA</th>
                             <th scope="col">Statuts</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <!-- data-->
-                        <tr>
-                            <td>Simpson</td>
-                            <td>Homer</td>
-                            <td>test</td>
-                            <td>12.20.1956</td>
-                            <td>rue de truc 24, 45832 Vannes</td>
-                            <td>Maison</td>
-                            <td>Portable</td>
-                            <td>lieu</td>
-                            <td>email</td>
-                            <td>bloque</td>
-                            <td>pr&eacute;visite FA</td>
-                            <td>FA</td>
-                            <td>Statuts</td>
-                        </tr>
+                        {{#each persons}}
+                            <tr>
+                                <td>{{this.nomP}}</td>
+                                <td>{{this.prenomP}}</td>
+                                <td>{{this.facebookP}}</td>
+                                <td data-type="date" data-format-string="DD MMMM YYYY">{{this.dateNaissanceP}}</td>
+                                <td>{{this.rueP}}</td>
+                                <td>{{this.telDomicileP}}</td>
+                                <td>{{this.telPortableP}}</td>
+                                <td>{{this.telAutreP}}</td>
+                                <td>{{this.emailP}}</td>
+                                <td>{{this.commentaires}}</td>
+                                <td>{{this.FA}}</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>
+                                    <button onclick="deletePersonne('{{this.idPersonne}}')">Supprimer</button>
+                                    <button onclick="updatePersonne('{{this.idPersonne}}')">&Eacute;diter</button>
+                                </td>
+
+                            </tr>
+                        {{/each}}
+                        <script src='javascript/person.js'></script>
                         </tbody>
                     </table>
+
                 </div>
             </div>
             <!-- End of col-sm-12-->

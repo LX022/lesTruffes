@@ -15,22 +15,32 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 //Routers
-var routes = require('./routes/index');
+var routes = require('./routes/about');
 var about  = require('./routes/about');
 var adoption = require('./routes/adoption');
 var contact = require('./routes/contact');
 var dog  = require('./routes/dog');
+var dogAdmin  = require('./routes/dogAdmin');
 var dogs  = require('./routes/dogs');
+var dogsAdmin  = require('./routes/dogsAdmin');
+var dogsAsked = require('./routes/dogsAsked');
+var dogsFA = require('./routes/dogsFA');
+var dogVeterinaire = require('./routes/dogVeterinaire');
 var fa  = require('./routes/fa');
 var formulaireAdoption  = require('./routes/formulaireAdoption');
 var formulaireFA  = require('./routes/formulaireFA');
+
+var personForm  = require('./routes/personForm');
+
+var lieu = require('./routes/lieu');
+
 var login = require('./routes/login');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
 var vet  = require('./routes/vet');
 var vets  = require('./routes/vets');
 
-
+ 
 // View engine
 var hbs = require('hbs');
 var HandlebarsIntl = require('handlebars-intl');
@@ -40,6 +50,7 @@ HandlebarsIntl.registerWith(hbs);
 var app = express();
 
 // session variables
+app.set('trust proxy', 1) // trust first proxy
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -72,10 +83,20 @@ app.use('/about', about);
 app.use('/adoption', adoption);
 app.use('/contact', contact);
 app.use('/dog', dog);
+app.use('/dogAdmin', dogAdmin);
 app.use('/dogs', dogs);
+app.use('/dogsAdmin', dogsAdmin);
+app.use('/dogsAsked', dogsAsked);
+app.use('/dogsFA', dogsFA);
+app.use('/dogVeterinaire', dogVeterinaire);
 app.use('/fa', fa);
 app.use('/formulaireAdoption', formulaireAdoption);
 app.use('/formulaireFA', formulaireFA);
+
+app.use('/personForm', personForm);
+
+app.use('/lieu', lieu);
+
 app.use('/login', login);
 app.use('/persons', persons);
 app.use('/reserveddogs', reserveddogs);
