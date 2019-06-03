@@ -3,22 +3,22 @@
 <section class="aboutus margin-top-120" id="aboutus">
     <div class="container">
 
-
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-4">
 
-                <form id="lieuxV" action="/vets" method="post">
-                    <input list="lieuV" name="lieuV" required>
-                    <datalist id="lieuV">
-                        {{#each lieux}}
-                            <option value="{{this.idLieu}}">{{this.ville}}</option>
-                        {{/each}}
-                    </datalist>
-                    <input type="submit" style="background-color:#9acfea"  value="Rechercher par région">
-                </form></div>
+                    <form id="lieuxV" action="/vets" method="post">
+                        <input list="lieuV" name="lieuV" required>
+                        <datalist id="lieuV">
+                            {{#each lieux}}
+                                <option value="{{this.idLieu}}">{{this.ville}}</option>
+                            {{/each}}
+                        </datalist>
+                        <input type="submit" style="background-color:#9acfea"  value="Rechercher par région">
+                    </form>
+                </div>
                 <!-- End of head title-->
-                <div>
+
                     <table class="table">
                         <thead>
                         <!-- En-tête du tableau-->
@@ -56,10 +56,45 @@
                     </table>
                 </div>
             </div>
+
             <!-- End of col-sm-12-->
-        </div>
+        test test test test
+        <div id="map" style="width:100%" style="height:100%"></div>
+        <script>
+            var geocoder;
+            var map;
+            var address = "new york city";
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: {lat: -34.397, lng: 150.644}
+                });
+                geocoder = new google.maps.Geocoder();
+                codeAddress(geocoder, map);
+            }
+
+            function codeAddress(geocoder, map) {
+                geocoder.geocode({'address': address}, function(results, status) {
+                    if (status === 'OK') {
+                        map.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                        });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
+        </script>
+
+        <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_eCV-_vT7xUxuD3IZXV5Q7tmKuS_o6o&callback=initMap" />
+
         <!-- End of row-->
+
     </div>
+
+
     <!-- End of Container-->
     <hr/>
 
