@@ -18,11 +18,12 @@ router.post('/', async function (req, res) {
 
 
     //TESTER les paramètres rentrés, car ils sont de types number et date, le type texte ne pose pas de problème si rien n'est rentré
-if(req.body.idAnimal!==undefined) {
+if(req.body.nomAnimal!==undefined) {
     if (req.body.dateEntreeAnimal === undefined || req.body.dateEntreeAnimal == null || req.body.dateEntreeAnimal === '') {
         if (req.body.icad === undefined || req.body.icad == null || req.body.icad === '') {
             //Créer un chien sans date d'entrée et sans ICAD
             await models.animal.create({nomAnimal: req.body.nomAnimal});
+
         } else {
             //Créer un chien sans date d'entrée avec ICAD
             await models.animal.create({
