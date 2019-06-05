@@ -11,12 +11,25 @@
     <script src="/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.3/superagent.min.js"></script>
     <!-- Style and onclick for login method inspire from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal-->
-
+<style>.sidenav {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgrey;
+    z-index: 1;
+    background-color: white;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}</style>
 </head>
 
 <header id="">
-<div class="main_menu_bg">
-    <div class="container">
+<div class="main_menu_bg" >
+    <div class="container" >
         <div class="row">
             <div class="nave_menu">
                 <nav class="navbar navbar-default" id="navmenu">
@@ -140,7 +153,6 @@
 <br>
 
 
-<body onload="getSession()">
 
 <br>
 <br>
@@ -151,6 +163,14 @@
 
 
 <h1 style="text-align: center; color:slateblue">{{title}}</h1>
+<div class="sidenav"><br><br><br><br><br>
+    <div style="text-align: center;">
+        <a href="album" title="Album photos"><img  width="80" height="80" alt="album photos"  src="../images/album.png"></a><br><br><br><br>
+        <a href="partenaires" title="Partenaires"><img  width="80" height="60" alt="nos partenaires"  src="../images/partenaire.png"></a><br><br><br>
+            <a href="shop" title="Nos produits en vente"> <img  width="120" height="120"  alt="nos produits" src="../images/shop.png"></a><br><br><br>
+                <a href="don" title="Faire un don"><img  width="80" height="80" alt="faire un don" src="../images/don.png"></a><br><br><br><br>
+                    <a href="livredor" title="Livre d'or"> <img  width="80" height="80" alt="livre d'or" src="../images/livredor.png"></a></div></div>
+</div>
 {{{body}}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.3/superagent.min.js"></script>
 </body>

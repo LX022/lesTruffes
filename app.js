@@ -18,6 +18,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/about');
 var about  = require('./routes/about');
 var adoption = require('./routes/adoption');
+var album  = require('./routes/album');
 var contact = require('./routes/contact');
 var dog  = require('./routes/dog');
 var dogAdmin  = require('./routes/dogAdmin');
@@ -26,17 +27,18 @@ var dogsAdmin  = require('./routes/dogsAdmin');
 var dogsAsked = require('./routes/dogsAsked');
 var dogsFA = require('./routes/dogsFA');
 var dogVeterinaire = require('./routes/dogVeterinaire');
+var don  = require('./routes/don');
 var fa  = require('./routes/fa');
 var formulaireAdoption  = require('./routes/formulaireAdoption');
 var formulaireFA  = require('./routes/formulaireFA');
-
 var personForm  = require('./routes/personForm');
-
 var lieu = require('./routes/lieu');
-
+var livredor  = require('./routes/livredor');
 var login = require('./routes/login');
+var partenaires  = require('./routes/partenaires');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
+var shop  = require('./routes/shop');
 var vet  = require('./routes/vet');
 var vets  = require('./routes/vets');
 
@@ -80,6 +82,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/about', about);
+app.use('/album', album);
 app.use('/adoption', adoption);
 app.use('/contact', contact);
 app.use('/dog', dog);
@@ -89,17 +92,18 @@ app.use('/dogsAdmin', dogsAdmin);
 app.use('/dogsAsked', dogsAsked);
 app.use('/dogsFA', dogsFA);
 app.use('/dogVeterinaire', dogVeterinaire);
+app.use('/don', don);
 app.use('/fa', fa);
 app.use('/formulaireAdoption', formulaireAdoption);
 app.use('/formulaireFA', formulaireFA);
-
 app.use('/personForm', personForm);
-
 app.use('/lieu', lieu);
-
+app.use('/livredor', livredor);
 app.use('/login', login);
+app.use('/partenaires', partenaires);
 app.use('/persons', persons);
 app.use('/reserveddogs', reserveddogs);
+app.use('/shop', shop);
 app.use('/vet', vet);
 app.use('/vets', vets);
 
