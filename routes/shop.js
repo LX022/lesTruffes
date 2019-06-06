@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET schop page. */
 router.get('/', async function(req, res, next) {
-    res.render('shop', { title: 'Nos produits en vente' });        //Page title
+    res.render('shop', { title: 'La boutique des truffes' });        //Page title
 });
 
 module.exports = router;
