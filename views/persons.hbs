@@ -4,7 +4,17 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="head_title text-center margin-top-80">
-                    <h1>Personnes enregistr&eacute;es</h1>
+                    <div class="col-md-4">
+
+                        <form id="persons" action="/persons" method="post">
+                            <input list="personsFA" name="personsFA" required>
+                            <datalist id="personsFA">
+                                    <option value="1">Famille d'accueil</option>
+                                    <option value="0">Membre</option>
+                                <option value="2">Toutes les personnes enregistrées</option>
+                            </datalist>
+                            <input type="submit" style="background-color:#9acfea"  value="FA or not FA">
+                        </form></div>
                 </div>
                 <!-- End of head title-->
                 <div>

@@ -6,7 +6,33 @@ var router = express.Router();
 router.get('/', async function (req, res, next) {
 
     let persons = await models.Personne.findAll({});
-    res.render('persons', {title: 'Membres', persons: persons});        //Page title
+    res.render('persons', {title: 'Personnes enregistrées', persons: persons});        //Page title
+
+});
+
+/* POST persons page. */
+router.post('/', async function (req, res) {
+
+
+    let persons;
+
+
+    if(req.body.personsFA!==undefined) {
+        //Recherche les personnes par type FA ou pas
+        if(req.body.personsFA==2){
+            persons = await models.Personne.findAll();
+        }else {
+            persons = await models.Personne.findAll({where:{fa:req.body.personsFA}});
+        }
+
+    }
+    else{
+        persons = await models.Personne.findAll();
+    }
+
+
+    res.render('persons', {title: 'Personnes enregistrées', persons:persons});        //Page title
+
 
 });
 
