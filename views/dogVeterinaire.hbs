@@ -5,9 +5,9 @@
 <div class="row">
    <div class="col-sm-12">
 
-       <div style="text-align: left;"><h2 style="color:red">{{info}}</h2><br>
-<h2>Ajouter une visite</h2><br>
-<table class="table">
+       <div style="text-align: left;"><h2 style="color:red">{{info}}</h2><br><br>
+
+<table class="table"> <fieldset><legend>Ajouter une visite</legend><br>
     <tr>
         <th>Vétérinaire</th>
         <th>Chien</th>
@@ -35,13 +35,13 @@
             <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
         </tr>
         </tr>
-    </form>
+    </form></fieldset>
 </table>
 
-<h2>Liste des visites</h2>
 
+<br><br>
             <table class="table">
-
+                <fieldset><legend>Visites enregistrées</legend>
                 <tr>
 
                     <th>ID Vétérinaire</th>
@@ -88,7 +88,7 @@
                         </tr>
                     </form>
                 {{/each}}
-
+                </fieldset>
             </table>
    </div></div></div>
 

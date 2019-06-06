@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', async function (req, res, next) {
 
     //liste des personnes
-    let personnes = await models.Personne.findAll();
+    let personnes = await models.Personne.findAll({where:{fa:1}});
 
     //liste des chiens
     let dogs = await models.animal.findAll();
@@ -35,6 +35,13 @@ router.post('/', async function (req, res, next) {
         await models.animalHasFa.destroy({where:{idAnimal:req.body.idAnimalFA, idPersonne:req.body.idPersonneFA, dateDebut:req.body.dateDebutFA}});
     }
 
+
+    //INSERT new FA
+    if(req.body.nomFA!==undefined){
+        await models.Personne.create({nomP: req.body.nomFA, prenomP:req.body.prenomFA, facebookP:req.body.FacebookPage, telDomicileP:req.body.telDomicile, telPortableP:req.body.telPortable, telAutreP:req.body.autreTel, emailP:req.body.email,  fa:1});
+
+    }
+
     //INSERT lien dog/fa
     let warning;
     if(req.body.InsertidFA!==undefined && req.body.InsertidAnimal!==undefined && req.body.InsertdateDebut!==undefined){
@@ -57,7 +64,7 @@ router.post('/', async function (req, res, next) {
     let dogs = await models.animal.findAll();
 
     //Liste des personnes
-    let personnes = await models.Personne.findAll();
+    let personnes = await models.Personne.findAll({where:{fa:1}});
 
     //Liste des chiens dans des FA
     let dogsFA = await models.animalHasFa.findAll();

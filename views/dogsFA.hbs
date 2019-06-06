@@ -1,4 +1,4 @@
-<br><div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div><br>
+<br xmlns="http://www.w3.org/1999/html"><div style="text-align: center;"><a href="dogsAdmin"><img src="images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div><br>
 <div style="text-align: center;"><h2 style="color:red">{{warning}}</h2></div><br>
     <div style="text-align: center;"><h2 style="color:red">{{info}}</h2> </div>
 <!-- End of header-->
@@ -8,7 +8,47 @@
          <div class="row">
             <div class="col-md-12">
                 <!-- End of head title-->
-                <div><h2>Ajouter un chien dans une familles d'accueil</h2>
+                <fieldset><legend>Ajouter une famille d'accueil</legend>
+                <div>
+                    <table class="table">
+                        <thead>
+                        <!-- En-tête du tableau-->
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prénom</th>
+                            <th scope="col">Facebook Page</th>
+                            <th scope="col">Téléphone domicile</th>
+                            <th scope="col">Téléphone portable</th>
+                            <th scope="col">Autre téléphone</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <form id="InsertFA" action="/dogsFA" method="post">
+                            <tr>
+                                <td><input type="text" name="nomFA"  required>
+                                </td>
+                                <td><input type="text" name="prenomFA">
+                                </td>
+                                <td><input type="text" name="FacebookPage"  >
+                                </td>
+                                <td><input type="text" name="telDomicile"  >
+                                </td>
+                                <td><input type="text" name="telPortable"  >
+                                </td>
+                                <td><input type="text" name="autreTel"  >
+                                </td>
+                                <td><input type="text" name="email"  >
+                                </td>
+                                <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
+                            </tr>
+                        </form>
+                        </tbody>
+                    </table>
+                </div></fieldset>
+<br><br><br>
+                <div> <fieldset><legend>Placer un chien dans une famille d'accueil</legend>
                     <table class="table">
                         <thead>
                         <!-- En-tête du tableau-->
@@ -45,10 +85,17 @@
                             </tr>
                         </form>
                         </tbody>
-                    </table>
+                    </table></fieldset>
                 </div>
 
-                <div><h2>Chiens en familles d'accueil</h2>
+
+
+                <br><br><br>
+
+
+
+
+                <div> <fieldset><legend>Chiens en familles d'accueil</legend>
                     <table class="table">
                         <thead>
                         <!-- En-tête du tableau-->
@@ -74,14 +121,14 @@
                                     <td><input type="hidden"  name="idAnimalFA" value={{this.idAnimal}}>
                                         <input type="hidden" name="idPersonneFA" value={{this.idPersonne}}>
                                         <input type="hidden" name="dateDebutFA" value={{this.dateDebut}}>
-                                        <input type="submit" value="Supprimer"></td>
+                                        <input style="background:orangered"  type="submit" value="Supprimer"></td>
                                 </tr>
 
 
                         </form>{{/each}}
-                        </tbody></table><br></div>
-
-                <div><h2>Modifier</h2>
+                        </tbody></table><br></fieldset></div>
+                <br><br><br>
+                <div> <fieldset><legend>Modifier un enregistrement dans une famille d'accueil</legend>
                     <table class="table">
                         <thead>
                         <!-- En-tête du tableau-->
@@ -103,13 +150,13 @@
                                     <td><input type="date" name="updatedateDebut" value="{{this.dateDebut}}" readonly required></td>
                                     <td><input type="date" name="updatedateFin" value="{{this.dateFin}}"></td>
                                     <td><input type="text" name="updatecommentaire" value="{{this.commentaire}}"></td>
-                                       <td> <input type="submit" value="Mettre à jour"></td>
+                                       <td> <input style="background:gold"  type="submit" value="Mettre à jour"></td>
                                 </tr>
 
 
                         </form>   {{/each}}
                         </tbody>
-                    </table>
+                    </table></fieldset>
                 </div>
             </div>
             <!-- End of col-sm-12-->

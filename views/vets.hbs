@@ -5,9 +5,7 @@
 
 
         <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-4">
-
+<div class="col-md-12">
                 <form id="lieuxV" action="/vets" method="post">
                     <input list="lieuV" name="lieuV" required>
                     <datalist id="lieuV">
@@ -16,10 +14,16 @@
                         {{/each}}
                     </datalist>
                     <input type="submit" style="background-color:#9acfea"  value="Rechercher par région">
-                </form></div>
+                </form>
+                <br><br><br>
                 <!-- End of head title-->
                 <div>
+                    <br> <br> <br>
+
+                </div>
+
                     <table class="table">
+                        <fieldset><legend>Ajouter un vétérinaire</legend>
                         <thead>
                         <!-- En-tête du tableau-->
                         <tr>
@@ -39,6 +43,21 @@
                                 <td style="vertical-align: center;"><input type="submit" style="background-color:lightgreen"  value="Ajouter"></td>
                             </tr>
                         </form>
+
+                        </tbody></fieldset></table>
+
+<br><br><br>
+                        <table class="table"><fieldset><legend>Liste des vétérinaires enregistrés</legend>
+                            <thead>
+                            <!-- En-tête du tableau-->
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prenom</th>
+                                <th scope="col"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
                         <!-- data-->
                         {{#each veterinaires}}
                             <form id="vetos" action="/vet" method="get">
@@ -52,7 +71,7 @@
                             </form>
                         {{/each}}
 
-                        </tbody>
+                            </tbody></fieldset>
                     </table>
                 </div>
             </div>
