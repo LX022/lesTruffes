@@ -141,7 +141,10 @@ input[type="color"],
 }
 
 h1,
-h2,
+h2{
+    color:green;
+
+}
 h3,
 h4,
 h5,
