@@ -141,10 +141,7 @@ input[type="color"],
 }
 
 h1,
-h2{
-    color:green;
-
-}
+h2,
 h3,
 h4,
 h5,
@@ -630,8 +627,7 @@ input::-ms-input-placeholder {
 service section css
 ==========================================================================*/
 .head_title{
-    margin-bottom:20px;
-    text-align: center;
+    margin-bottom:60px;
 }
 .head_title h2{
     font-size:3.125rem;
