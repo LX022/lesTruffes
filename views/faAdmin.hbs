@@ -23,6 +23,8 @@
                             <form id="allfamilles" action="/faAdmin" method="get">
                                 <tr>
                                     <td>{{this.idFamilleAccueil}}</td>
+                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idFamilleAccueil}}>
+                                        <input type="submit" value="Infos"></td>
                                 </tr>
                             </form>
                         {{/each}}
