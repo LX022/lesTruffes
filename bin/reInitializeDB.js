@@ -40,7 +40,9 @@ var enFKcheck = fs.readFileSync(directorySql + 'enableFKcheck.sql', 'utf8');
 var popAnim = fs.readFileSync(directorySql + 'populateAnimal.sql', 'utf8');
 var popPers = fs.readFileSync(directorySql + 'populatePersonne.sql', 'utf-8');
 var popNico = fs.readFileSync(directorySql + 'addNicolas.sql', 'utf-8');
-
+var popPays = fs.readFileSync(directorySql + 'populatePays.sql', 'utf-8');
+var popLieux = fs.readFileSync(directorySql + 'populateLieux.sql', 'utf-8');
+var popVeto = fs.readFileSync(directorySql + 'populateVeterinaire.sql', 'utf-8');
 var popAnimAskedAdopt =  fs.readFileSync(directorySql + 'populateAnimal_asked_Adoptant.sql', 'utf-8');
 
 models.sequelize.sync(
@@ -57,6 +59,14 @@ models.sequelize.sync(
 }).then( function() {
        sequelize.query(popPers);
     sequelize.query(popNico);
+}).then( function() {
+    sequelize.query(popPays);
+})
+    .then( function() {
+        sequelize.query(popLieux);
+    }) .then( function() {
+
+    sequelize.query(popVeto);
 });
 
 setTimeout(function popAAA() {

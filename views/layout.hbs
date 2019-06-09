@@ -22,54 +22,205 @@
 
 
 <header>
+
 <!-- Navbar -->
 <div class="w3-top">
+    <div style="background: #000;"><br></div>
     <div class="w3-bar w3-theme-d2 w3-left-align">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-        <a href="about" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Accueil</a>
-        <a href="dogs" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Nos truffes à adopter</a>
+        <a href="about" class="w3-bar-item w3-button" style="background-color:sandybrown" ><i class="fa fa-home w3-margin-right"></i>Accueil</a>
+        <a href="dogs" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Adopter</a>
+        <a href="fa" class="w3-bar-item w3-button w3-hide-small w3-hover-white">FA ?</a>
         <a href="formulaireFA" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Devenir FA</a>
         <a href="don" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Don</a>
         <a href="livredor" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Album</a>
-        <a href="partenaires" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Nos partenaires amis</a>
-        <a href="album" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Les truffes dans les étoiles</a>
+        <a href="partenaires" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Partenaires</a>
+        <a href="album" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Truffes dans les étoiles</a>
         <a href="shop" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Boutique</a>
         <a href="contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
         <div class="w3-dropdown-hover w3-hide-small">
-            <button class="w3-button" title="Notifications">Interface admin <i class="fa fa-caret-down"></i></button>
+            <button class="w3-button" title="Notifications">Administrateur<i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                 <a href="dogsAdmin" class="w3-bar-item w3-button">Chiens</a>
-                <a href="vets" class="w3-bar-item w3-button">Vétérinaires</a>
-                <a href="dogsFA" class="w3-bar-item w3-button">Familles d'accueil</a>
                 <a href="dogsAsked" class="w3-bar-item w3-button">Adoptions</a>
+                <a href="dogsAsked" class="w3-bar-item w3-button">Membres adoptant</a>
+                <a href="dogsFA" class="w3-bar-item w3-button">Chiens en famille d'accueil</a>
+                <a href="dogsFA" class="w3-bar-item w3-button">Liste des FA</a>
+                <a href="vets" class="w3-bar-item w3-button">Vétérinaires</a>
+                <a href="persons" class="w3-bar-item w3-button">Membres</a>
+                <a href="persons" class="w3-bar-item w3-button">Donateurs</a>
+                <a href="persons" class="w3-bar-item w3-button">Adhérents</a>
+                <a href="persons" class="w3-bar-item w3-button">Attribution des rôles</a>
             </div>
         </div>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
-    </div>
 
+        <a class="w3-bar-item w3-button w3-hide-small w3-hover-white" onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Se connecter</a>
+
+        <body>
+
+        <div id="id01" class="modal">
+
+
+
+            <!--<form action="/login" method="post">
+
+                <input type="text" name="username" placeholder="Username" required>
+
+                <input type="password" name="password" placeholder="Password" required>
+
+                <input type="submit">
+
+            </form> -->
+
+            <form class="modal-content animate" action="/login" method="post"> <!--action="/action_page.php" -->
+
+
+
+
+
+                <div class="imgcontainer">
+
+                                                <span onclick="document.getElementById('id01').style.display='none'"
+
+                                                      class="close">&times;</span>
+
+
+                    <label for="uname"><b>Utilisateur</b></label>
+
+                    <input id="uname" type="text" class="form-control" placeholder="Insert your username"
+
+                           name="username"
+
+                           required/>
+
+
+                    <label for="psw"><b>Mot de passe</b></label>
+
+                    <input id="psw" type="password" clas="form-control" placeholder="Mot de passe"
+
+                           name="psw" required/>
+
+
+
+                    <div style="text-align: center">
+
+                        <button type="submit" class="btn">Connexion</button>
+
+                        <a href="personForm" class="btn">Créer un compte</a>
+
+                        <br/>
+
+                        <br/>
+
+                        <label>
+
+                            <input type="checkbox" checked="checked" name="remember">Se
+
+                            souvenir
+
+                            de moi
+
+                        </label>
+
+                        <br/>
+
+                        <br/>
+
+                    </div>
+
+
+
+                    <!--
+
+                    <img src="../images/logo.png" width="100px" height="90%"
+
+                         alt="Avatar"
+
+                         class="avatar"
+
+                         style="text-align: center"> -->
+
+
+
+
+
+
+
+                    <div style="background-color:#f1f1f1;padding: 16px; vertical-align: center">
+
+                        <button type="button"
+
+                                onclick="document.getElementById('id01').style.display='none'"
+
+                                class="btn">Annuler
+
+                        </button>
+
+                        <span class="psw"><a href="#">Mot de passe oublié?</a></span>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        </body>
+
+
+
+        <script>
+
+            // Get the modal
+
+            var modal = document.getElementById('id01');
+
+
+
+            // When the user clicks anywhere outside of the modal, close it
+
+            window.onclick = function (event) {
+
+                if (event.target === modal) {
+
+                    modal.style.display = "none";
+
+                }
+
+            }
+
+        </script>
+
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
+
+    </div>
+    <div style="background: #000;"><br></div>
+</div>
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
         <a href="about" class="w3-bar-item w3-button">Accueil</a>
-        <a href="dogs" class="w3-bar-item w3-button">Nos truffes à adopter</a>
+        <a href="dogs" class="w3-bar-item w3-button">Adopter</a>
         <a href="formulaireFA" class="w3-bar-item w3-button">Devenir FA</a>
         <a href="don" class="w3-bar-item w3-button">Don</a>
         <a href="livredor" class="w3-bar-item w3-button">Album</a>
-        <a href="partenaires" class="w3-bar-item w3-button">Nos partenaires amis</a>
-        <a href="album" class="w3-bar-item w3-button">Les truffes dans les étoiles</a>
+        <a href="partenaires" class="w3-bar-item w3-button">Partenaires</a>
+        <a href="album" class="w3-bar-item w3-button">Truffes dans les étoiles</a>
         <a href="shop" class="w3-bar-item w3-button">Boutique</a>
         <a href="contact" class="w3-bar-item w3-button">Contact</a>
         <a href="#" class="w3-bar-item w3-button">Search</a>
     </div>
 </div>
 
-<!-- Image Header -->
-<div class="w3-display-container w3-animate-opacity" style="text-align: center;">
-    <img src="../images/layout.png" alt="truffes" style="width:60%;min-height:200px;max-height:600px;margin-top:80px">
 
-</div>
+    <!-- Image Header -->
+    <div class="w3-display-container w3-animate-opacity" style="text-align: center; background-color:bisque">
+        <img src="../images/layout.png" alt="truffes" style="width:70%;min-height:200px;max-height:700px; margin-top: 100px; ">
+        <br><br>
+    </div>
 
 </header>
-<body id="myPage" style="overflow: auto;"  onload="getSession()">
+<body id="myPage"  style="overflow: auto;">
 <h1 style="text-align: center;margin-top: 80px;"><strong>{{title}}</strong></h1>
 {{{body}}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.3/superagent.min.js"></script>
@@ -78,10 +229,10 @@
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
-    <h4>Follow Us</h4>
-    <a class="w3-button w3-large w3-teal" href="https://www.facebook.com/groups/unetruffeetdespattes/" title="Facebook"><i class="fa fa-facebook"></i></a>
-    <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a>
-    <a class="w3-button w3-large w3-teal w3-hide-small" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+    <a class="w3-button w3-large" style="background-color: royalblue" href="https://www.facebook.com/groups/unetruffeetdespattes/" title="Facebook"><i class="fa fa-facebook"></i></a>
+    <a class="w3-button w3-large" style="background-color: #46b8da" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a>
+    <a class="w3-button w3-large w3-hide-small" style="background-color: #337ab7" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
    <br><br><br>
     <div><p>Posted by: TruffSA</p>
         <p><i class="fa fa-map-marker"></i><span>   2 rue de Crec&apos;h reut, 22 610 Pleubian</span></p>
@@ -115,7 +266,7 @@
     // Used to toggle the menu on smaller screens when clicking on the menu button
     function openNav() {
         var x = document.getElementById("navDemo");
-        if (x.className.indexOf("w3-show") == -1) {
+        if (x.className.indexOf("w3-show") === -1) {
             x.className += " w3-show";
         } else {
             x.className = x.className.replace(" w3-show", "");
