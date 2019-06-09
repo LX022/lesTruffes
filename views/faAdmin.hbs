@@ -1,0 +1,43 @@
+
+<!-- End of header-->
+<section class="aboutus margin-top-100" id="aboutus">
+
+    <div class="container">
+       
+        <div class="row">
+            <div class="col-md-12">
+                <!-- End of head title-->
+                <div>
+                            <table class="table">
+                                <h2>Liste des familles d'accueil</h2>
+                                <thead>
+                                <!-- En-tête du tableau-->
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                        <!-- data-->
+                        {{#each familles}}
+                            <form id="allfamilles" action="/faAdmin" method="get">
+                                <tr>
+                                    <td>{{this.idFamilleAccueil}}</td>
+                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idFamilleAccueil}}>
+                                        <input type="submit" value="Infos"></td>
+                                </tr>
+                            </form>
+                        {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- End of col-sm-12-->
+        </div>
+        <!-- End of row-->
+    </div>
+    <!-- End of Container-->
+    <hr/>
+
+</section>
