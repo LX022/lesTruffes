@@ -39,8 +39,10 @@ var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
 var vet  = require('./routes/vet');
 var vets  = require('./routes/vets');
-var admin = require('./routes/admin')
-var faAdmin = require('./routes/faAdmin')
+
+var admin = require('./routes/admin');
+var faAdmin = require('./routes/faAdmin');
+var adoptantsAdmin = require('./routes/adoptantsAdmin');
 
  
 // View engine
@@ -107,6 +109,9 @@ app.use('/vets', vets);
 
 app.use('/admin', admin);
 app.use('/faAdmin', faAdmin);
+app.use('/adoptantsAdmin', adoptantsAdmin);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
