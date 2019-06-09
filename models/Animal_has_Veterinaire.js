@@ -17,10 +17,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true,
       references: {
-        model: 'Vétérinaire',
-        key: 'idVétérinaire'
+        model: 'Veterinaire',
+        key: 'idVeterinaire'
       },
-      field: 'idVétérinaire'
+      field: 'idVeterinaire'
     },
     soins: {
       type: DataTypes.STRING(45),
@@ -41,6 +41,6 @@ module.exports = function(sequelize, DataTypes) {
   }, {
       timestamps: false,
       freezeTableName: true,
-    tableName: 'Animal_has_Vétérinaire'
+    tableName: 'Animal_has_Veterinaire'
   });
 };
