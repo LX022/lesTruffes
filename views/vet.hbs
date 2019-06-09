@@ -7,7 +7,8 @@
         <div class="col-md-12" style="text-align: center;">
             <form id="hasVetDogs" action="/dogVeterinaire" method="post">
                 <input type="hidden" name="idVetDog" value="{{veto.idVeterinaire}}" required>
-                <input type="submit" style="background-color:#9acfea"  value="Chiens soignés par ce vétérinaire">
+                <label style="color: #46b8da;">
+              <input type="image" src="images/soins.png"  value="Chiens soignés par ce vétérinaire"><br>Soins prodigués  </label>
             </form>
             </p>
         </div></div></div>
@@ -21,7 +22,7 @@
             <div class="row">
 
                 <div class="col-sm-4">
-
+                    <br><br><br><br><br><br><br>
                     <div class="signle_about_left"><img src="images/animals/veterinaire.jpg" width="292" /></div>
 
                 </div>
@@ -46,7 +47,7 @@
 
                                         <form id="myveto" action="/vets" method="get">
 
-                                            <h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4>
+                                            <h4 style="text-align: right;" >  <input src="images/supprimer.png"  type="image" value="Supprimer"></h4>
 
                                             <table class="table">
 
@@ -182,7 +183,6 @@
 
                                 <br>
 
-                                <h2 style="color: slateblue">Modifier les données de ce vétérinaire</h2>
 
                                 <!-- End of head title-->
 
@@ -198,7 +198,7 @@
 
                                         <form id="updateveto" action="/vet" method="post">
 
-                                            <tr> <td></td><td></td> <td style="text-align:right"><h4><input style="background:gold" type="submit" value="Mettre à jour"></h4></td></tr>
+                                            <tr> <td><td></td><h2 style="text-align: center;">Mettre à jour  <input src="images/maj.png" type="image" value="Mettre à jour"></h2></td><td></td></tr></tr>
 
                                             <tr>
 
@@ -313,6 +313,7 @@
                                             <th>Code postal</th>
 
                                             <th>Ville</th>
+                                            <th></th>
 
                                         </tr>
                                         <form id="insertLieu" action="/vet" method="post">
@@ -323,7 +324,7 @@
                                                 <td>
                                                     <input type="text" name="insertVille" required>
                                                 </td>
-                                                <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
+                                                <td style="vertical-align: center;"><h4><input src="images/ajouter.png" type="image"  value="Ajouter"></h4></td>
                                             </tr>
                                             </tr>
                                         </form>
@@ -369,7 +370,7 @@
                                                                 <td>{{this.ville}}
 
                                                                 </td>
-                                                                <td><h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4></td>
+                                                                <td><h4 style="text-align: right;" >  <input src="images/supprimer.png" type="image" value="Supprimer"></h4></td>
 
 
                                                             </tr>

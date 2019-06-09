@@ -38,7 +38,7 @@
                                     <div style="text-align: left;">
                                         <form id="idmydog" action="/dogsAdmin" method="post">
                                             <input type="hidden" name="idmydog" value="{{chien.idAnimal}}">
-                                            <h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4>
+                                            <h4 style="text-align: right;" >  <input src="images/supprimer.png"  type="image" value="Supprimer"></h4>
                                             <table class="table">
                                                 <tr><th></th><td >
                                                 </td></tr>
@@ -121,21 +121,21 @@
 
 
                 <!-- End of header-->
-                <section class="aboutus margin-top-120" id="aboutus">
+                <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <br>
                                 <br>
-                                <h2 style="color: darkmagenta">Modifier les données de ce toutou</h2>
+
                                 <!-- End of head title-->
-                                <div>
+
                                     <table class="table">
 
                                         <tbody>
 
                                         <form id="updatedog" action="/dogAdmin" method="post">
-                                            <tr><td></td><td></td> <td style="text-align: right;"><h4><input style="background:gold" type="submit" value="Mettre à jour"></h4></td></tr>
+                                            <tr><td><td></td><h2 style="text-align: center;"> Mettre à jour <input src="images/maj.png" type="image" value="Mettre à jour"></h2></td><td></td> </tr>
                                             <tr>
                                                 <td><label>ID
                                                     <input type="number" name="idAnimal" value="{{chien.idAnimal}}" readonly>
@@ -207,7 +207,7 @@
                                         </tbody>
                                     </table>
 
-                                </div>
+
                             </div>
                             <!-- End of col-sm-12-->
                         </div>
