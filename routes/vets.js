@@ -18,7 +18,7 @@ router.get('/', async function (req, res, next) {
     let lieux = await models.lieu.findAll();
 
 
-    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux});        //Page title
+    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux, user:req.session});        //Page title
 });
 
 /* POST vets page. */
@@ -41,7 +41,7 @@ router.post('/', async function (req, res) {
     //récupérer les lieux
     let lieux = await models.lieu.findAll();
 
-    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux});        //Page title
+    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux, user:req.session});        //Page title
 
 
 });

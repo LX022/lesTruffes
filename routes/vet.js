@@ -18,7 +18,7 @@ router.get('/', async function(req, res, next) {
     let nom = veto.nomV +" " + veto.prenomV;
 
 
-    res.render('vet', { title: nom, veto : veto, lieux:lieux, lieu:lieu, pays:pays });   //Page title
+    res.render('vet', { title: nom, veto : veto, lieux:lieux, lieu:lieu, pays:pays, user:req.session });   //Page title
 });
 
 
@@ -63,7 +63,7 @@ router.post('/', async function (req, res) {
 
 
 
-    res.render('vet', { title: nom, veto : veto , lieux:lieux, lieu:lieu, pays:pays});        //Page title
+    res.render('vet', { title: nom, veto : veto , lieux:lieux, lieu:lieu, pays:pays, user:req.session});        //Page title
 
 });
 

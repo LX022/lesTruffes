@@ -5,7 +5,7 @@ var nodemailer = require('nodemailer');
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-    res.render('contact', { title: "Contacter l'association" });        //Page title
+    res.render('contact', { title: "Contacter l'association" ,user:req.session});        //Page title
 });
 
 /* POST contact page. */
