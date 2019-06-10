@@ -25,6 +25,6 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         timestamps: false,
         freezeTableName: true,
-        tableName: 'coVoit_has_Personne'
+        tableName: 'CoVoit_has_Personne'
     });
 };
