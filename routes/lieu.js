@@ -6,6 +6,11 @@ var router = express.Router();
 router.post('/', async function(req, res, next) {
 
     //DELETE
+    if (req.body.deleteLieu <1) {
+        return res.render('lieu', {title: 'Lieu par défaut non supprimable'});        //Page title
+    }
+
+    if(req.body.deleteLieu!==undefined && req.body.deleteLieu>0) {
 
     if(req.body.deleteLieu!==undefined ) {
                 await models.veterinaire.update({idLieu: null}, {where: {idLieu: req.body.deleteLieu}});

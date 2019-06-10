@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', async function (req, res, next) {
 
     //liste des personnes
-    let personnes = await models.Personne.findAll({where:{fa:1}});
+    let personnes = await models.personne.findAll({where:{fa:1}});
 
     //liste des chiens
     let dogs = await models.animal.findAll();
@@ -64,7 +64,7 @@ router.post('/', async function (req, res, next) {
     let dogs = await models.animal.findAll();
 
     //Liste des personnes
-    let personnes = await models.Personne.findAll({where:{fa:1}});
+    let personnes = await models.personne.findAll({where:{fa:1}});
 
     //Liste des chiens dans des FA
     let dogsFA = await models.animalHasFa.findAll();
