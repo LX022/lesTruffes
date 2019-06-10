@@ -35,6 +35,7 @@ var personForm  = require('./routes/personForm');
 var lieu = require('./routes/lieu');
 
 var login = require('./routes/login');
+var logout = require('./routes/logout');
 var persons  = require('./routes/persons');
 var reserveddogs  = require('./routes/reserveddogs');
 var vet  = require('./routes/vet');
@@ -102,6 +103,8 @@ app.use('/personForm', personForm);
 app.use('/lieu', lieu);
 
 app.use('/login', login);
+app.use('/logout', logout);
+
 app.use('/persons', persons);
 app.use('/reserveddogs', reserveddogs);
 app.use('/vet', vet);

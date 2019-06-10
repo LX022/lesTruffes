@@ -11,7 +11,6 @@
     <script src="/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.3/superagent.min.js"></script>
     <!-- Style and onclick for login method inspire from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form_modal-->
-
 </head>
 
 <header id="">
@@ -51,12 +50,13 @@
                                     <li><a href="formulaireFA">Devenir FA</a></li>
                                     <li><a href="contact">Contact</a></li>
                                     <li><a href="admin">Admin</a></li>
-                                    {{#if user}}
-                                        <li><a onclick="document.getElementById('id02').style.display='block'"
-                                               style="cursor: pointer;">{{user}}</a>
+                                    {{#if user.loggedin }}
+                                        <li>
+                                            <a onclick="document.getElementById('id02').style.display='block'"
+                                               style="cursor: pointer;">{{user.username}}</a>
                                             <body>
                                             <div id="id02" class="modal">
-                                                <form class="modal-content animate" action="/login" method="delete">
+                                                <form class="modal-content animate" action="/logout" method="post">
                                                     <button type="submit" class="btn">D&eacute;connexion</button>
                                                 </form>
                                             </div>
@@ -133,16 +133,13 @@
 
                                                 // When the user clicks anywhere outside of the modal, close it
                                                 window.onclick = function (event) {
-                                                    if (event.target == modal) {
+                                                    if (event.target === modal) {
                                                         modal.style.display = "none";
                                                     }
                                                 }
                                             </script>
                                         </li>
                                     {{/if}}
-
-
-
                                 </ul>
                             </div>
 
@@ -155,24 +152,15 @@
 
     </div>
 </header>
-<br>
 
+<body onload="getSession()"></body>
 
-<body onload="getSession()">
-
-<br>
-<br>
-<br>
-<br>
-<br>
 <body style="overflow: auto;" onload="getSession()">
-
 
 <h1 style="text-align: center; color:slateblue">{{title}}</h1>
 {{{body}}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.3/superagent.min.js"></script>
 </body>
-
 <footer>
     <div class="main_menu_bg">
         <div class="container">
@@ -197,5 +185,4 @@
         </div>
     </div>
 </footer>
-</body>
 </html>
