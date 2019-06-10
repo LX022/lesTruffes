@@ -15,128 +15,139 @@
 </head>
 
 <header id="">
-<div class="main_menu_bg">
-    <div class="container">
-        <div class="row">
-            <div class="nave_menu">
-                <nav class="navbar navbar-default" id="navmenu">
-                    <div class="container-fluid">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse navbar-collapse"
-                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="about">
-                                <img src="../images/logo.png" height="48" width="48" style="margin: 0"/>
-                            </a>
-                        </div>
+    <div class="main_menu_bg">
+        <div class="container">
+            <div class="row">
+                <div class="nave_menu">
+                    <nav class="navbar navbar-default" id="navmenu">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed"
+                                        data-toggle="collapse navbar-collapse"
+                                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="about">
+                                    <img src="../images/logo.png" height="48" width="48" style="margin: 0"/>
+                                </a>
+                            </div>
 
-                        <!-- Collect the nav links, forms, and other content for toggling collapse navbar-collapse-->
+                            <!-- Collect the nav links, forms, and other content for toggling collapse navbar-collapse-->
 
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-default">
-                                <li><a href="about">Accueil</a></li>
-                                <li><a href="vets">Vétérinaires</a></li>
-                                <li><a href="dogsAdmin">Gestion des chiens</a></li>
-                                <li><a href="dogs">Nos truffes à adopter</a></li>
-                                <li><a href="formulaireFA">Devenir FA</a></li>
-                                <li><a href="contact">Contact</a></li>
-                                <li><a href="admin">Admin</a></li>
-                                <li><a href="admin">{{user}}</a></li>
-                                <!-- gestion du login -->
-                                <li>
-                                    <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;">Se connecter</a>
-                                    <body>
-                                    <div id="id01" class="modal">
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-default">
+                                    <li><a href="about">Accueil</a></li>
+                                    <li><a href="vets">Vétérinaires</a></li>
+                                    <li><a href="dogsAdmin">Gestion des chiens</a></li>
+                                    <li><a href="dogs">Nos truffes à adopter</a></li>
+                                    <li><a href="formulaireFA">Devenir FA</a></li>
+                                    <li><a href="contact">Contact</a></li>
+                                    <li><a href="admin">Admin</a></li>
+                                    {{#if user}}
+                                        <li><a>{{user}}</a>
 
-                                        <!--<form action="/login" method="post">
-                                            <input type="text" name="username" placeholder="Username" required>
-                                            <input type="password" name="password" placeholder="Password" required>
-                                            <input type="submit">
-                                        </form> -->
-                                        <form class="modal-content animate" action="/login" method="post"> <!--action="/action_page.php" -->
+                                        </li>
+                                    {{else}}
+                                        <!-- gestion du login -->
+                                        <li>
+                                            <a onclick="document.getElementById('id01').style.display='block'"
+                                               style="cursor: pointer;">Se connecter</a>
+                                            <body>
+                                            <div id="id01" class="modal">
+
+                                                <!--<form action="/login" method="post">
+                                                    <input type="text" name="username" placeholder="Username" required>
+                                                    <input type="password" name="password" placeholder="Password" required>
+                                                    <input type="submit">
+                                                </form> -->
+                                                <form class="modal-content animate" action="/login" method="post">
+                                                    <!--action="/action_page.php" -->
 
 
-                                            <div class="imgcontainer">
+                                                    <div class="imgcontainer">
                                                 <span onclick="document.getElementById('id01').style.display='none'"
                                                       class="close">&times;</span>
-                                                <label for="username"><b>Utilisateur</b></label>
-                                                <input type="text" class="form-control" placeholder="Insert your username"
-                                                       name="username"
-                                                       required/>
+                                                        <label for="username"><b>Utilisateur</b></label>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Insert your username"
+                                                               name="username"
+                                                               required/>
 
-                                                <label for="psw"><b>Mot de passe</b></label>
-                                                <input type="password" clas="form-control" placeholder="Mot de passe"
-                                                       name="password" required/>
+                                                        <label for="psw"><b>Mot de passe</b></label>
+                                                        <input type="password" clas="form-control"
+                                                               placeholder="Mot de passe"
+                                                               name="password" required/>
 
-                                                <div style="text-align: center">
-                                                <button type="submit" class="btn">Connexion</button>
-                                                <a href="personForm" class="btn">Créer un compte</a>
-                                                <br/>
-                                                <br/>
-                                                <label>
-                                                    <input type="checkbox" checked="checked" name="remember">Se
-                                                    souvenir
-                                                    de moi
-                                                </label>
-                                                <br/>
-                                                <br/>
+                                                        <div style="text-align: center">
+                                                            <button type="submit" class="btn">Connexion</button>
+                                                            <a href="personForm" class="btn">Créer un compte</a>
+                                                            <br/>
+                                                            <br/>
+                                                            <label>
+                                                                <input type="checkbox" checked="checked"
+                                                                       name="remember">Se
+                                                                souvenir
+                                                                de moi
+                                                            </label>
+                                                            <br/>
+                                                            <br/>
+                                                        </div>
+
+                                                        <!--
+                                                        <img src="../images/logo.png" width="100px" height="90%"
+                                                             alt="Avatar"
+                                                             class="avatar"
+                                                             style="text-align: center"> -->
+
+
+                                                        <div style="background-color:#f1f1f1;padding: 16px; vertical-align: center">
+                                                            <button type="button"
+                                                                    onclick="document.getElementById('id01').style.display='none'"
+                                                                    class="btn">Annuler
+                                                            </button>
+                                                            <span class="psw"><a
+                                                                    href="#">Mot de passe oublié?</a></span>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
+                                            </body>
 
-                                                <!--
-                                                <img src="../images/logo.png" width="100px" height="90%"
-                                                     alt="Avatar"
-                                                     class="avatar"
-                                                     style="text-align: center"> -->
+                                            <script>
+                                                // Get the modal
+                                                var modal = document.getElementById('id01');
+
+                                                // When the user clicks anywhere outside of the modal, close it
+                                                window.onclick = function (event) {
+                                                    if (event.target == modal) {
+                                                        modal.style.display = "none";
+                                                    }
+                                                }
+                                            </script>
+                                        </li>
+                                    {{/if}}
 
 
 
-                                                <div style="background-color:#f1f1f1;padding: 16px; vertical-align: center">
-                                                    <button type="button"
-                                                            onclick="document.getElementById('id01').style.display='none'"
-                                                            class="btn">Annuler
-                                                    </button>
-                                                    <span class="psw"><a href="#">Mot de passe oublié?</a></span>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    </body>
+                                </ul>
+                            </div>
 
-                                    <script>
-                                        // Get the modal
-                                        var modal = document.getElementById('id01');
-
-                                        // When the user clicks anywhere outside of the modal, close it
-                                        window.onclick = function (event) {
-                                            if (event.target == modal) {
-                                                modal.style.display = "none";
-                                            }
-                                        }
-                                    </script>
-                                </li>
-                                <li>
-                                    {{req.session.username}}
-                                </li>
-                            </ul>
                         </div>
-
-                    </div>
-                </nav>
+                    </nav>
+                </div>
             </div>
+
         </div>
 
     </div>
-
-</div>
 </header>
 <br>
 
@@ -148,7 +159,7 @@
 <br>
 <br>
 <br>
-<body style="overflow: auto;"  onload="getSession()">
+<body style="overflow: auto;" onload="getSession()">
 
 
 <h1 style="text-align: center; color:slateblue">{{title}}</h1>
@@ -157,24 +168,28 @@
 </body>
 
 <footer>
-<div class="main_menu_bg">
-    <div class="container">
-        <div class="row">
-            <div class="nave_menu">
-                <nav class="navbar navbar-default" id="navmenu">
+    <div class="main_menu_bg">
+        <div class="container">
+            <div class="row">
+                <div class="nave_menu">
+                    <nav class="navbar navbar-default" id="navmenu">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-sm-3">Posted by: TruffSA</div>
-                                <div class="col-sm-3"> <i class="fa fa-envelope-o"></i><span>  <a href="mailto:nicolas.solioz@bluewin.ch">info@truffespattes.ch</a></span> </div>
-                                <div class="col-sm-3"><i class="fa fa-map-marker"></i><span>   2 rue de Crec&apos;h reut, 22 610 Pleubian</span></div>
-                                <div class="col-sm-3"><i class="fa fa-mobile-phone"></i><span>   06.59.02.07.16</span></div>
+                                <div class="col-sm-3"><i class="fa fa-envelope-o"></i><span>  <a
+                                        href="mailto:nicolas.solioz@bluewin.ch">info@truffespattes.ch</a></span></div>
+                                <div class="col-sm-3"><i class="fa fa-map-marker"></i><span>   2 rue de Crec&apos;h reut, 22 610 Pleubian</span>
+                                </div>
+                                <div class="col-sm-3"><i class="fa fa-mobile-phone"></i><span>   06.59.02.07.16</span>
+                                </div>
                             </div>
                         </div>
-                </nav>
+                    </nav>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
 </footer>
+</body>
 </html>
