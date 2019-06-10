@@ -25,7 +25,7 @@ router.get('/', async function (req, res, next) {
      //       });
        // });
    // }
-    res.render('dog', {title: nom, dog: dog});        //Page title
+    res.render('dog', {title: nom, dog: dog,user:req.session});        //Page title
 
 });
 

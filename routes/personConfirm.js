@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', async function(req, res, next) {
 
     let persons = await models.Personne.findAll({});
-    res.render('personConfirm', { title: 'Confirmation', person : person });        //Page title
+    res.render('personConfirm', { title: 'Confirmation', person : person, user:req.session });        //Page title
 });
 
 module.exports = router;

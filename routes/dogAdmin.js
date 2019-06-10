@@ -15,7 +15,7 @@ router.get('/', async function(req, res, next) {
         nom = "Ma petite truffe"
     }
 
-    res.render('dogAdmin', { title: nom, chien:chien });   //Page title
+    res.render('dogAdmin', { title: nom, chien:chien ,user:req.session});   //Page title
 });
 
 
@@ -312,7 +312,7 @@ router.post('/', async function (req, res) {
     }
 
     //affiche la même page avec les données à jour
-    res.render('dogAdmin', { title: nom, chien : chien});        //Page title
+    res.render('dogAdmin', { title: nom, chien : chien,user:req.session});        //Page title
 
 });
 

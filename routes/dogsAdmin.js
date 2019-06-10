@@ -8,7 +8,7 @@ router.get('/', async function (req, res, next) {
     //Liste des chiens
     let dogs = await models.animal.findAll({order: [['idAnimal', 'ASC']]});
 
-    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs});        //Page title
+    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs,user:req.session});        //Page title
 });
 
 
@@ -63,7 +63,7 @@ if(req.body.nomAnimal!==undefined) {
     let dogs = await models.animal.findAll({order: [['idAnimal', 'ASC']]});
 
 
-    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs});        //Page title
+    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs,user:req.session});        //Page title
 
 });
 

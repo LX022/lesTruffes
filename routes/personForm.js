@@ -5,7 +5,7 @@ var models = require('../models');
 
 /* GET personForm page. */
 router.get('/', function (req, res, next) {
-    res.render('personForm', {title: "S'inscrire"});
+    res.render('personForm', {title: "S'inscrire", user:req.session});
 });
 
 /* POST personForm page. */
@@ -33,9 +33,9 @@ router.post('/',  function (req, res) {
             }
         }
         max = max + 1;
-        res.render('personConfirm', {title: 'Confirmation', prenomP: req.body.prenomP });        //Page title
+        res.render('personConfirm', {title: 'Confirmation', prenomP: req.body.prenomP, user:req.session });        //Page title
     } else {
-        res.render('persons', {title: 'Membres', persons: persons});        //Page title
+        res.render('persons', {title: 'Membres', persons: persons, user:req.session});        //Page title
 
     }
 

@@ -14,7 +14,7 @@ router.post('/', async function(req, res, next) {
     }
 
 
-    res.render('lieu', { title: 'Lieu bien supprimé'});        //Page title
+    res.render('lieu', { title: 'Lieu bien supprimé', user:req.session});        //Page title
 });
 
 module.exports = router;

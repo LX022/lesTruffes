@@ -44,7 +44,7 @@ router.post('/', async function(req, res, next) {
         veterinaires = await models.veterinaire.findAll({where:{idAnimal:req.body.idAnimal}});
     }
 
-    res.render('dogVeterinaire', { title: "Les vétérinaires et leurs 4 pattes",info:info, soins:soins, veterinaires:veterinaires, chiens:chiens});
+    res.render('dogVeterinaire', { title: "Les vétérinaires et leurs 4 pattes",info:info, soins:soins, veterinaires:veterinaires, chiens:chiens, user:req.session});
 });
 
 module.exports = router;

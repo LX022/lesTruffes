@@ -8,7 +8,7 @@ router.get('/', async function(req, res, next) {
     let adopteddogs = await models.Animal_asked_Adoptant.findAll({where:{adotionValidee:1}});
 
 
-    res.render('dogs', { title: 'Nos truffes à adopter', dogs : dogs },{adopteddogs:adopteddogs});        //Page title
+    res.render('dogs', { title: 'Nos truffes à adopter', dogs : dogs },{adopteddogs:adopteddogs,user:req.session});        //Page title
 });
 
 module.exports = router;
