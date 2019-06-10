@@ -53,6 +53,12 @@ router.post('/', async function(req, res, next) {
     }
 });
 
+router.delete('/', (req,res,next) =>{
+
+    req.session.destroy();
+    return (res.redirect('about'));
+});
+
 module.exports = router;
 
 

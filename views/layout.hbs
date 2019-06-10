@@ -52,8 +52,15 @@
                                     <li><a href="contact">Contact</a></li>
                                     <li><a href="admin">Admin</a></li>
                                     {{#if user}}
-                                        <li><a>{{user}}</a>
-
+                                        <li><a onclick="document.getElementById('id02').style.display='block'"
+                                               style="cursor: pointer;">{{user}}</a>
+                                            <body>
+                                            <div id="id02" class="modal">
+                                                <form class="modal-content animate" action="/login" method="delete">
+                                                    <button type="submit" class="btn">D&eacute;connexion</button>
+                                                </form>
+                                            </div>
+                                            </body>
                                         </li>
                                     {{else}}
                                         <!-- gestion du login -->
@@ -70,7 +77,6 @@
                                                 </form> -->
                                                 <form class="modal-content animate" action="/login" method="post">
                                                     <!--action="/action_page.php" -->
-
 
                                                     <div class="imgcontainer">
                                                 <span onclick="document.getElementById('id01').style.display='none'"
