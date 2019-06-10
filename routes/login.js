@@ -13,7 +13,7 @@ var router = express.Router();
 
 
 router.get('/', function(req,res,next){
-    res.render('/');
+    res.render('/about');
 });
 
 router.post('/', async function(req, res, next) {
@@ -30,8 +30,6 @@ router.post('/', async function(req, res, next) {
             req.session.loggedin = true;
             req.session.username = results[0].username;
             req.session.privilege = results[0].privilege;
-
-
 
 
             handlebars.registerHelper('username', function() {
@@ -56,7 +54,8 @@ router.post('/', async function(req, res, next) {
 router.delete('/', (req,res,next) =>{
 
     req.session.destroy();
-    return (res.redirect('about'));
+    res.redirect('about');
+    res.end();
 });
 
 module.exports = router;
