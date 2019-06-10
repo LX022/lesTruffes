@@ -11,7 +11,7 @@ router.get('/', async function (req, res, next) {
     id = req.query.idAnimalAdoption;
     dog = await models.Animal.findByPk(id);
 
-    res.render('formulaireAdoption', {title: "Adopter cette belle truffe", dog:dog});
+    res.render('formulaireAdoption', {title: "Adopter cette belle truffe", dog:dog, user:req.session});
 });
 
 router.post('/', async function (req, res, next) {

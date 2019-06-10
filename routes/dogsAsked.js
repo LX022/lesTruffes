@@ -14,7 +14,7 @@ router.get('/', async function (req, res, next) {
     //Liste des chiens par ordre alphabétique
     let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'ASC']]});
 
-    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, personnes:personnes, myDogs:myDogs});        //Page title
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, personnes:personnes, myDogs:myDogs,user:req.session});        //Page title
 });
 
 
@@ -91,7 +91,7 @@ router.post('/', async function (req, res) {
     }
 
 
-    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, info:info, personnes:personnes, myDogs:myDogs});        //Page title
+    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, info:info, personnes:personnes, myDogs:myDogs,user:req.session});        //Page title
 
 });
 

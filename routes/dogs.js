@@ -27,7 +27,7 @@ router.get('/', async function (req, res, next) {
         }
     }
 
-    res.render('dogs', {title: 'Nos truffes à adopter', dogs: dogs});        //Page title
+    res.render('dogs', {title: 'Nos truffes à adopter', dogs: dogs,user:req.session});        //Page title
 });
 
 

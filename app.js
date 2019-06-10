@@ -15,7 +15,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 //Routers
-var routes = require('./routes/about');
+var routes = require('./routes');
 var about  = require('./routes/about');
 var adoption = require('./routes/adoption');
 var contact = require('./routes/contact');

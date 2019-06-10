@@ -15,7 +15,7 @@ router.get('/', async function (req, res, next) {
     let dogsFA = await models.animalHasFa.findAll();
 
 
-    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogs:dogs, personnes:personnes, dogsFA:dogsFA});        //Page title
+    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogs:dogs, personnes:personnes, dogsFA:dogsFA, user:req.session});        //Page title
 });
 
 /* POST dogsFA page. */
@@ -71,7 +71,7 @@ router.post('/', async function (req, res, next) {
     //TODO Si c'est depuis la page FA
 
 
-    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogsFA:dogsFA, info:info, dogs:dogs, personnes:personnes, warning:warning});        //Page title
+    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogsFA:dogsFA, info:info, dogs:dogs, personnes:personnes, warning:warning, user:req.session});        //Page title
 });
 
 
