@@ -11,41 +11,42 @@ var handlebars = require('handlebars');
 var app = express();
 var router = express.Router();
 
-    var connection = mysql.createConnection({
-        host     : 'localhost',
-        user     : 'root',
-        password : 'IbanezXiphos7',
-        database : 'truffes'
-});
-
 
 router.get('/', function(req,res,next){
     res.render('/');
 });
 
-router.post('/', function(req, res, next) {
-    var username = req.body.username;
-    var password = req.body.password;
+router.post('/', async function(req, res, next) {
+    var insertedUsername = req.body.username;
+    var insertedPassword = req.body.password;
 
-    if (username && password) {
-        connection.query('SELECT privilege FROM personne WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-            if (results.length > 0) {
-                req.session.loggedin = true;
-                req.session.username = username;
-                req.session.privilege = JSON.stringify(results[0]).replace(/\D/g,'');
+    var results = await models.Personne.findAll(
+        {where: {username:insertedUsername, password:insertedPassword},
+            attributes: ['username', 'password', 'privilege']});
 
-                handlebars.registerHelper('username', function() {
-                    return 'hey';
-                });
+    if (insertedUsername && insertedPassword) {
 
-                //log in successful!
-                res.redirect('about');
+        if (results != null) {
+            req.session.loggedin = true;
+            req.session.username = results[0].username;
+            req.session.privilege = results[0].privilege;
 
-            } else {
-                res.send('Incorrect Username and/or Password!');
-            }
-            res.end();
-        });
+
+
+
+            handlebars.registerHelper('username', function() {
+
+                return 'hey';
+            });
+
+            //log in successful!
+            res.redirect('about');
+
+        } else {
+            res.send('Incorrect Username and/or Password!');
+        }
+        res.end();
+
     } else {
         res.send('Please enter Username and Password!');
         res.end();
