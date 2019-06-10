@@ -16,10 +16,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: 'Veterinaire',
-        key: 'idVeterinaire'
-      },
+      // references: {
+      //   model: 'Veterinaire',
+      //   key: 'idVeterinaire'
+      // },
       field: 'idVeterinaire'
     },
     soins: {

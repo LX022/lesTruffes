@@ -6,20 +6,20 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER(11),
             allowNull: false,
             primaryKey: true,
-            references: {
-                model: 'Animal',
-                key: 'idAnimal'
-            },
+            // references: {
+            //     model: 'Animal',
+            //     key: 'idAnimal'
+            // },
             field: 'idAnimal'
         },
         idcoVoit: {
             type: DataTypes.INTEGER(11),
             allowNull: false,
             primaryKey: true,
-            references: {
-                model: 'coVoit',
-                key: 'idcoVoit'
-            },
+            // references: {
+            //     model: 'coVoit',
+            //     key: 'idcoVoit'
+            // },
             field: 'idcoVoit'
         }
     }, {

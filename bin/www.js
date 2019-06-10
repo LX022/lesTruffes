@@ -96,3 +96,7 @@ function onListening() {
         : 'port ' + addr.port;
     debug('Listening on ' + bind);
 }
+
+// Handlebars.registerHelper('toLowerCase', function (str) {
+//     return str.toLowerCase();
+// });

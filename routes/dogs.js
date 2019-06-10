@@ -1,6 +1,7 @@
 var models = require('../models');
 var express = require('express');
 var router = express.Router();
+// var handerBars = require('handlebars-intl');
 
 /* GET dogs page. */
 router.get('/', async function (req, res, next) {
@@ -24,11 +25,13 @@ router.get('/', async function (req, res, next) {
         }
         if(isAdopted===false){
             dogs[i]=(dogsToAdopt[i]);
+
         }
     }
-
     res.render('dogs', {title: 'Nos truffes à adopter', dogs: dogs,user:req.session});        //Page title
 });
+
+
 
 
 module.exports = router;

@@ -17,7 +17,7 @@ var allowDBdrop = true;
 
 if (config.use_env_variable) {
     // var sequelize = new Sequelize(process.env[config.use_env_variable], config);
-    var sequelize = new Sequelize('mysql://root:@localhost:3306/truffes', config); // Changer ici le password et le nom de la DB
+    var sequelize = new Sequelize('mysql://root:nothing@localhost:3306/truffes', config); // Changer ici le password et le nom de la DB
 } else {
     var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }

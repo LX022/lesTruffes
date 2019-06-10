@@ -1,4 +1,6 @@
-<br><div style="text-align: center;"><a href="dogsAdmin"><img src="../images/back.jpg" width="30" />   Revenir à la liste des chiens</a></div>
+<br>
+<div style="text-align: center;"><a href="dogsAdmin"><img src="../images/back.jpg" width="30"/> Revenir à la liste des
+    chiens</a></div>
 
 <!-- End of header-->
 <section class="aboutus margin-top-50" id="aboutus">
@@ -8,44 +10,56 @@
             <div class="col-md-12" style="text-align: left;"><h2 style="color:red">{{info}}</h2>
                 <div class="container">
                     <div class="row">
-                <div class="col-md-4">
+                        <div class="col-md-4">
 
-                <!-- End of head title-->
-                <div><h2>Ajouter une adoption</h2>
-                    <table class="table">
-                        <thead>
-                        <!-- En-tête du tableau-->
-                        <tr>
-                            <th scope="col">ID Animal</th>
-                            <th scope="col">ID Personne</th>
-                            <th scope="col"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                            <!-- End of head title-->
+                            <div>
+                                <table class="table">
+                                    <fieldset>
+                                        <legend>Ajouter une adoption</legend>
+                                        <thead>
+                                        <!-- En-tête du tableau-->
+                                        <tr>
+                                            <th scope="col">ID Animal</th>
+                                            <th scope="col">ID Personne</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
 
-                        <form id="dogsAsked" action="/dogsAsked" method="post">
-                            <tr>
-                                <td><input list="InsertidAnimal" name="InsertidAnimal" required></td>
-                                <datalist id="InsertidAnimal">
-                                    {{#each myDogs}}
-                                        <option value="{{this.idAnimal}}">{{this.nomAnimal}}</option>
-                                    {{/each}}
-                                </datalist>
-                                <td><input list="InsertidPerson" name="InsertidPerson" required></td>
-                                <datalist id="InsertidPerson">
-                                    {{#each personnes}}
-                                        <option value="{{this.idPersonne}}">{{this.prenomP}} {{this.nomP}}</option>
-                                    {{/each}}
-                                </datalist>
-                                <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
-                            </tr>
-                        </form>
-                        </tbody>
-                    </table>
-                </div>
-                </div></div>
+                                        <form id="dogsAsked" action="/dogsAsked" method="post">
+                                            <tr>
+                                                <td><input list="InsertidAnimal" name="InsertidAnimal" required></td>
+                                                <datalist id="InsertidAnimal">
+                                                    {{#each myDogs}}
+                                                        <option value="{{this.idAnimal}}">{{this.nomAnimal}}</option>
+                                                    {{/each}}
+                                                </datalist>
+                                                <td><input list="InsertidPerson" name="InsertidPerson" required></td>
+                                                <datalist id="InsertidPerson">
+                                                    {{#each personnes}}
+                                                        <option value="{{this.idPersonne}}">{{this.prenomP}} {{this.nomP}}</option>
+                                                    {{/each}}
+                                                </datalist>
 
-<br><br>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                <input type="submit"
+                                                       class="btn-primary btn-sm"
+                                                       value="Ajouter">
+                                                </td>
+                                            </tr>
+
+                                        </form>
+                                        </tbody>
+                                    </fieldset>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
                     <div style="overflow: auto;">
 
                         <h2>Adoption(s) en cours</h2>
@@ -80,7 +94,8 @@
                                         <td>{{this.commentaires}}</td>
                                         <td>{{this.dateCessionIcad}}</td>
                                         <td>{{this.paiement}}</td>
-                                        <td><h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4></td>
+                                        <td><input style="background-color: red" class="btn-danger btn-sm" type="submit" value="Supprimer">
+                                        </td>
                                     </tr>
                                 </form>
                             {{/each}}
@@ -105,26 +120,38 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {{#each dogs}}     <form id="updateDogsAsked" action="/dogsAsked" method="post">
-                                    <tr>
-                                        <td><input type="number" name="UidAnimal" value="{{this.idAnimal}}" readonly></td>
-                                        <td><input type="number" name="UidPerson" value="{{this.idPersonne}}" readonly></td>
-                                        <td><label>0=non 1=oui 3=?</label>
-                                            <input list="UadoptionValidee" name="UadoptionValidee" value="{{this.adoptionValidee}}" required>
+                                {{#each dogs}}
+                                    <form id="updateDogsAsked" action="/dogsAsked" method="post">
+                                        <tr>
+                                            <td><input type="number" name="UidAnimal" value="{{this.idAnimal}}"
+                                                       readonly></td>
+                                            <td><input type="number" name="UidPerson" value="{{this.idPersonne}}"
+                                                       readonly></td>
+                                            <td><label>0=non 1=oui 3=?</label>
+                                                <input list="UadoptionValidee" name="UadoptionValidee"
+                                                       value="{{this.adoptionValidee}}" required>
 
-                                            <datalist id="UadoptionValidee">
-                                                <option value="1">Oui</option>
-                                                <option value="0">Non</option>
-                                                <option value="3">?</option>
-                                            </datalist></td>
-                                        <td><input type="text" name="UcontratAdoption" value="{{this.contratAdoption}}"></td>
-                                        <td><input type="date" name="UdateContratRecu" value="{{this.dateContratRecu}}"></td>
-                                        <td><input type="text" name="Ucommentaires" value="{{this.commentaires}}"></td>
-                                        <td><input type="date" name="UdateCessionIcad" value="{{this.dateCessionICAD}}"></td>
-                                        <td><input type="text" name="Upaiement" value="{{this.Paiement}}"></td>
-                                        <td style="vertical-align: center;"><h4><input type="submit" style="background-color:gold"  value="Mettre à jour"></h4></td>
-                                    </tr>
-                                </form>
+                                                <datalist id="UadoptionValidee">
+                                                    <option value="1">Oui</option>
+                                                    <option value="0">Non</option>
+                                                    <option value="3">?</option>
+                                                </datalist>
+                                            </td>
+                                            <td><input type="text" name="UcontratAdoption"
+                                                       value="{{this.contratAdoption}}"></td>
+                                            <td><input type="date" name="UdateContratRecu"
+                                                       value="{{this.dateContratRecu}}"></td>
+                                            <td><input type="text" name="Ucommentaires" value="{{this.commentaires}}">
+                                            </td>
+                                            <td><input type="date" name="UdateCessionIcad"
+                                                       value="{{this.dateCessionICAD}}"></td>
+                                            <td><input type="text" name="Upaiement" value="{{this.Paiement}}"></td>
+                                            <td style="vertical-align: center;"><h4><input type="submit"
+                                                                                           class="btn-warning btn-sm"
+                                                                                           value="Mettre à jour"></h4>
+                                            </td>
+                                        </tr>
+                                    </form>
                                 {{/each}}
 
                                 </tbody>
@@ -137,5 +164,6 @@
             </div>
             <!-- End of Container-->
             <hr/>
-        </div></div>
+        </div>
+    </div>
 </section>

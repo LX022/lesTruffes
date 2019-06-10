@@ -7,7 +7,8 @@
         <div class="col-md-12" style="text-align: center;">
             <form id="hasVetDogs" action="/dogVeterinaire" method="post">
                 <input type="hidden" name="idVetDog" value="{{veto.idVeterinaire}}" required>
-                <input type="submit" style="background-color:#9acfea"  value="Chiens soignés par ce vétérinaire">
+                <label style="color: #46b8da;">
+              <input type="image" src="images/soins.png"  value="Chiens soignés par ce vétérinaire"><br>Soins prodigués  </label>
             </form>
             </p>
         </div></div></div>
@@ -46,7 +47,7 @@
 
                                         <form id="myveto" action="/vets" method="get">
 
-                                            <h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4>
+                                            <h4 style="text-align: right;" >  <input src="../images/supprimer.png"  type="image" value="Supprimer"></h4>
 
                                             <table class="table">
 
