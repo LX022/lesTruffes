@@ -6,7 +6,7 @@ var fs = require('fs');
 /* GET dog page. */
 router.get('/', async function (req, res, next) {
 
-    let directory = '../public/images/animals/';
+    let directory = 'images/animals/';
     let id = req.query.idAnimal;
     let x = 0;
     let dog = await models.animal.findByPk(id);
