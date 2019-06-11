@@ -6,10 +6,10 @@ module.exports = function (sequelize, DataTypes) {
                 type: DataTypes.INTEGER(11),
                 allowNull: false,
                 primaryKey: true,
-                // references: {
-                //     model: 'Animal',
-                //     key: 'idAnimal'
-                // },
+                references: {
+                    model: 'Animal',
+                    key: 'idAnimal'
+                },
                 field: 'idAnimal'
             },
             idEntente: {
@@ -22,7 +22,8 @@ module.exports = function (sequelize, DataTypes) {
                 },
                 field: 'idEntente'
             }
-        }, {
+        },
+        {
             timestamps: false,
             freezeTableName: true,
             tableName: 'Animal_has_Entente'
@@ -30,10 +31,10 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Animal.hasOne(models.animal);
-
-
+                    animalHasEntente.hasOne(models.animal);
+                    animalHasEntente.hasOne(models.entente);
                 }
             }
-        });
+        }
+    );
 };

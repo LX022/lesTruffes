@@ -100,21 +100,16 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    Animal.hasOne(models.Statut);
-                    Animal.belongsToMany(models.animalHasEntente);
-                    Animal.belongsToMany(models.animalHasCoVoit);
-                    Animal.belongsToMany(models.animalsHasFA);
-                    Animal.belongsToMany(models.animalAskedAdoptant);
-                    Animal.belongsToMany(models.animalHasVeterinaire);
+                    animal.hasOne(models.statut);
+                    animal.belongsToMany(models.animalHasEntente);
+                    animal.belongsToMany(models.animalHasCoVoit);
+                    animal.belongsToMany(models.animalsHasFA);
+                    animal.belongsToMany(models.animalAskedAdoptant);
+                    animal.belongsToMany(models.animalHasVeterinaire);
 
                 }
             }
         }
-        // ,
-        // sequelize.sync({ force: true,
-        // pool:false})
-        //     .then(() => {
-        //         console.log(`Database & tables created!`)
-        //     })
+
     );
 };

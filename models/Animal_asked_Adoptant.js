@@ -6,7 +6,6 @@ module.exports = function (sequelize, DataTypes) {
                 type: DataTypes.INTEGER(11),
                 allowNull: false,
                 primaryKey: true,
-                autoIncrement: true,
                 references: {
                     model: 'Animal',
                     key: 'idAnimal'
@@ -70,8 +69,9 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    animalAskedAdoptant.hasOne(models.Animal);
-                    animalAskedAdoptant.hasOne(models.Personne);
+                    animalAskedAdoptant.hasOne(models.animal);
+                    animalAskedAdoptant.hasOne(models.personne);
+                    animalAskedAdoptant.hasOne(models.previsite);
                 }
             }
         });

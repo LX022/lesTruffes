@@ -1,29 +1,29 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-    return sequelize.define('statut', {
-            idStatut: {
+    return sequelize.define('coVoit', {
+            idcoVoit: {
                 type: DataTypes.INTEGER(11),
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
-                field: 'idStatut'
+                field: 'idcoVoit'
             },
-            etatStatut: {
+            nomCovoit: {
                 type: DataTypes.STRING(45),
                 allowNull: true,
-                field: 'etatStatut'
+                field: 'nomCovoit'
             }
         },
         {
             timestamps: false,
             freezeTableName: true,
-            tableName: 'Statut'
+            tableName: 'CoVoit'
         },
         {
             classMethods: {
                 associate: function (models) {
-                    statut.belongsTo(models.animal)
+                    coVoit.belongsToMany(models.animalHasCoVoit);
                 }
             }
         }
