@@ -113,7 +113,7 @@ router.post('/', async function (req, res, next) {
 
     /* STILL HAVE TO CODE : CHANGE STATUS OF DOG IN DATABASE */
 
-    res.redirect('dogs');
+    res.redirect('dogs',{user: req.session});
 });
 
 

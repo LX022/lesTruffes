@@ -7,7 +7,7 @@ router.post('/', async function(req, res, next) {
 
     //DELETE
     if (req.body.deleteLieu <1) {
-        return res.render('lieu', {title: 'Lieu par défaut non supprimable'});        //Page title
+        return res.render('lieu', {title: 'Lieu par défaut non supprimable', user: req.session});        //Page title
     }
 
     if(req.body.deleteLieu!==undefined && req.body.deleteLieu>0) {

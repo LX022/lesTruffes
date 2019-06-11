@@ -113,7 +113,7 @@ router.post('/', function(req, res, next) {
         text: message,
     });
 
-    res.redirect('formulaireFA');
+    res.redirect('formulaireFA', {user: req.session});
 })
 
 module.exports = router;
