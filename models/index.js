@@ -10,8 +10,8 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-    // sequelize = new Sequelize(process.env[config.use_env_variable], config);
-    sequelize = new Sequelize('mysql://root:nothing@localhost:3306/truffes', config); // Changer ici le password et le nom de la DB
+    sequelize = new Sequelize(process.env[config.use_env_variable], config);
+    //sequelize = new Sequelize('mysql://root:nothing@localhost:3306/truffes', config); // Changer ici le password et le nom de la DB
 } else {
     sequelize = new Sequelize(config.database, config.username, config.password, config);
 }

@@ -35,7 +35,7 @@
                 <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                     <a href="fa" class="w3-bar-item w3-button">FA?</a>
                     <a href="adoption" class="w3-bar-item w3-button">Adoptions</a>
-               </div>
+                </div>
             </div>
             <a href="formulaireFA" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Devenir FA</a>
             <a href="don" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Don</a>
@@ -45,36 +45,38 @@
             <a href="shop" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Boutique</a>
             <a href="contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
             <a href="adoption" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Adoption</a>
+            {{#if user.privilege}}
+                <div class="w3-dropdown-hover w3-hide-small">
+                    <button class="w3-button" title="Notifications">Administrateur<i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+                        <a href="dogsAdmin" class="w3-bar-item w3-button">Chiens</a>
+                        <a href="dogsAsked" class="w3-bar-item w3-button">Adoptions</a>
+                        <a href="dogsAsked" class="w3-bar-item w3-button">Membres adoptant</a>
+                        <a href="dogsFA" class="w3-bar-item w3-button">Chiens en famille d'accueil</a>
+                        <a href="dogsFA" class="w3-bar-item w3-button">Liste des FA</a>
+                        <a href="vets" class="w3-bar-item w3-button">Vétérinaires</a>
+                        <a href="persons" class="w3-bar-item w3-button">Membres</a>
+                        <a href="persons" class="w3-bar-item w3-button">Donateurs</a>
+                        <a href="persons" class="w3-bar-item w3-button">Adhérents</a>
+                        <a href="persons" class="w3-bar-item w3-button">Attribution des rôles</a>
 
-            <div class="w3-dropdown-hover w3-hide-small">
-                <button class="w3-button" title="Notifications">Administrateur<i class="fa fa-caret-down"></i></button>
-                <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-                    <a href="dogsAdmin" class="w3-bar-item w3-button">Chiens</a>
-                    <a href="dogsAsked" class="w3-bar-item w3-button">Adoptions</a>
-                    <a href="dogsAsked" class="w3-bar-item w3-button">Membres adoptant</a>
-                    <a href="dogsFA" class="w3-bar-item w3-button">Chiens en famille d'accueil</a>
-                    <a href="dogsFA" class="w3-bar-item w3-button">Liste des FA</a>
-                    <a href="vets" class="w3-bar-item w3-button">Vétérinaires</a>
-                    <a href="persons" class="w3-bar-item w3-button">Membres</a>
-                    <a href="persons" class="w3-bar-item w3-button">Donateurs</a>
-                    <a href="persons" class="w3-bar-item w3-button">Adhérents</a>
-                    <a href="persons" class="w3-bar-item w3-button">Attribution des rôles</a>
 
+                        <!-- Collect the nav links, forms, and other content for toggling collapse navbar-collapse-->
 
-                    <!-- Collect the nav links, forms, and other content for toggling collapse navbar-collapse-->
+                        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+                        <!--<ul class="nav navbar-nav navbar-default">-->
+                        <!--<li><a href="about">Accueil</a></li>-->
+                        <!--<li><a href="vets">Vétérinaires</a></li>-->
+                        <!--<li><a href="dogsAdmin">Gestion des chiens</a></li>-->
+                        <!--<li><a href="dogs">Nos truffes à adopter</a></li>-->
+                        <!--<li><a href="formulaireFA">Devenir FA</a></li>-->
+                        <!--<li><a href="contact">Contact</a></li>-->
+                        <!--<li><a href="admin">Admin</a></li>-->
 
-                    <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-                    <!--<ul class="nav navbar-nav navbar-default">-->
-                    <!--<li><a href="about">Accueil</a></li>-->
-                    <!--<li><a href="vets">Vétérinaires</a></li>-->
-                    <!--<li><a href="dogsAdmin">Gestion des chiens</a></li>-->
-                    <!--<li><a href="dogs">Nos truffes à adopter</a></li>-->
-                    <!--<li><a href="formulaireFA">Devenir FA</a></li>-->
-                    <!--<li><a href="contact">Contact</a></li>-->
-                    <!--<li><a href="admin">Admin</a></li>-->
-
+                    </div>
                 </div>
-            </div>
+            {{/if}}
             <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i
                     class="fa fa-search"></i></a>
 
@@ -129,7 +131,7 @@
                                 <br/>
                                 <label>
                                     <input type="checkbox" checked="checked"
-                                           name="remember" ><span style="color:black">Se
+                                           name="remember"><span style="color:black">Se
                                     souvenir
                                     de moi</span>
                                 </label>
@@ -190,8 +192,6 @@
     </div>
 
 
-
-
     </div>
 </header>
 
@@ -216,7 +216,8 @@
        href="https://www.facebook.com/groups/unetruffeetdespattes/" title="Facebook"><i class="fa fa-facebook"></i></a>
     <a class="w3-button w3-large" style="background-color: #46b8da" href="javascript:void(0)" title="Twitter"><i
             class="fa fa-twitter"></i></a>
-    <a class="w3-button w3-large w3-hide-small" style="background-color: #337ab7; margin-bottom: 12px" href="javascript:void(0)"
+    <a class="w3-button w3-large w3-hide-small" style="background-color: #337ab7; margin-bottom: 12px"
+       href="javascript:void(0)"
        title="Linkedin"><i class="fa fa-linkedin"></i></a>
 
     <div><p>Posted by: TruffSA</p>
