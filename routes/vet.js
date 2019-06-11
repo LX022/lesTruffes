@@ -4,35 +4,41 @@ var router = express.Router();
 
 /* GET vet page. */
 router.get('/', async function(req, res, next) {
-
-    //Créer un lieu ? s'il n'existe pas
-    let lieuDefaut = await models.lieu.findAll({where:{codePostal:0}});
-    if(lieuDefaut<1) {
-        let lieuInconnu = await models.lieu.create({idLieu: 0, codePostal: 0, ville: "?",idPays:0});
-    }
-
-    //Recherche du vétérinaire à afficher
-    let id = req.query.idVeterinaire;
-    let veto = await models.veterinaire.findByPk(id);
-
-    //Recherche le lieu du véto et les lieux en général
-    let lieu = await models.lieu.findByPk(veto.idLieu);
-    let pays = await models.pays.findAll();
-    let lieux = await models.lieu.findAll({order: [['ville', 'ASC']]});
-
-    //titre
-    let nom = veto.nomV +" " + veto.prenomV;
-
-    //récupérer dernier id lieu
-    let max = 0;
-    for(let i =0;i<lieux.length;i++){
-        if(lieux[i].idLieu > max){
-            max = lieux[i].idLieu;
+    if(req.session.privilee >= 2)
+    {
+        //Créer un lieu ? s'il n'existe pas
+        let lieuDefaut = await models.lieu.findAll({where:{codePostal:0}});
+        if(lieuDefaut<1) {
+            let lieuInconnu = await models.lieu.create({idLieu: 0, codePostal: 0, ville: "?",idPays:0});
         }
-    }
-    max = max +1;
 
-    res.render('vet', { title: nom, veto : veto, lieux:lieux, lieu:lieu, pays:pays, user:req.session });   //Page title
+        //Recherche du vétérinaire à afficher
+        let id = req.query.idVeterinaire;
+        let veto = await models.veterinaire.findByPk(id);
+
+        //Recherche le lieu du véto et les lieux en général
+        let lieu = await models.lieu.findByPk(veto.idLieu);
+        let pays = await models.pays.findAll();
+        let lieux = await models.lieu.findAll({order: [['ville', 'ASC']]});
+
+        //titre
+        let nom = veto.nomV +" " + veto.prenomV;
+
+        //récupérer dernier id lieu
+        let max = 0;
+        for(let i =0;i<lieux.length;i++){
+            if(lieux[i].idLieu > max){
+                max = lieux[i].idLieu;
+            }
+        }
+        max = max +1;
+
+        res.render('vet', { title: nom, veto : veto, lieux:lieux, lieu:lieu, pays:pays, user:req.session });   //Page title
+    }
+    else
+        res.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
+
+
 });
 
 

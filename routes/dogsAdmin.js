@@ -4,11 +4,17 @@ var router = express.Router();
 
 /* GET dogsAdmin page. */
 router.get('/', async function (req, res, next) {
+    if(req.session.privilege >= 1)
+    {
+        //Liste des chiens
+        let dogs = await models.animal.findAll({order: [['idAnimal', 'ASC']]});
 
-    //Liste des chiens
-    let dogs = await models.animal.findAll({order: [['idAnimal', 'ASC']]});
+        res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs,user:req.session});        //Page title
+    }
+    else
+        req.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
 
-    res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs,user:req.session});        //Page title
+
 });
 
 

@@ -4,28 +4,33 @@ var router = express.Router();
 
 /* GET dogsAdmin page. */
 router.get('/', async function (req, res, next) {
+    if(req.session.privilege == 3)
+    {
+        //liste des personnes
+        let personnes = await models.Personne.findAll();
 
-    //liste des personnes
-    let personnes = await models.Personne.findAll();
+        //liste des chiens
+        let myDogs = await models.animal.findAll();
 
-    //liste des chiens
-    let myDogs = await models.animal.findAll();
-
-    //Liste des chiens par ordre alphabétique
-    let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'ASC']]});
+        //Liste des chiens par ordre alphabétique
+        let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'ASC']]});
 
 
-    //id max de la table
-    let idcount = dogs = await models.animalAskedAdoptant.findAll();
-    let max = 0;
-    for(let i =0;i<idcount.length;i++){
-        if(idcount[i].idAnimal > max){
-            max = idcount[i].idAnimal;
+        //id max de la table
+        let idcount = dogs = await models.animalAskedAdoptant.findAll();
+        let max = 0;
+        for(let i =0;i<idcount.length;i++){
+            if(idcount[i].idAnimal > max){
+                max = idcount[i].idAnimal;
+            }
         }
-    }
-    max = max +1;
+        max = max +1;
 
-    res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, personnes:personnes, myDogs:myDogs,user:req.session});        //Page title
+        res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, personnes:personnes, myDogs:myDogs,user:req.session});
+    }
+    else
+        res.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
+
 });
 
 

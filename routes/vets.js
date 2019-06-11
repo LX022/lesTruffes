@@ -5,28 +5,35 @@ var router = express.Router();
 /* GET vets page. */
 router.get('/', async function (req, res, next) {
 
-    //DELETE vétérinaire
-    if(req.query.idmyveto!==undefined && req.query.idmyveto !==null){
-        await models.animalHasVeterinaire.destroy({where:{idVeterinaire:req.query.idmyveto}});
-        await models.veterinaire.destroy({where:{idVeterinaire:req.query.idmyveto}});
-    }
-
-    //récupérer les vétérinaires
-    let veterinaires = await models.veterinaire.findAll({order: [['idVeterinaire', 'ASC']]});
-
-    //récupérer les lieux
-    let lieux = await models.lieu.findAll();
-
-    let idcount = await models.veterinaire.findAll();
-    let max = 0;
-    for(let i =0;i<idcount.length;i++){
-        if(idcount[i].idVeterinaire > max){
-            max = idcount[i].idVeterinaire;
+    if(req.session.privilege >= 2)
+    {
+        //DELETE vétérinaire
+        if(req.query.idmyveto!==undefined && req.query.idmyveto !==null){
+            await models.animalHasVeterinaire.destroy({where:{idVeterinaire:req.query.idmyveto}});
+            await models.veterinaire.destroy({where:{idVeterinaire:req.query.idmyveto}});
         }
-    }
-    max = max +1;
 
-    res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux, user:req.session});        //Page title
+        //récupérer les vétérinaires
+        let veterinaires = await models.veterinaire.findAll({order: [['idVeterinaire', 'ASC']]});
+
+        //récupérer les lieux
+        let lieux = await models.lieu.findAll();
+
+        let idcount = await models.veterinaire.findAll();
+        let max = 0;
+        for(let i =0;i<idcount.length;i++){
+            if(idcount[i].idVeterinaire > max){
+                max = idcount[i].idVeterinaire;
+            }
+        }
+        max = max +1;
+
+        res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux, user:req.session});        //Page title
+    }
+    else
+        res.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
+
+
 });
 
 /* POST vets page. */
