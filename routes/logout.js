@@ -9,9 +9,10 @@ router.get('/', function (req, res, next) {
 
 router.post('/', async function (req, res, next) {
 
-    req.session.destroy();
-    res.redirect('logout', {user: req.session});
-    res.end();
+    req.session.loggedin = false;
+    req.session.username = "";
+    req.session.privilege = 0;
+    res.render('about', {title: 'Vous vous etes deconnectes.', user:req.session});
 
 });
 
