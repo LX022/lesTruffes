@@ -12,10 +12,11 @@ router.post('/', async function(req, res, next) {
 
     if(req.body.deleteLieu!==undefined && req.body.deleteLieu>0) {
 
-    if(req.body.deleteLieu!==undefined ) {
-                await models.veterinaire.update({idLieu: null}, {where: {idLieu: req.body.deleteLieu}});
-                await models.lieu.destroy({where: {idLieu: req.body.deleteLieu}});
-                return res.render('lieu', {title: 'Lieu supprimé'});     //Page title
+        if (req.body.deleteLieu !== undefined) {
+            await models.veterinaire.update({idLieu: null}, {where: {idLieu: req.body.deleteLieu}});
+            await models.lieu.destroy({where: {idLieu: req.body.deleteLieu}});
+            return res.render('lieu', {title: 'Lieu supprimé'});     //Page title
+        }
     }
 
 
