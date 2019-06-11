@@ -4,18 +4,24 @@ var router = express.Router();
 
 /* GET dogsFA page. */
 router.get('/', async function (req, res, next) {
+    if(req.session.privilege == 3)
+    {
+        //liste des personnes
+        let personnes = await models.personne.findAll({where:{fa:1}});
 
-    //liste des personnes
-    let personnes = await models.personne.findAll({where:{fa:1}});
+        //liste des chiens
+        let dogs = await models.animal.findAll();
 
-    //liste des chiens
-    let dogs = await models.animal.findAll();
-
-    //Liste liens dogsFA
-    let dogsFA = await models.animalHasFa.findAll();
+        //Liste liens dogsFA
+        let dogsFA = await models.animalHasFa.findAll();
 
 
-    res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogs:dogs, personnes:personnes, dogsFA:dogsFA, user:req.session});        //Page title
+        res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogs:dogs, personnes:personnes, dogsFA:dogsFA, user:req.session});        //Page title
+    }
+    else
+        res.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
+
+
 });
 
 /* POST dogsFA page. */
