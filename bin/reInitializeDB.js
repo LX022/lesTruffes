@@ -23,7 +23,6 @@ if (config.use_env_variable) {
     sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
