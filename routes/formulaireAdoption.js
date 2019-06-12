@@ -9,7 +9,7 @@ let dog;
 /* GET fa page. */
 router.get('/', async function (req, res, next) {
     id = req.query.idAnimalAdoption;
-    dog = await models.Animal.findByPk(id);
+    dog = await models.animal.findByPk(id);
 
     res.render('formulaireAdoption', {title: "Adopter cette belle truffe", dog:dog, user:req.session});
 });

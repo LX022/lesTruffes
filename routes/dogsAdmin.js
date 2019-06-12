@@ -67,14 +67,7 @@ if(req.body.nomAnimal!==undefined) {
 }
     //récupérer la liste des chiens à jour
     let dogs = await models.animal.findAll({order: [['idAnimal', 'ASC']]});
-    //id max de la table
-    let max = 0;
-    for(let i =0;i<dogs.length;i++){
-        if(dogs[i].idAnimal > max){
-            max = dogs[i].idAnimal;
-        }
-    }
-    max = max +1;
+
 
     res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs,user:req.session});        //Page title
 

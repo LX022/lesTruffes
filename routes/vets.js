@@ -19,14 +19,6 @@ router.get('/', async function (req, res, next) {
         //récupérer les lieux
         let lieux = await models.lieu.findAll();
 
-        let idcount = await models.veterinaire.findAll();
-        let max = 0;
-        for(let i =0;i<idcount.length;i++){
-            if(idcount[i].idVeterinaire > max){
-                max = idcount[i].idVeterinaire;
-            }
-        }
-        max = max +1;
 
         res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux, user:req.session});        //Page title
     }

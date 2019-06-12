@@ -24,14 +24,6 @@ router.get('/', async function(req, res, next) {
         //titre
         let nom = veto.nomV +" " + veto.prenomV;
 
-        //récupérer dernier id lieu
-        let max = 0;
-        for(let i =0;i<lieux.length;i++){
-            if(lieux[i].idLieu > max){
-                max = lieux[i].idLieu;
-            }
-        }
-        max = max +1;
 
         res.render('vet', { title: nom, veto : veto, lieux:lieux, lieu:lieu, pays:pays, user:req.session });   //Page title
     }
@@ -80,15 +72,6 @@ router.post('/', async function (req, res) {
     let lieu = await models.lieu.findByPk(veto.idLieu);
     let pays = await models.pays.findAll();
     let lieux = await models.lieu.findAll({order: [['ville', 'ASC']]});
-
-    //récupérer dernier id lieu
-    let max = 0;
-    for(let i =0;i<lieux.length;i++){
-        if(lieux[i].idLieu > max){
-            max = lieux[i].idLieu;
-        }
-    }
-    max = max +1;
 
 
     res.render('vet', { title: nom, veto : veto , lieux:lieux, lieu:lieu, pays:pays, user:req.session});        //Page title
