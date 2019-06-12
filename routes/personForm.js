@@ -26,13 +26,7 @@ router.post('/',  function (req, res) {
         });
 
         let persons =  models.Personne.findAll({order: [['idPersonne', 'ASC']]});
-        let max = 0;
-        for (let i = 0; i < persons.length; i++) {
-            if (persons[i].idPersonne > max) {
-                max = persons[i].idPersonne;
-            }
-        }
-        max = max + 1;
+
         res.render('personConfirm', {title: 'Confirmation', prenomP: req.body.prenomP, user:req.session });        //Page title
     } else {
         res.render('persons', {title: 'Membres', persons: persons, user:req.session});        //Page title

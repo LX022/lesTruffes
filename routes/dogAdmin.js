@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET dogAdmin page. */
 router.get('/', async function(req, res, next) {
 
-    if(req.user.privilege >= 1)
+    if(req.session.privilege >= 1)
     {
         //Recherche du chien à afficher
         let id = req.query.idAnimal;

@@ -16,15 +16,7 @@ router.get('/', async function (req, res, next) {
         let dogs = await models.animalAskedAdoptant.findAll({order: [['idAnimal', 'ASC']]});
 
 
-        //id max de la table
-        let idcount = dogs = await models.animalAskedAdoptant.findAll();
-        let max = 0;
-        for(let i =0;i<idcount.length;i++){
-            if(idcount[i].idAnimal > max){
-                max = idcount[i].idAnimal;
-            }
-        }
-        max = max +1;
+
 
         res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, personnes:personnes, myDogs:myDogs,user:req.session});
     }
@@ -83,7 +75,7 @@ router.post('/', async function (req, res) {
     }}
 
     //liste des personnes
-    let personnes = await models.Personne.findAll();
+    let personnes = await models.personne.findAll();
 
     //liste des chiens
     let myDogs = await models.animal.findAll();
@@ -106,15 +98,6 @@ router.post('/', async function (req, res) {
         info ="Il n'y a pas d'adoption en cours concernant ce chien"
     }
 
-    //id max de la table
-    let idcount = await models.animalAskedAdoptant.findAll();
-    let max = 0;
-    for(let i =0;i<idcount.length;i++){
-        if(idcount[i].idAnimal > max){
-            max = idcount[i].idAnimal;
-        }
-    }
-    max = max +1;
 
     res.render('dogsAsked', {title: 'Gestion des adoptions', dogs:dogs, info:info, personnes:personnes, myDogs:myDogs,user:req.session});        //Page title
 

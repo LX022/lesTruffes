@@ -9,19 +9,19 @@
                     <p>
                     <form id="isDogAsked" action="/dogsAsked" method="post">
                         <input type="hidden" name="idAnimalAsked" value="{{chien.idAnimal}}" required>
-                        <h4><input type="submit" style="background-color:#9acfea"  value="Adoption en cours ?"></h4>
+                        <h4><input type="submit" class="w3-btn w3-blue-grey"  value="Adoption en cours ?"></h4>
                     </form>
                     </p>
                     <p>
                     <form id="isDogFA" action="/dogsFA" method="post">
                         <input type="hidden" name="idAnimal" value="{{chien.idAnimal}}" required>
-                        <h4><input type="submit" style="background-color:#9acfea"  value="En famille d'accueil ?"></h4>
+                        <h4><input type="submit" class="w3-btn w3-blue-grey"  value="En famille d'accueil ?"></h4>
                     </form>
                     </p>
                     <p>
                     <form id="hasDogVet" action="/dogVeterinaire" method="post">
                         <input type="hidden" name="idAnimalVeterinaire" value="{{chien.idAnimal}}" required>
-                        <h4><input type="submit" style="background-color:#9acfea"  value="Est-il suivi par un vétérinaire ?"></h4>
+                        <h4><input type="submit" class="w3-btn w3-blue-grey"  value="Est-il suivi par un vétérinaire ?"></h4>
                     </form>
                     </p><br><br><br>
                     <div style="text-align: center;"><input type="image" class="card-img-top" src="/images/animals/{{chien.nomAnimal}}_{{chien.idAnimal}}_0.jpg"
@@ -38,7 +38,7 @@
                                     <div style="text-align: left;">
                                         <form id="idmydog" action="/dogsAdmin" method="post">
                                             <input type="hidden" name="idmydog" value="{{chien.idAnimal}}">
-                                            <h4 style="text-align: right;" >  <input src="images/supprimer.png"  type="image" value="Supprimer"></h4>
+                                            <h4 style="text-align: right;" >  <input src="/images/supprimer.png"  type="image" value="Supprimer"></h4>
                                             <table class="table">
                                                 <tr><th></th><td >
                                                 </td></tr>
