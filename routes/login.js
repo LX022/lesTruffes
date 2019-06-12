@@ -22,7 +22,7 @@ router.post('/', async function(req, res, next) {
 
     var results = await models.personne.findAll(
         {where: {username:insertedUsername, password:insertedPassword},
-            attributes: ['username', 'password', 'privilege']});
+            attributes: ['idPersonne', 'username', 'password', 'privilege']});
 
     if (insertedUsername && insertedPassword) {
 
@@ -30,6 +30,7 @@ router.post('/', async function(req, res, next) {
             req.session.loggedin = true;
             req.session.username = results[0].username;
             req.session.privilege = results[0].privilege;
+            req.session.idPersonne = results[0].idPersonne;
 
 
             handlebars.registerHelper('username', function() {
