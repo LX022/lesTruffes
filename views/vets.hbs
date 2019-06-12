@@ -1,3 +1,4 @@
+
 <!-- End of header-->
 <section class="aboutus margin-top-120" id="aboutus">
     <div class="container">
@@ -5,22 +6,24 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-4">
-
-                    <form id="lieuxV" action="/vets" method="post">
-                        <input list="lieuV" name="lieuV" required>
-                        <datalist id="lieuV">
-                            {{#each lieux}}
-                                <option value="{{this.idLieu}}">{{this.ville}}</option>
-                            {{/each}}
-                        </datalist>
-                        <input type="submit" style="background-color:#9acfea" value="Rechercher par région">
-                    </form>
-                </div>
+                <form id="lieuxV" action="/vets" method="post">
+                    <input list="lieuV" name="lieuV" required>
+                    <datalist id="lieuV">
+                        {{#each lieux}}
+                            <option value="{{this.idLieu}}">{{this.ville}}</option>
+                        {{/each}}
+                    </datalist>
+                    <input type="submit" style="background-color:#9acfea"  value="Rechercher par région">
+                </form>
+                <br><br><br>
                 <!-- End of head title-->
                 <div>
-                    <table class="table">
-                        <fieldset><legend>Ajouter un vétérinaire</legend>
+                    <br> <br> <br>
+
+                </div>
+
+                <table class="table">
+                    <fieldset><legend>Ajouter un vétérinaire</legend>
                         <thead>
                         <!-- En-tête du tableau-->
                         <tr>
@@ -37,75 +40,45 @@
 
                                 <td><input type="text" name="nomV" required></td>
                                 <td><input type="text" name="prenomV"></td>
-                                <td style="vertical-align: center;"><input style="height:25px; width:auto" src="images/ajouter.png" type="image" style="background-color:lightgreen"  value="Ajouter"></td>
+                                <td style="vertical-align: center;"><input src="images/ajouter.png" type="image" style="background-color:lightgreen"  value="Ajouter"></td>
                             </tr>
                         </form>
+
                         </tbody></fieldset></table>
 
-                        <table class="table"><fieldset><legend>Liste des vétérinaires enregistrés</legend>
-                            <thead>
-                            <!-- En-tête du tableau-->
+                <br><br><br>
+                <table class="table"><fieldset><legend>Liste des vétérinaires enregistrés</legend>
+                    <thead>
+                    <!-- En-tête du tableau-->
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- data-->
+                    {{#each veterinaires}}
+                        <form id="vetos" action="/vet" method="get">
                             <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Nom</th>
-                                <th scope="col">Prenom</th>
-                                <th scope="col"></th>
+                                <td>{{this.idVeterinaire}}</td>
+                                <td>{{this.nomV}}</td>
+                                <td>{{this.prenomV}}</td>
+                                <td><input  type="hidden" type="number" name="idVeterinaire" value={{this.idVeterinaire}}>
+                                    <input src="images/loupe.png"  type="image" value="Infos"></td>
                             </tr>
-                            </thead>
-                            <tbody>
-                        <!-- data-->
-                        {{#each veterinaires}}
-                            <form id="vetos" action="/vet" method="get">
-                                <tr>
-                                    <td>{{this.idVeterinaire}}</td>
-                                    <td>{{this.nomV}}</td>
-                                    <td>{{this.prenomV}}</td>
-                                    <td><input type="hidden" type="number" name="idVeterinaire"
-                                               value={{this.idVeterinaire}}>
-                                        <input stylesrc="images/loupe.png"  type="image" value="Infos"></td>
-                                </tr>
-                            </form>
-                        {{/each}}
+                        </form>
+                    {{/each}}
 
-                            </tbody></fieldset>
-                    </table>
-                </div>
+                    </tbody></fieldset>
+                </table>
             </div>
-            <!-- End of col-sm-12-->
         </div>
-        <!-- End of row-->
+        <!-- End of col-sm-12-->
     </div>
-    <div id="map" style="width:100%" style="height:100%"></div>
-    <script>
-        var geocoder;
-        var map;
-        var address = "new york city";
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 8,
-                center: {lat: -34.397, lng: 150.644}
-            });
-            geocoder = new google.maps.Geocoder();
-            codeAddress(geocoder, map);
-        }
-
-        function codeAddress(geocoder, map) {
-            geocoder.geocode({'address': address}, function(results, status) {
-                if (status === 'OK') {
-                    map.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
-    </script>
-
-    <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi_eCV-_vT7xUxuD3IZXV5Q7tmKuS_o6o&callback=initMap" />
-
+    <!-- End of row-->
+    </div>
     <!-- End of Container-->
     <hr/>
 

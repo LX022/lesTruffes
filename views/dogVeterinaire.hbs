@@ -1,3 +1,4 @@
+
 <!-- End of header-->
 <section class="aboutus margin-top-120" id="aboutus">
     <div class="container">
@@ -6,55 +7,41 @@
 
                 <div style="text-align: left;"><h2 style="color:red">{{info}}</h2><br><br>
 
-                    <table class="table">
-                        <fieldset>
-                            <legend>Ajouter une visite</legend>
-                            <br>
-                            <tr>
-                                <th>Vétérinaire</th>
-                                <th>Chien</th>
-                                <th>Soins</th>
-                                <th>Devis</th>
-                                <th>Date véto</th>
-                                <th></th>
+                    <table class="table"> <fieldset><legend>Ajouter une visite</legend><br>
+                        <tr>
+                            <th>Vétérinaire</th>
+                            <th>Chien</th>
+                            <th>Soins</th>
+                            <th>Devis</th>
+                            <th>Date véto</th>
+                            <th></th>
+                        </tr>
+                        <form id="soins" action="/dogVeterinaire" method="post">
+                            <tr><td><input list="vet" name="InsertidVeterinaire" required>
+                                <datalist id="vet">{{#each veterinaires}}<option value="{{this.idVeterinaire}}">{{this.nomV}} {{this.prenomV}}</option>{{/each}} </datalist></td>
+                                <td>
+                                    <input list="dog" name="InsertidAnimal"  required>
+                                    <datalist id="dog"> {{#each chiens}}<option value="{{this.idAnimal}}">{{this.nomAnimal}}</option> {{/each}}</datalist></td>
+                                </td>
+                                <td>
+                                    <input type="text" name="soins" >
+                                </td>
+                                <td>
+                                    <input type="text" name="devis" >
+                                </td>
+                                <td>
+                                    <input type="date" name="dateVeto" required>
+                                </td>
+                                <td style="vertical-align: center;"><h4><input type="submit" style="background-color:lightgreen"  value="Ajouter"></h4></td>
                             </tr>
-                            <form id="soins" action="/dogVeterinaire" method="post">
-                                <tr>
-                                    <td><input list="vet" name="InsertidVeterinaire" required>
-                                        <datalist id="vet">{{#each veterinaires}}
-                                            <option value="{{this.idVeterinaire}}">{{this.nomV}} {{this.prenomV}}</option>{{/each}}
-                                        </datalist>
-                                    </td>
-                                    <td>
-                                        <input list="dog" name="InsertidAnimal" required>
-                                        <datalist id="dog"> {{#each chiens}}
-                                            <option value="{{this.idAnimal}}">{{this.nomAnimal}}</option> {{/each}}
-                                        </datalist>
-                                    </td>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="soins">
-                                    </td>
-                                    <td>
-                                        <input type="text" name="devis">
-                                    </td>
-                                    <td>
-                                        <input type="date" name="dateVeto" required>
-                                    </td>
-                                    <td style="vertical-align: center;"><h4><input type="submit"
-                                                                                   style="background-color:lightgreen"
-                                                                                   value="Ajouter"></h4></td>
-                                </tr>
-                                </tr>
-                            </form>
-                        </fieldset>
+                            </tr>
+                        </form></fieldset>
                     </table>
 
 
                     <br><br>
                     <table class="table">
-                        <fieldset>
-                            <legend>Visites enregistrées</legend>
+                        <fieldset><legend>Visites enregistrées</legend>
                             <tr>
 
                                 <th>ID Vétérinaire</th>
@@ -77,7 +64,7 @@
                                     <tr>
 
 
-                                        <td><input type="hidden" name="idV" value={{this.idVeterinaire}}>
+                                        <td><input type="hidden" name="idV"  value={{this.idVeterinaire}}>
                                             {{this.idVeterinaire}}
                                         </td>
 
@@ -92,13 +79,10 @@
                                         <td>{{this.devis}}
 
                                         </td>
-                                        <td><input type="hidden" name="dateV"
-                                                   value="{{this.dateVeto}}"> {{this.dateVeto}}
+                                        <td><input type="hidden" name="dateV" value="{{this.dateVeto}}"> {{this.dateVeto}}
 
                                         </td>
-                                        <td><h4 style="text-align: right;"><input style="background:orangered"
-                                                                                  type="submit"
-                                                                                  value="Supprimer"></h4></td>
+                                        <td><h4 style="text-align: right;" >  <input style="background:orangered"  type="submit" value="Supprimer"></h4></td>
 
 
                                     </tr>
@@ -106,9 +90,6 @@
                             {{/each}}
                         </fieldset>
                     </table>
-                </div>
-            </div>
-        </div>
+                </div></div></div>
 
-    </div>
-</section>
+    </div></section>

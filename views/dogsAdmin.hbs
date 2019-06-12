@@ -1,5 +1,7 @@
+<br><br>
 <!-- End of header-->
-<section class="aboutus margin-top-100" id="aboutus">
+<section id="aboutus">
+
 
     <div class="container">
 
@@ -8,15 +10,10 @@
                 <!-- End of head title-->
                 <div>
                     <table class="table">
-                        <div style="text-align: center;"><a href="dogsFA">
-                            <button style="background:#9acfea; color:black">Chiens en familles d'accueil</button>
-                        </a>
-                            <a href="dogsAsked">
-                                <button style="background:#9acfea; color:black">Gestion des adoptions</button>
-                            </a></div>
-                        <br>
-                        <fieldset>
-                            <legend>Ajouter un chien</legend>
+
+                        <br><br> <br>
+                        <fieldset><legend>Ajouter un chien</legend>
+
 
 
                             <thead>
@@ -36,46 +33,43 @@
                                     <td><input type="number" name="icad"></td>
                                     <td><input type="text" name="nomAnimal" required></td>
                                     <td><input type="date" name="dateEntreeAnimal"></td>
-                                    <td style="vertical-align: center;"><input src="images/ajouter.png" type="image"
-                                                                               value="Ajouter"></td>
+                                    <td style="vertical-align: center;"><input src="images/ajouter.png" type="image"  value="Ajouter"></td>
                                 </tr>
                             </form>
-                            </tbody>
-                        </fieldset>
-                    </table>
-                    <table class="table">
-                        <fieldset>
-                            <legend>Liste de toutes les truffes</legend>
 
-                            <thead>
-                            <!-- En-tête du tableau-->
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">ICAD</th>
-                                <th scope="col">Nom de l'animal</th>
-                                <th scope="col">Date d'entrée</th>
-                                <th scope="col"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!-- data-->
-                            {{#each dogs}}
-                                <form id="alldogs" action="/dogAdmin" method="get">
-                                    <tr>
-                                        <td>{{this.idAnimal}}</td>
-                                        <td>{{this.icad}}</td>
-                                        <td>{{this.nomAnimal}}</td>
-                                        <td>{{this.dateEntreeAnimal}}</td>
-                                        <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
-                                            <input src="images/loupe.png" style="width:24px;height:auto;" type="image"
-                                                   value="Infos"></td>
-                                    </tr>
-                                </form>
-                            {{/each}}
+                            <div></div></tbody></fieldset></table>
 
-                            </tbody>
-                        </fieldset>
-                    </table>
+                    <br><br>
+
+                    <table class="table">  <fieldset><legend>Liste de toutes les truffes</legend>
+
+                        <thead>
+                        <!-- En-tête du tableau-->
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">ICAD</th>
+                            <th scope="col">Nom de l'animal</th>
+                            <th scope="col">Date d'entrée</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- data-->
+                        {{#each dogs}}
+                            <form id="alldogs" action="/dogAdmin" method="get">
+                                <tr>
+                                    <td>{{this.idAnimal}}</td>
+                                    <td>{{this.icad}}</td>
+                                    <td>{{this.nomAnimal}}</td>
+                                    <td>{{this.dateEntreeAnimal}}</td>
+                                    <td><input type="hidden" type="number" name="idAnimal" value={{this.idAnimal}}>
+                                        <input src="images/loupe.png" type="image" value="Infos"></td>
+                                </tr>
+                            </form>
+                        {{/each}}
+
+                        </tbody>
+                    </fieldset></table>
                 </div>
             </div>
             <!-- End of col-sm-12-->

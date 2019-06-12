@@ -8,13 +8,10 @@
             <form id="hasVetDogs" action="/dogVeterinaire" method="post">
                 <input type="hidden" name="idVetDog" value="{{veto.idVeterinaire}}" required>
                 <label style="color: #46b8da;">
-                    <input type="image" src="images/soins.png" value="Chiens soignés par ce vétérinaire"><br>Soins
-                    prodigués </label>
+                    <input type="image" src="images/soins.png"  value="Chiens soignés par ce vétérinaire"><br>Soins prodigués  </label>
             </form>
             </p>
-        </div>
-    </div>
-</div>
+        </div></div></div>
 
 <div class="container">
 
@@ -25,15 +22,16 @@
             <div class="row">
 
                 <div class="col-sm-4">
-
-                    <div class="signle_about_left"><img src="images/animals/veterinaire.jpg" width="292"/></div>
+                    <br><br><br><br><br><br><br>
+                    <div class="signle_about_left"><img src="images/animals/veterinaire.jpg" width="292" /></div>
 
                 </div>
 
                 <div class="col-sm-6 col-sm-push-1">
 
 
-                    <div>
+
+                    <div >
 
                         <div></div>
 
@@ -44,22 +42,18 @@
                                 <div class="clearfix">
 
 
+
                                     <div style="text-align: left;">
 
                                         <form id="myveto" action="/vets" method="get">
 
-                                            <h4 style="text-align: right;"><input src="images/supprimer.png"
-                                                                                  type="image" value="Supprimer"></h4>
+                                            <h4 style="text-align: right;" >  <input src="images/supprimer.png"  type="image" value="Supprimer"></h4>
 
                                             <table class="table">
 
-                                                <tr>
-                                                    <th></th>
-                                                    <td><input type="hidden" type="number" name="idmyveto"
-                                                               value="{{veto.idVeterinaire}}">
+                                                <tr><th></th><td ><input type="hidden" type="number" name="idmyveto" value="{{veto.idVeterinaire}}">
 
-                                                    </td>
-                                                </tr>
+                                                </td></tr>
 
                                                 <tr>
 
@@ -152,9 +146,13 @@
                                             </table>
 
 
+
                                             </tr>
 
                                         </form>
+
+
+
 
 
                                     </div>
@@ -164,6 +162,9 @@
                             </div>
 
                         </div>
+
+
+
 
 
                     </div>
@@ -182,7 +183,6 @@
 
                                 <br>
 
-                                <h2 style="color: slateblue">Modifier les données de ce vétérinaire</h2>
 
                                 <!-- End of head title-->
 
@@ -191,25 +191,20 @@
                                     <table class="table">
 
 
+
                                         <tbody>
+
 
 
                                         <form id="updateveto" action="/vet" method="post">
 
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td style="text-align:right"><h4><input style="background:gold"
-                                                                                        type="submit"
-                                                                                        value="Mettre à jour"></h4></td>
-                                            </tr>
+                                            <tr> <td><td></td><h2 style="text-align: center;">Mettre à jour  <input src="images/maj.png" type="image" value="Mettre à jour"></h2></td><td></td></tr></tr>
 
                                             <tr>
 
                                                 <td><label>ID
 
-                                                    <input type="number" name="idVeterinaire"
-                                                           value="{{veto.idVeterinaire}}" readonly>
+                                                    <input type="number" name="idVeterinaire" value="{{veto.idVeterinaire}}" readonly>
 
                                                 </label></td>
 
@@ -223,8 +218,7 @@
 
                                                     <input type="text" name="prenomV" value="{{veto.prenomV}}">
 
-                                                </label></td>
-                                                </td>
+                                                </label></td></td>
 
                                             </tr>
 
@@ -244,8 +238,7 @@
 
                                                 <td><label>ID Lieu
 
-                                                    <input list="lieux" type="text" name="idLieu"
-                                                           placeholder="{{veto.idLieu}}">
+                                                    <input list="lieux" type="text" name="idLieu" placeholder="{{veto.idLieu}}">
 
                                                     <datalist id="lieux">
 
@@ -258,6 +251,7 @@
                                                     </datalist>
 
                                                 </label></td>
+
 
 
                                             </tr>
@@ -279,10 +273,7 @@
                                                 <td><label>Bloqué
 
                                                     <input list="bloque" name="bloque" value="{{veto.bloque}}">
-                                                    <datalist id="bloque">
-                                                        <option value="1">Oui</option>
-                                                        <option value="0">Non</option>
-                                                    </datalist>
+                                                    <datalist id="bloque"><option value="1">Oui</option><option value="0">Non</option></datalist>
 
                                                 </label></td>
 
@@ -292,16 +283,18 @@
 
                                                 <td><label>Commentaires
 
-                                                    <input type="text" name="commentaireV"
-                                                           value="{{veto.commentaireV}}">
+                                                    <input type="text" name="commentaireV" value="{{veto.commentaireV}}">
 
                                                 </label></td>
+
 
 
                                             </tr>
 
 
+
                                         </form>
+
 
 
                                         </tbody>
@@ -320,21 +313,18 @@
                                             <th>Code postal</th>
 
                                             <th>Ville</th>
+                                            <th></th>
 
                                         </tr>
                                         <form id="insertLieu" action="/vet" method="post">
-                                            <tr><input type="hidden" name="idVeterinaire"
-                                                       value="{{veto.idVeterinaire}}">
+                                            <tr><input type="hidden" name="idVeterinaire"  value="{{veto.idVeterinaire}}">
                                                 <td>
                                                     <input type="number" name="insertCP" required>
                                                 </td>
                                                 <td>
                                                     <input type="text" name="insertVille" required>
                                                 </td>
-                                                <td style="vertical-align: center;"><h4><input type="submit"
-                                                                                               style="background-color:lightgreen"
-                                                                                               value="Ajouter"></h4>
-                                                </td>
+                                                <td style="vertical-align: center;"><h4><input src="images/ajouter.png" type="image"  value="Ajouter"></h4></td>
                                             </tr>
                                             </tr>
                                         </form>
@@ -366,10 +356,8 @@
                                                         <form id="deleteLieu" action="/lieu" method="post">
 
                                                             <tr>
-                                                                <input type="hidden" name="idVeterinaire"
-                                                                       value={{veto.idVeterinaire}}>
-                                                                <input type="hidden" name="deleteLieu"
-                                                                       value="{{this.idLieu}}">
+                                                                <input type="hidden" name="idVeterinaire"  value={{veto.idVeterinaire}}>
+                                                                <input type="hidden" name="deleteLieu" value="{{this.idLieu}}">
 
                                                                 <td>{{this.idLieu}}
 
@@ -382,9 +370,7 @@
                                                                 <td>{{this.ville}}
 
                                                                 </td>
-                                                                <td><h4 style="text-align: right;"><input
-                                                                        style="background:orangered" type="submit"
-                                                                        value="Supprimer"></h4></td>
+                                                                <td><h4 style="text-align: right;" >  <input src="images/supprimer.png" type="image" value="Supprimer"></h4></td>
 
 
                                                             </tr>
@@ -414,10 +400,13 @@
                     <hr/>
 
 
+
                 </section>
 
 
+
                 <!-- End of col-sm-12-->
+
 
 
                 <!-- End of Container-->
@@ -425,6 +414,9 @@
                 <!-- End of about Section-->
 
             </div>
+
+
+
 
 
         </div>

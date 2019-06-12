@@ -2,7 +2,7 @@
 <html>
 <head>
     <base href="/"></base>
-    <title>{{title}}</title>
+    <title>Une truffe et des pattes</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -22,30 +22,49 @@
 
 <header>
 
+    <!-- Image Header -->
+
+        <div class="row" style="color: darkmagenta;background-image: url(/images/fond.png); ">
+
+            <div class="col-md-2" style="text-align: right;"><br>
+           <img  src="/images/logo.png" height="100px" ></div>
+
+            <div class="col-md-4"><br>
+                <h3  style="text-align: left;">Site officiel</h3><h2  style="text-align: left;">Association Une truffe et des pattes</h2>
+                <p><i class="fa fa-map-marker"></i><span>   2 rue de Crec&apos;h reut, 22 610 Pleubian</span></p>
+                <p><i class="fa fa-envelope-o"></i><span>  <a href="mailto:nicolas.solioz@bluewin.ch">info@truffespattes.ch</a></span></p>
+                <p><i class="fa fa-mobile-phone"></i><span>   06.59.02.07.16</span></p></div>
+            <div class="col-md-6">
+                <img src="/images/layout.png" alt="bannière des truffes" style="width:auto;min-height:120px;max-height:400px;  ">
+                <br>
+            </div></div>
+    <br><br>
     <!-- Navbar -->
-    <div class="w3-top">
-        <!--<div style="background: #000;"><br></div>-->
-        <div class="w3-bar w3-theme-d2 w3-left-align" style="padding: 12px 0;">
+
+        <div class="w3-bar  w3-left-align" style="padding: 10px 150px; font-size:20px; background-color: antiquewhite">
+
             <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2"
                href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
             <a href="about" class="w3-bar-item w3-button" style="background-color:sandybrown"><i
                     class="fa fa-home w3-margin-right"></i>Accueil</a>
             <a href="dogs" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Adopter</a>
+            <a href="formulaireFA" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Devenir une famille d'accueil</a>
+            <a href="don" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Faire un don</a>
             <div class="w3-dropdown-hover w3-hide-small">
                 <button class="w3-button" title="Notifications">Informations<i class="fa fa-caret-down"></i></button>
                 <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                     <a href="fa" class="w3-bar-item w3-button">FA?</a>
                     <a href="adoption" class="w3-bar-item w3-button">Adoptions</a>
+                    <a href="heureusesTruffesAdoptees" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Heureuses truffes adoptées</a>
+                    <a href="livredor" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Album</a>
+                    <a href="partenaires" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Partenaires</a>
+                    <a href="album" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Truffes dans les étoiles</a>
+                    <a href="shop" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Boutique</a>
                 </div>
             </div>
-            <a href="formulaireFA" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Devenir FA</a>
-            <a href="don" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Don</a>
-            <a href="livredor" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Album</a>
-            <a href="partenaires" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Partenaires</a>
-            <a href="album" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Truffes dans les étoiles</a>
-            <a href="shop" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Boutique</a>
+
+
             <a href="contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-            <a href="adoption" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Adoption</a>
             {{#if user.privilege}}
                 <div class="w3-dropdown-hover w3-hide-small">
                     <button class="w3-button" title="Notifications">Administrateur<i class="fa fa-caret-down"></i>
@@ -197,40 +216,33 @@
 </header>
 
 <!--<body onload="getSession()"></body>-->
-<!-- Image Header -->
-<div class="w3-display-container w3-animate-opacity" style="text-align: center;">
-    <img src="images/layout.png" alt="bannière des truffes" style="width:auto;min-height:120px;max-height:240px;  ">
-    <br><br>
-</div>
 
-<body style="overflow: auto; padding-top:52px" onload="getSession()">
 
-<h1 style="text-align: center; color:slateblue;">{{title}}</h1>
+<body id="up" style="overflow: auto; padding-top:0px" onload="getSession()">
+
+<h1 style="text-align: center;margin-top: 80px;"><strong>{{title}}</strong></h1>
 {{{body}}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.8.3/superagent.min.js"></script>
+
 </body>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-small w3-theme-d1 w3-center">
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center"  style="background-image: url(/images/fond.png);">
 
-    <a class="w3-button w3-large" style="background-color: royalblue"
-       href="https://www.facebook.com/groups/unetruffeetdespattes/" title="Facebook"><i class="fa fa-facebook"></i></a>
-    <a class="w3-button w3-large" style="background-color: #46b8da" href="javascript:void(0)" title="Twitter"><i
-            class="fa fa-twitter"></i></a>
-    <a class="w3-button w3-large w3-hide-small" style="background-color: #337ab7; margin-bottom: 12px"
-       href="javascript:void(0)"
-       title="Linkedin"><i class="fa fa-linkedin"></i></a>
-
-    <div><p>Posted by: TruffSA</p>
+    <a class="w3-button w3-large" style="background-color: royalblue" href="https://www.facebook.com/groups/unetruffeetdespattes/" title="Facebook"><i class="fa fa-facebook"></i></a>
+    <a class="w3-button w3-large" style="background-color: #46b8da" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a>
+    <a class="w3-button w3-large w3-hide-small" style="background-color: #337ab7" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+    <br><br><br>
+    <div style="color:black;"><p>Posted by: TruffSA</p>
         <p><i class="fa fa-map-marker"></i><span>   2 rue de Crec&apos;h reut, 22 610 Pleubian</span></p>
-        <p><i class="fa fa-envelope-o"></i><span>  <a href="lestruffesdesierre@gmail.com">lestruffesdesierre@gmail.com</a></span>
-        </p>
+        <p><i class="fa fa-envelope-o"></i><span>  <a href="mailto:nicolas.solioz@bluewin.ch">info@truffespattes.ch</a></span></p>
         <p><i class="fa fa-mobile-phone"></i><span>   06.59.02.07.16</span></p></div>
 
 
-    <div style="position:relative;bottom:10px;z-index:1;" class="w3-tooltip w3-right">
+
+    <div style="position:relative;bottom:175px;z-index:1;" class="w3-tooltip w3-right">
         <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
-        <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+        <a class="w3-button w3-theme" href="#up"><span class="w3-xlarge">
     <i class="fa fa-chevron-circle-up"></i></span></a>
     </div>
 </footer>

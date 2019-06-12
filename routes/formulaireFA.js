@@ -8,7 +8,7 @@ var Handlebars = require("handlebars");
 
 /* GET fa page. */
 router.get('/', function(req, res, next) {
-    res.render('formulaireFA', { title: "Devenir famille d'accueil", user:req.session});
+    res.render('formulaireFA', { title: "Devenir une famille d'accueil", user:req.session});
 });
 
 router.post('/', function(req, res, next) {
