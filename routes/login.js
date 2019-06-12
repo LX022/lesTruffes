@@ -16,11 +16,11 @@ router.get('/', function(req,res,next){
     res.render('about');
 });
 
-router.post('login', async function(req, res, next) {
+router.post('/',  function(req, res, next) {
     var insertedUsername = req.body.username;
     var insertedPassword = req.body.password;
 
-    var results = await models.personne.findAll(
+    var results =  models.personne.findAll(
         {where: {username:insertedUsername, password:insertedPassword},
             attributes: ['username', 'password', 'privilege']});
 
