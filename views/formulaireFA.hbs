@@ -1,27 +1,29 @@
 
 <div class="container">
-    <h5 style="text-align:center"><a href="fa">Qu'est-ce que c'est ?</a></h5> <form action="action_page.php">
+    <h5 style="text-align:center"><a href="fa">Qu'est-ce que c'est ?</a><br><br><br>
+    </h5> <form action="action_page.php">
+    <div class="row">
     <div class="col-md-4">
 
         <h2 style="color:darkmagenta">Coordonnées</h2>
 
-        <input type="text" id="fname" name="lastname" placeholder="Nom complet" required >
+        <input type="text" name="nomFA" placeholder="* Nom complet" required >
 
-        <input type="text" id="lname" name="firstname" placeholder="Prénom" required >
+        <input type="text" name="prenomFA" placeholder="* Prénom" required >
 
-        <textarea type="mail" id="mail" name="email" placeholder="Mail" required ></textarea>
+        <textarea type="mail" name="emailFA" placeholder="* Mail" required ></textarea>
 
-        <input type="text" id="fb" name="facebook" placeholder="Pseudo facebook" ></input>
+        <input type="text" name="facebookFA" placeholder="Pseudo facebook" ></input>
 
-        <textarea data-type="control_textbox" id="tel" name="telephone" placeholder="Numéro de téléphone" required ></textarea>
+        <input type="tel" name="telephoneFA" placeholder="* Numéro de téléphone" required ></input>
 
-        <input type="text" id="adrs" name="adresse" placeholder="Rue" required ></input>
+        <input type="text" name="rueFA" placeholder="* Rue" required ></input>
 
-        <input type="text" id="npa" name="npa" placeholder="Code postal" required ></input>
+        <input type="text" name="npaFA" placeholder="* Code postal" required ></input>
 
-        <input type="text" id="loc" name="localite" placeholder="Localité" required ></input>
+        <input type="text" name="localiteFA" placeholder="* Localité" required ></input>
 
-        <textarea data-type="control_datetime" id="dn" name="datenaissance" placeholder="Date de naissance" required ></textarea>
+       <input type="date"  name="datenaissanceFA" placeholder="* Date de naissance" required ></input>
 
     </div>
 
@@ -31,76 +33,116 @@
 
         <h2 style="color:darkmagenta">Vos souhaits</h2>
 
-        <input type="text" id="esp" name="espece" placeholder="Nom de l'espèce" ></input>
+            <input type="text"  name="especeFA" placeholder="Espèce" ></input>
 
-        <input type="text" id="sex" name="sexe" placeholder="Mâle / Femelle" ></input>
+        <input type="text"  name="genreFA" placeholder="Mâle / Femelle" ></input>
 
-        <input type="text" id="agechien" name="ageduchien" placeholder="Très jeune, jeune, adulte, âgé" ></input>
+        <input type="text" name="ageChienFA" placeholder="Très jeune, jeune, adulte, âgé" ></input>
 
-        <input type="text" id="t" name="taille" placeholder="Mini - Moyen - Grand - Maxi" ></input>
+        <input type="text" name="tailleChienFA" placeholder="Mini - Moyen - Grand - Maxi" ></input>
 
-        <input type="date" id="j" name="jouradoption" placeholder="Jour de l'accueil"  required></input>
-            <textarea data-type="control_textbox" id="autre" name="autreinfo" placeholder="Commentaires"></textarea>
+
+
+            <textarea type="text" name="commentairesFA" placeholder="Commentaires"></textarea>
         </div>
 
-        <div class="col-md-4" style="text-align: center;"> <h2 style="color:darkmagenta; text-align: left;">Votre environnement</h2>
+        <div class="col-md-4" style="text-align: left;"> <h2 style="color:darkmagenta; text-align: left;">Votre environnement</h2>
 
-            <input type="text" id="j" name="typeLogement" placeholder="Appartement - maison - ..." ></input>
-
-            <p></p>
-
-            <input type="text" id="surface" name="surfacelogement" placeholder="Surface du logement en m2"  ></input>
+            <input type="text" name="typeLogementFA" placeholder="Appartement - maison - ..." ></input>
 
             <p></p>
 
-            <input type="text" id="j" name="exterieur" placeholder="Avec ou sans jardin ..."  ></input>
+            <input type="text" name="surfaceFA" placeholder="Surface du logement en m2"  ></input>
 
             <p></p>
 
-            <label for="enfant">L'animal cotoiera-t-il régulièrement des enfants ?</label><br>
-            <select name="enfant" required>
-                <option value="enfantOui">Oui</option>
-                <option value="enfantNon">Non</option>
-            </select>
+            <input type="text" name="jardinFA" placeholder="Avec ou sans jardin ..."  ></input>
 
             <p></p>
 
-            <label for="animaux">Avez-vous d'autres animaux ?</label><br>
-            <select name="animaux" required>
-                <option value="animauxOui">Oui</option>
-                <option value="animauxNon">Non</option>
-            </select>
+            <input type="text" name="clotureFA" placeholder="Hauteur de la clôture"  ></input>
 
             <p></p>
 
-            <label for="propre">Accepteriez-vous de parfaire son éducation si l'animal confié n'est pas propre ?</label><br>
-            <select name="propre" required>
-                <option value="propreOui">Oui</option>
-                <option value="propreNon">Non</option>
-            </select>
+            <input type="text" name="enfantFA" placeholder="L'animal cotoiera des enfants ? "></input>
 
             <p></p>
 
-            <label for="maltraitance">Accepteriez-vous d'accueillir un animal craintif, ayant subi des maltraitances ? </label><br>
-            <select name="maltraitance" required>
-                <option value="maltraitanceOui">Oui</option>
-                <option value="maltraitanceNon">Non</option>
-            </select>
+            <input type="text" name="ageEnfantFA" placeholder="Âges des enfants"></input>
 
             <p></p>
 
-            <label for="soins">Accepteriez-vous d'accueillir un animal qui nécessite des soins ou des traitements vétérinaires spécifiques ? </label><br>
-            <select name="soins" required>
-                <option value="soinsOui">Oui</option>
-                <option value="soinsNon">Non</option>
-            </select>
+            <textarea type="text" name="dejaEuAnimauxFA" placeholder="Avez-vous déjà eu des animaux ?"  ></textarea>
 
             <p></p>
 
+            <textarea type="text" name="possedeAnimauxFA" placeholder="Avez-vous actuellement des animaux ?"  ></textarea>
+
+            <p></p>
+
+        </div>
 
 
-            <input formmethod="post" formaction="/formulaireFA" class="btn" type="submit" value="envoyer"></div>
-    </form>
-</div>
 
+
+
+    </div><br> <br>
+    <div style="text-align: justify;">
+        <h2 style="color:darkmagenta">Vos conditions</h2>
+        <label for="propreteFA">Accepteriez-vous de parfaire son éducation si l'animal confié n'est pas propre ?</label>
+        <p></p>
+        <input type="radio" name="propreteFA" value="1"> Oui</input>
+        <p></p>
+        <input type="radio" name="propreteFA" value="0"> Non</input>
+        <p></p>
+<br>
+        <label for="educationFA">Accepteriez-vous de parfaire son éducation de base (marche en laisse, rappel, ordres de base pour les chiens) ?</label>
+        <p></p>
+        <input type="radio" name="educationFA" value="1"> Oui</input>
+        <p></p>
+        <input type="radio" name="educationFA" value="0"> Non</input>
+        <p></p>
+        <br>
+        <label for="maltraitanceFA">Accepteriez-vous d'accueillir un animal craintif, ayant subi des maltraitances ? </label>
+        <p></p>
+        <input type="radio" name="maltraitanceFA" value="1"> Oui</input>
+        <p></p>
+        <input type="radio" name="maltraitanceFA" value="0"> Non</input>
+        <p></p>
+
+        <br>
+        <label for="handicapFA">Accepteriez-vous d'accueillir un animal handicapé (aveugle, sourd, amputé, par exemple) ? </label>
+        <p></p>
+        <input type="radio" name="handicapFA" value="1"> Oui</input>
+        <p></p>
+        <input type="radio" name="handicapFA" value="0"> Non</input>
+        <p></p>
+        <br>
+        <label for="soinsFA">Accepteriez-vous d'accueillir un animal qui nécessite des soins ou des traitements vétérinaires spécifiques ?</label>
+        <p></p>
+        <input type="radio" name="soinsFA" value="1"> Oui</input>
+        <p></p>
+        <input type="radio" name="soinsFA" value="0"> Non</input>
+        <p></p>
+        <br>
+
+        <label for="solitudeFA">L'animal sera-t-il seul (absences régulières de + de 3h) :  jours et plages horaires approximatives </label>
+        <p></p>
+        <input type="radio" name="solitudeFA" value="1"> Oui</input>
+        <p></p>
+        <input type="radio" name="solitudeFA" value="0"> Non</input>
+        <p></p>
+
+
+
+
+
+
+</div><br>
+    <div style="text-align: center;">
+    <input style="background-color: darkmagenta;" formmethod="post" formaction="/formulaireFA" class="btn" type="submit" value="M'inscrire en tant que famille d'accueil">
+    </div>
+</form>
+
+<br><br><br>
 </div>
