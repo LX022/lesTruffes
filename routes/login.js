@@ -13,7 +13,7 @@ var router = express.Router();
 
 
 router.get('/', function(req,res,next){
-    res.render('/about');
+    res.render('about');
 });
 
 router.post('/', async function(req, res, next) {
@@ -38,7 +38,7 @@ router.post('/', async function(req, res, next) {
             });
 
             //log in successful!
-            res.redirect('/about');
+            res.redirect('about');
 
         } else {
             res.send('Incorrect Username and/or Password!');
@@ -54,7 +54,7 @@ router.post('/', async function(req, res, next) {
 router.delete('/', (req,res,next) =>{
 
     req.session.destroy();
-    res.redirect('/about');
+    res.redirect('about');
     res.end();
 });
 
