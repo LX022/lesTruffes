@@ -7,7 +7,7 @@ router.get('/', async function (req, res, next) {
 
     if(req.session.privilege == 3)
     {
-        let persons = await models.Personne.findAll({});
+        let persons = await models.personne.findAll({});
         res.render('persons', {title: 'Membres', persons: persons, user:req.session});        //Page title
     }
     else
