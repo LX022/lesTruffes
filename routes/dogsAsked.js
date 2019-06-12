@@ -75,7 +75,7 @@ router.post('/', async function (req, res) {
     }}
 
     //liste des personnes
-    let personnes = await models.Personne.findAll();
+    let personnes = await models.personne.findAll();
 
     //liste des chiens
     let myDogs = await models.animal.findAll();

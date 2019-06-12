@@ -44,7 +44,7 @@ router.post('/', async function (req, res, next) {
 
     //INSERT new FA
     if(req.body.nomFA!==undefined){
-        await models.Personne.create({nomP: req.body.nomFA, prenomP:req.body.prenomFA, facebookP:req.body.FacebookPage, telDomicileP:req.body.telDomicile, telPortableP:req.body.telPortable, telAutreP:req.body.autreTel, emailP:req.body.email,  fa:1});
+        await models.personne.create({nomP: req.body.nomFA, prenomP:req.body.prenomFA, facebookP:req.body.FacebookPage, telDomicileP:req.body.telDomicile, telPortableP:req.body.telPortable, telAutreP:req.body.autreTel, emailP:req.body.email,  fa:1});
 
     }
 

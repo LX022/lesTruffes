@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET vet page. */
 router.get('/', async function(req, res, next) {
-    if(req.session.privilee >= 2)
+    if(req.session.privilege >= 2)
     {
         //Créer un lieu ? s'il n'existe pas
         let lieuDefaut = await models.lieu.findAll({where:{codePostal:0}});
