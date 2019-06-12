@@ -34,6 +34,7 @@ router.post('/',  function (req, res) {
         req.session.loggedin = true;
         req.session.username = req.body.username;
         req.session.privilege = 0;
+        req.session.idPersonne = req.body.idPersonne;
         let persons =  models.personne.findAll({order: [['idPersonne', 'ASC']]});
 
         res.render('personConfirm', {title: 'Confirmation', prenomP: req.body.prenomP, user:req.session });        //Page title
