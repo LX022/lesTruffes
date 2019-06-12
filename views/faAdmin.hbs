@@ -14,7 +14,29 @@
                                 <!-- En-tête du tableau-->
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Personne</th>
+                                    <th scope="col">Espèce préférée</th>
+                                    <th scope="col">Genre préféré</th>
+                                    <th scope="col">Age préféré</th>
+                                    <th scope="col">Taille préféré</th>
+                                    <th scope="col">Type logement</th>
+                                    <th scope="col">Taille logement</th>
+                                    <th scope="col">Jardin</th>
+                                    <th scope="col">Clôture</th>
+                                    <th scope="col">Enfant</th>
+                                    <th scope="col">Age des enfants</th>
+                                    <th scope="col">Possède des animaux</th>
+                                    <th scope="col">Nom animal</th>
+                                    <th scope="col">Type animal</th>
+                                    <th scope="col">Race animal</th>
+                                    <th scope="col">Déjà eu animaux</th>
+                                    <th scope="col">Accepte animaux malpropres</th>
+                                    <th scope="col">Accepte animaux maléduqués</th>
+                                    <th scope="col">Accepte animaux maltraités</th>
+                                    <th scope="col">Accepte de donner des soins</th>
+                                    <th scope="col">Accepte les animaux seuls</th>
+                                    <th scope="col">Commentaires</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -23,6 +45,31 @@
                             <form id="allfamilles" action="/faAdmin" method="get">
                                 <tr>
                                     <td>{{this.idFamilleAccueil}}</td>
+                                    <td>{{this.idPersonne}}</td>
+                                    <td>{{this.especeFA}}</td>
+                                    <td>{{this.genreFA}}</td>
+                                    <td>{{this.ageChienFA}}</td>
+                                    <td>{{this.tailleChienFA}}</td>
+                                    <td>{{this.typeLogementFA}}</td>
+                                    <td>{{this.surfaceFA}}</td>
+                                    <td>{{this.jardinFA}}</td>
+                                    <td>{{this.clotureFA}}</td>
+                                    <td>{{this.enfantFA}}</td>
+                                    <td>{{this.ageEnfantFA}}</td>
+                                    <td>{{this.possedeAnimauxFA}}</td>
+                                    <td>{{this.possedeAnimauxNomFA}}</td>
+                                    <td>{{this.possedeAnimauxRaceFA}}</td>
+                                    <td>{{this.possedeAnimauxGenreFA}}</td>
+                                    <td>{{this.possedeAnimauxSteriliseFA}}</td>
+                                    <td>{{this.possedeAnimauxVaccinsFA}}</td>
+                                    <td>{{this.dejaEuAnimauxFA}}</td>
+                                    <td>{{this.propreteFA}}</td>
+                                    <td>{{this.educationFA}}</td>
+                                    <td>{{this.maltraitanceFA}}</td>
+                                    <td>{{this.soinsFA}}</td>
+                                    <td>{{this.handicapFA}}</td>
+                                    <td>{{this.solitudeFA}}</td>
+                                    <td>{{this.commentairesFA}}</td>
                                     <td><input type="hidden" type="number" name="idAnimal" value={{this.idFamilleAccueil}}>
                                         <input type="submit" value="Infos"></td>
                                 </tr>

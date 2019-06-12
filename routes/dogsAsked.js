@@ -7,7 +7,7 @@ router.get('/', async function (req, res, next) {
     if(req.session.privilege == 3)
     {
         //liste des personnes
-        let personnes = await models.Personne.findAll();
+        let personnes = await models.personne.findAll();
 
         //liste des chiens
         let myDogs = await models.animal.findAll();
