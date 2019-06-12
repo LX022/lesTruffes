@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var session = require('express-session');
 
 
 /* GET personForm page. */
@@ -11,9 +12,9 @@ router.get('/', function (req, res, next) {
 /* POST personForm page. */
 router.post('/',  function (req, res) {
 
-    let trouve = models.Personne.findAll({where: {idPersonne: req.body.idPersonne}});
+    let trouve = models.personne.findAll({where: {idPersonne: req.body.idPersonne}});
     if (trouve !== undefined && trouve !== null) {
-         models.Personne.create({
+         models.personne.create({
             idPersonne: req.body.idPersonne,
             nomP: req.body.nomP,
             prenomP: req.body.prenomP,
@@ -23,9 +24,17 @@ router.post('/',  function (req, res) {
             rueP: req.body.rueP,
             dateNaissanceP : req.body.dateNaissanceP,
             //idPrevisiteFa: 1
+             username : req.body.username,
+             privilege : 0,
+             password : req.body.password,
+
+
         });
 
-        let persons =  models.Personne.findAll({order: [['idPersonne', 'ASC']]});
+        req.session.loggedin = true;
+        req.session.username = req.body.username;
+        req.session.privilege = 0;
+        let persons =  models.personne.findAll({order: [['idPersonne', 'ASC']]});
 
         res.render('personConfirm', {title: 'Confirmation', prenomP: req.body.prenomP, user:req.session });        //Page title
     } else {
