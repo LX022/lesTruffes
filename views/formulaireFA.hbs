@@ -7,23 +7,41 @@
 
         <h2 style="color:darkmagenta">Coordonnées</h2>
 
-        <input type="text" placeholder="{{personne.nomP}}" name="nomFA" required >{{personne.nomP}}</input>
+        <label>* Nom
+            <input type="text" value="{{personne.nomP}}" name="nomFA" placeholder="{{personne.nomP}}" required >
+        </label>
 
-        <input type="text" name="prenomFA" placeholder="* Prénom" required >
+        <label>* Prénom
+            <input type="text" value="{{personne.prenomP}}" name="prenomFA" placeholder="{{personne.prenomP}}" required >
+        </label>
 
-        <textarea type="mail" name="emailFA" placeholder="* Mail" required ></textarea>
+        <label>Email
+            <textarea type="mail" value="{{personne.emailP}}" name="emailFA" placeholder="{{personne.emailP}}" required ></textarea>
+        </label>
 
-        <input type="text" name="facebookFA" placeholder="Pseudo facebook" ></input>
+        <label>Pseudo facebook
+            <input type="text" value="{{personne.facebookP}}" name="facebookFA" placeholder="{{personne.facebookP}}" ></input>
+        </label>
 
-        <input type="tel" name="telephoneFA" placeholder="* Numéro de téléphone" required ></input>
+        <label>Téléphone
+            <input type="tel" value="{{personne.telDomicileP}}" name="telephoneFA" placeholder="{{personne.telDomicileP}}" required ></input>
+        </label>
 
-        <input type="text" name="rueFA" placeholder="* Rue" required ></input>
+        <label>Rue
+            <input type="text" value="{{personne.rueP}}" name="rueFA" placeholder="{{personne.rueP}}" required ></input>
+        </label>
 
-        <input type="text" name="npaFA" placeholder="* Code postal" required ></input>
+        <label>Code postal
+            <input type="text" value="{{lieu.codePostal}}" name="npaFA" placeholder="{{lieu.codePostal}}" required ></input>
+        </label>
 
-        <input type="text" name="localiteFA" placeholder="* Localité" required ></input>
+        <label>Localité
+            <input type="text" value="{{lieu.ville}}" name="localiteFA" placeholder="{{lieu.ville}}" required ></input>
+        </label>
 
-       <input type="date"  name="datenaissanceFA" placeholder="* Date de naissance" required ></input>
+        <label>Date de naissance
+            <input type="date" value="{{personne.dateNaissanceP}}"  name="datenaissanceFA" placeholder="{{personne.dateNaissanceP}}" required ></input>
+        </label>
 
     </div>
 
