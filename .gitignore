@@ -93,3 +93,5 @@ typings/
 node_modules
 npm-debug.log
 *.sqlite
+
+index.js
