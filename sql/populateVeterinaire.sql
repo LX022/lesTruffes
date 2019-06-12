@@ -1,4 +1,4 @@
-INSERT INTO Vétérinaire
+INSERT INTO Veterinaire
 VALUES (1, 'Züger', 'Laura', 'Lindén', 'Rue de la Cotsette 3',1, 'Médecin vétérinaire', '', '100', '0'),
 (2, 'Saillen', 'Caroline', 'Valesia', 'Rue du Canal 16',2, 'Urgences animaux de compagnie', '', '200', '0'),
 (3, 'Zufferey', 'Pascal', 'Cabinet vétérinaire du Dr Zufferey', "Rue d'Orzival 19",3, 'Médecin vétérinaire', '', '300', '0'),

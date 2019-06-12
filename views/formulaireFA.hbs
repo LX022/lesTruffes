@@ -1,12 +1,16 @@
 
 <div class="container">
     <h5 style="text-align:center"><a href="fa">Qu'est-ce que c'est ?</a><br><br><br>
-    </h5> <form action="action_page.php">
+    </h5>
+    <h2 style="color:green;">{{message}}</h2>
+    <form id="insertLieu" action="/formulaireFA" method="post">
+
     <div class="row">
     <div class="col-md-4">
 
         <h2 style="color:darkmagenta">Coordonnées</h2>
-
+        <input type="hidden" value="{{personne.idPersonne}}" name="idPersonneFA">
+        <input type="hidden" value="{{personne.idLieu}}" name="idLieu">
         <label>* Nom
             <input type="text" value="{{personne.nomP}}" name="nomFA" placeholder="{{personne.nomP}}" required >
         </label>
@@ -38,6 +42,14 @@
         <label>Localité
             <input type="text" value="{{lieu.ville}}" name="localiteFA" placeholder="{{lieu.ville}}" required ></input>
         </label>
+
+        <label>Pays
+
+            <input list="pays" value="{{lieu.idPays}}" name="localiteFA" placeholder="{{lieu.idPays}}" required ></input>
+            <datalist id="pays">{{#each pays}}
+                <option value="{{this.idPays}}">{{this.nomPays}}</option> {{/each}}
+            </datalist>
+            </label>
 
         <label>Date de naissance
             <input type="date" value="{{personne.dateNaissanceP}}"  name="datenaissanceFA" placeholder="{{personne.dateNaissanceP}}" required ></input>
@@ -151,14 +163,9 @@
         <input type="radio" name="solitudeFA" value="0"> Non</input>
         <p></p>
 
-
-
-
-
-
 </div><br>
     <div style="text-align: center;">
-    <input style="background-color: darkmagenta;" formmethod="post" formaction="/formulaireFA" class="btn" type="submit" value="M'inscrire en tant que famille d'accueil">
+    <input style="background-color: darkmagenta;" class="btn" type="submit" value="M'inscrire en tant que famille d'accueil">
     </div>
 </form>
 
