@@ -9,12 +9,14 @@ var Handlebars = require("handlebars");
 /* GET fa page. */
 router.get('/', async function(req, res, next) {
     let personne ;
+    let lieu;
     let id;
     if(req.session!==undefined){
         personne= await models.personne.findAll({where:{username:req.session.username}})
+        lieu = await models.lieu.findAll({where:{idLieu:personne[0].idLieu}});
     }
 
-    res.render('formulaireFA', { title: "Devenir une famille d'accueil", user:req.session, personne:personne[0] });
+    res.render('formulaireFA', { title: "Devenir une famille d'accueil", user:req.session, personne:personne[0], lieu:lieu[0] });
 });
 
 router.post('/', function(req, res, next) {
