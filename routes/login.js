@@ -16,7 +16,7 @@ router.get('/', function(req,res,next){
     res.render('about');
 });
 
-router.post('/', async function(req, res, next) {
+router.post('login', async function(req, res, next) {
     var insertedUsername = req.body.username;
     var insertedPassword = req.body.password;
 
