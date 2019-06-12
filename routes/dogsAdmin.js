@@ -12,7 +12,7 @@ router.get('/', async function (req, res, next) {
         res.render('dogsAdmin', {title: 'Gestion des chiens', dogs:dogs,user:req.session});        //Page title
     }
     else
-        req.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
+        res.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
 
 
 });
