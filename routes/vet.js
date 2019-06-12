@@ -6,11 +6,6 @@ var router = express.Router();
 router.get('/', async function(req, res, next) {
     if(req.session.privilege >= 2)
     {
-        //Créer un lieu ? s'il n'existe pas
-        let lieuDefaut = await models.lieu.findAll({where:{codePostal:0}});
-        if(lieuDefaut<1) {
-            let lieuInconnu = await models.lieu.create({idLieu: 0, codePostal: 0, ville: "?",idPays:0});
-        }
 
         //Recherche du vétérinaire à afficher
         let id = req.query.idVeterinaire;
@@ -37,22 +32,12 @@ router.get('/', async function(req, res, next) {
 /* UPDATE vet page. */
 router.post('/', async function (req, res) {
 
-    //INSERT lieu
-    //Si la Suisse n'existe pas l'inventer
-    let laSuisse = await models.pays.findAll({where:{codePays:0}});
 
-    if(laSuisse.length<1){
-        laSuisse = await models.pays.create({idPays:0, codePays:0, alpha2:"CH", alpha3:"CH", nomEnGb:"Suisse", nomPays:"Suisse" });
-    }
-    if(req.body.insertCP!==undefined && req.body.insertVille!==undefined){
-        await models.lieu.create({codePostal:req.body.insertCP, ville:req.body.insertVille, idPays:0});
+    if(req.body.insertCP!==undefined && req.body.insertVille!==undefined && req.body.paysV!==undefined){
+
+        await models.lieu.create({idPays:req.body.paysV, codePostal:req.body.insertCP, ville:req.body.insertVille});
     }
 
-    //Créer un lieu ? s'il n'existe pas
-    let lieuDefaut = await models.lieu.findAll({where:{codePostal:0}});
-    if(lieuDefaut<1) {
-        let lieuInconnu = await models.lieu.create({idLieu: 0, codePostal: 0, ville: "?",idPays:0});
-    }
 
     //UPDATE : si le lieu est vide
     if(req.body.idLieu==='' && req.body.idVeterinaire.idLieu!==null){

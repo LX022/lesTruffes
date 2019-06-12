@@ -5,6 +5,8 @@ var router = express.Router();
 /* GET vets page. */
 router.get('/', async function (req, res, next) {
 
+    let pays = await models.pays.findAll();
+
     if(req.session.privilege >= 2)
     {
         //DELETE vétérinaire
@@ -20,7 +22,7 @@ router.get('/', async function (req, res, next) {
         let lieux = await models.lieu.findAll();
 
 
-        res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux, user:req.session});        //Page title
+        res.render('vets', {title: 'Vétérinaires enregistrés', veterinaires:veterinaires, lieux:lieux, user:req.session,  pays:pays});        //Page title
     }
     else
         res.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});

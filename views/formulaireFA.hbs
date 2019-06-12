@@ -35,6 +35,14 @@
             <input type="text" value="{{personne.rueP}}" name="rueFA" placeholder="{{personne.rueP}}" required ></input>
         </label>
 
+        <label>Pays
+
+            <input list="pays" value="{{lieu.idPays}}" name="localiteFA" placeholder="{{lieu.idPays}}" required ></input>
+            <datalist id="pays">{{#each pays}}
+                <option value="{{this.idPays}}">{{this.nomPays}}</option> {{/each}}
+            </datalist>
+        </label>
+
         <label>Code postal
             <input type="text" value="{{lieu.codePostal}}" name="npaFA" placeholder="{{lieu.codePostal}}" required ></input>
         </label>
@@ -43,13 +51,7 @@
             <input type="text" value="{{lieu.ville}}" name="localiteFA" placeholder="{{lieu.ville}}" required ></input>
         </label>
 
-        <label>Pays
 
-            <input list="pays" value="{{lieu.idPays}}" name="localiteFA" placeholder="{{lieu.idPays}}" required ></input>
-            <datalist id="pays">{{#each pays}}
-                <option value="{{this.idPays}}">{{this.nomPays}}</option> {{/each}}
-            </datalist>
-            </label>
 
         <label>Date de naissance
             <input type="date" value="{{personne.dateNaissanceP}}"  name="datenaissanceFA" placeholder="{{personne.dateNaissanceP}}" required ></input>

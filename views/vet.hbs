@@ -313,8 +313,8 @@
                                             <th>Code postal</th>
 
                                             <th>Ville</th>
+                                            <th>Pays</th>
                                             <th></th>
-
                                         </tr>
                                         <form id="insertLieu" action="/vet" method="post">
                                             <tr><input type="hidden" name="idVeterinaire"  value="{{veto.idVeterinaire}}">
@@ -324,6 +324,12 @@
                                                 <td>
                                                     <input type="text" name="insertVille" required>
                                                 </td>
+                                                <td>
+                                                <input list="paysV" name="paysV" required >
+                                                <datalist id="paysV">{{#each pays}}
+                                                    <option value="{{this.idPays}}">{{this.nomPays}}</option> {{/each}}
+                                                </datalist>
+                                                    </td>
                                                 <td style="vertical-align: center;"><h4><input src="images/ajouter.png" type="image"  value="Ajouter"></h4></td>
                                             </tr>
                                             </tr>
