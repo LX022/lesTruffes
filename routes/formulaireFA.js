@@ -8,10 +8,10 @@ var Handlebars = require("handlebars");
 
 /* GET fa page. */
 router.get('/', async function(req, res, next) {
-    let personne ;
-    let lieu;
+    let personne = 1 ;
+    let lieu =1;
     let id;
-    if(req.session!==undefined){
+    if(req.session.username!==undefined){
         personne= await models.personne.findAll({where:{username:req.session.username}})
         lieu = await models.lieu.findAll({where:{idLieu:personne[0].idLieu}});
     }
