@@ -13,7 +13,7 @@ var router = express.Router();
 
 
 router.get('/', function(req,res,next){
-    res.render('about',{user: req.session});
+    res.render('about');
 });
 
 router.post('/', async function(req, res, next) {
