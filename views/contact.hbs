@@ -5,19 +5,16 @@
         <img src="/images/contact.png">
     </div>
 <div class="col-md-4">
+
     <form action="/contactSend" method="post" >
 
+        <input type="text" id="contactName" name="contactName" placeholder="&#9786; Nom complet" required/>
 
-        <label for=" fname"> Nom </label>
-        <input type="text" id="contactName" name="contactName" placeholder="Ecrivez votre nom..." required/>
+        <input type="email" id="email" name="email" placeholder="&#64; Adresse mail" required/>
 
-        <label for="lname">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="Votre adresse mail..." required/>
+        <textarea id="message" name="message" placeholder="&#35; Vos commentaires" style="height:200px" required></textarea>
 
-        <label for="subject">Votre message</label>
-        <textarea id="message" name="message" placeholder="Contenu du mail..." style="height:200px" required></textarea>
-
-        <input class="btn" formmethod="post" formaction="/contact" type="submit" value="envoyer"/>
+        <input style="background-color: darkmagenta" class="btn" formmethod="post" formaction="/contact" type="submit" value="ENVOYER LE MESSAGE"/>
 
     </form>
 </div>
