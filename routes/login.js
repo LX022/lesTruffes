@@ -16,7 +16,7 @@ router.get('/', function(req,res,next){
     res.render('about');
 });
 
-router.post('/',  function(req, res, next) {
+router.POST('/',  function(req, res, next) {
 
     console.log("--------------------------------------------------------------------------------------------------------------")
 
