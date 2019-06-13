@@ -17,7 +17,7 @@ var router = express.Router();
    // res.render('about');
 //});
 
-router.post('/login',  function(req, res, next) {
+router.post('login',  function(req, res, next) {
 
     console.log("--------------------------------------------------------------------------------------------------------------")
 
