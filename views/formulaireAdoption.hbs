@@ -21,11 +21,10 @@
     <br>
 
     <form action="action_page.php">
-        <input for="idAnimal" value="{{dog.idAnimal}}" hidden></input>
-        <input type="text" id="idAnimal" name="idAnimal" value="{{dog.idAnimal}}" hidden></input>
+        <input type="hidden" id="idAnimal" name="idAnimal" value="{{dog.idAnimal}}"></input>
 
         <label for="j">Jour souhaité de l'adoption</label>
-        <input type="text" id="j" name="jouradoption" placeholder="Jour/Mois/Année..." required></input>
+        <input type="date" id="j" name="jouradoption" placeholder="Jour/Mois/Année..." required></input>
 
         <h2 style="color:slateblue">Votre environnement</h2>
 
@@ -92,7 +91,7 @@
         <p></p>
 
         <label for="autre">Souhaitez-vous indiquer des informations supplémentaires ? </label>
-        <textarea data-type="control_textbox" id="autre" name="autreinfo" placeholder="Autres informations..." required></textarea>
+        <textarea data-type="control_textbox" id="autre" name="autreinfo" placeholder="Autres informations..." ></textarea>
 
         <input formmethod="post" formaction="/formulaireAdoption" class="btn" type="submit" value="envoyer">
 

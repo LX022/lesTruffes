@@ -108,7 +108,7 @@ router.post('/', async function (req, res, next) {
     });
 
 
-    res.render('about', {title: "Merci pour cette adoption!"});
+    res.render('about', {title: "Merci pour cette adoption!",user:req.session});
 });
 
 

@@ -33,9 +33,10 @@ router.get('/', async function(req, res, next) {
 router.post('/', async function (req, res) {
 
 
+
     if(req.body.insertCP!==undefined && req.body.insertVille!==undefined && req.body.paysV!==undefined){
 
-        await models.lieu.create({idPays:req.body.paysV, codePostal:req.body.insertCP, ville:req.body.insertVille});
+        await models.lieu.create({codePostal:req.body.insertCP, ville:req.body.insertVille,idPays:1});
     }
 
 

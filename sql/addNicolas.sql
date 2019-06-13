@@ -1,2 +1,5 @@
 INSERT INTO Personne
-VALUES (216, 'Solioz', 'Nicolas', 'www.facebook.com/solioz', '19931103', 'Rue Notre Dame des Marais 2', '027 455 93 88', '079 489 78 09', '', null, 'nicolas.solioz@bluewin.ch', 'admin dev', null, null, 3, 'admin', 'admin1234');
+VALUES (216, 'Solioz', 'Nicolas', 'www.facebook.com/solioz', '19931103', 'Rue Notre Dame des Marais 2', '027 455 93 88', '079 489 78 09', '', null, 'nicolas.solioz@bluewin.ch', 'admin dev', null, null, 3, 'admin', 'admin1234'),
+(217, 'Waelti', 'Nadine', 'www.facebook.com/nadine', '19931103', 'Rue Notre Dame des Marais 2', '027 455 93 88', '079 489 78 09', '', null, 'nadine.waelti@bluewin.ch', 'admin sante', null, null, 2, 'adminSante', 'adminSante'),
+(218, 'Yann', 'Clavien', 'www.facebook.com/yann', '19931103', 'Rue Notre Dame des Marais 2', '027 455 93 88', '079 489 78 09', '', null, 'yann.clavien@bluewin.ch', 'admin site', null, null, 1, 'adminSite', 'adminSite'),
+(219, 'Gabriel', 'Riedo', 'www.facebook.com/gabriel', '19931103', 'Rue Notre Dame des Marais 2', '027 455 93 88', '079 489 78 09', '', null, 'gabriel.riedo@bluewin.ch', 'user', null, null, 0, 'user', 'user');
