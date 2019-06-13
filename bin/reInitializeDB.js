@@ -22,8 +22,8 @@ var allowDBdrop = true;
 
 let sequelize;
 if (config.use_env_variable) {
-    sequelize = new Sequelize(process.env[config.use_env_variable], config);
-    // sequelize = new Sequelize('mysql://root:nothing@localhost:3306/truffes', config); // Changer ici le password et le nom de la DB
+    //sequelize = new Sequelize(process.env[config.use_env_variable], config);
+     sequelize = new Sequelize('mysql://root:@localhost:3306/truffes', config); // Changer ici le password et le nom de la DB
 } else {
     sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
@@ -49,6 +49,7 @@ var popNico = fs.readFileSync(directorySql + 'addNicolas.sql', 'utf-8');
 var popPays = fs.readFileSync(directorySql + 'populatePays.sql', 'utf-8');
 var popLieux = fs.readFileSync(directorySql + 'populateLieux.sql', 'utf-8');
 var popVeto = fs.readFileSync(directorySql + 'populateVeterinaire.sql', 'utf-8');
+var popFamilleAccueil = fs.readFileSync(directorySql + 'populateFamilleAccueil.sql', 'utf-8');
 var popAnimAskedAdopt =  fs.readFileSync(directorySql + 'populateAnimal_asked_Adoptant.sql', 'utf-8');
 
 models.sequelize.sync(
@@ -73,6 +74,7 @@ models.sequelize.sync(
     }) .then( function() {
 
     sequelize.query(popVeto);
+    sequelize.query(popFamilleAccueil);
 });
 
 setTimeout(function popAAA() {

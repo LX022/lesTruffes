@@ -27,14 +27,14 @@ router.post('/', async function (req, res) {
     if(req.body.personsFA!==undefined) {
         //Recherche les personnes par type FA ou pas
         if(req.body.personsFA==2){
-            persons = await models.Personne.findAll();
+            persons = await models.personne.findAll();
         }else {
-            persons = await models.Personne.findAll({where:{fa:req.body.personsFA}});
+            persons = await models.personne.findAll({where:{fa:req.body.personsFA}});
         }
 
     }
     else{
-        persons = await models.Personne.findAll();
+        persons = await models.personne.findAll();
     }
 
 

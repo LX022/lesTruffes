@@ -11,7 +11,6 @@
                             <datalist id="personsFA">
                                     <option value="1">Famille d'accueil</option>
                                     <option value="0">Membre</option>
-                                <option value="2">Toutes les personnes enregistrées</option>
                             </datalist>
                             <input type="submit" style="background-color:#9acfea"  value="FA or not FA">
                         </form></div>
@@ -51,10 +50,11 @@
                                 <td>{{this.telPortableP}}</td>
                                 <td>{{this.telAutreP}}</td>
                                 <td>{{this.emailP}}</td>
-                                <td>{{this.commentaires}}</td>
-                                <td>{{this.FA}}</td>
-                                <td>test</td>
-                                <td>test</td>
+                                <td>{{this.previsite}}</td>
+                                <td>{{this.fa}}</td>
+                                <td>{{this.statut}}</td>
+
+
                                 <td>
                                     <button onclick="deletePersonne('{{this.idPersonne}}')">Supprimer</button>
                                     <button onclick="updatePersonne('{{this.idPersonne}}')">&Eacute;diter</button>
