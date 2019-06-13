@@ -15,12 +15,11 @@ router.post('/',  function (req, res) {
     let trouve = models.personne.findAll({where: {idPersonne: req.body.idPersonne}});
     if (trouve !== undefined && trouve !== null) {
          models.personne.create({
-            idPersonne: req.body.idPersonne,
             nomP: req.body.nomP,
             prenomP: req.body.prenomP,
             emailP: req.body.emailP,
             facebookP: req.body.facebookP,
-            //telPortableP: req.body.telPortableP,
+            telPortableP: req.body.telPortableP,
             rueP: req.body.rueP,
             dateNaissanceP : req.body.dateNaissanceP,
             //idPrevisiteFa: 1
