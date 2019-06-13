@@ -68,8 +68,6 @@ router.post('/', async function(req, res, next) {
     //Si la famille d'accueil existe déjà
     let test = await models.familleAccueil.findAll({where:{idPersonne:req.body.idPersonneFA}});
     if(test.length>0){
-        console.log(test);
-        console.log(req.body.idPersonneFA);
     message = "Vous êtes déjà inscrit :)";
     }
     else{
@@ -81,11 +79,13 @@ router.post('/', async function(req, res, next) {
 
     //Si la personne existe déjà, reprendre son id et créer une FA
     if(req.body.idPersonne!==undefined && req.body.idPersonneFA!=='' && req.body.idPersonne!=null){
+        //spécifier que c'est une FA dans la table personne
+        await models.personne.update({fa:1,where:{idPersonne:req.body.idPersonne}});
     fa = await models.familleAccueil.create({idPersonne:req.body.idPersonne, especeFA:especeFA,genreFA:genreFA, ageChienFA:ageChienFA, tailleChienFA:tailleChienFA, typeLogementFA:typeLogementFA, surfaceFA:surfaceFA, jardinFA:jardinFA, clotureFA:clotureFA, enfantFA:enfantFA, ageEnfantFA:ageEnfantFA, possedeAnimauxFA:possedeAnimauxFA, dejaEuAnimauxFA:dejaEuAnimauxFA, propreteFA:propreteFA, educationFA:educationFA, maltraitanceFA:maltraitanceFA, soinsFA:soinsFA, handicapFA:handicapFA, solitudeFA:solitudeFA, commentairesFA:commentairesFA });
     }
     else{
         //Si la personne n'existe pas, la créer
-        let p = await models.personne.create({nomP:nomFA, prenomP:prenomFA,facebookP:facebookFA, dateNaissanceP:datenaissanceFA, rueP:rueFA, telPortableP:telephoneFA, emailP:emailFA});
+        let p = await models.personne.create({nomP:nomFA, prenomP:prenomFA,facebookP:facebookFA, dateNaissanceP:datenaissanceFA, rueP:rueFA, telPortableP:telephoneFA, emailP:emailFA, fa:1});
 
         // puis reprendre son id pour créer une FA
         fa = await models.familleAccueil.create({idPersonne:p.idPersonne, especeFA:especeFA,genreFA:genreFA, ageChienFA:ageChienFA, tailleChienFA:tailleChienFA, typeLogementFA:typeLogementFA, surfaceFA:surfaceFA, jardinFA:jardinFA, clotureFA:clotureFA, enfantFA:enfantFA, ageEnfantFA:ageEnfantFA, possedeAnimauxFA:possedeAnimauxFA, dejaEuAnimauxFA:dejaEuAnimauxFA, propreteFA:propreteFA, educationFA:educationFA, maltraitanceFA:maltraitanceFA, soinsFA:soinsFA, handicapFA:handicapFA, solitudeFA:solitudeFA, commentairesFA:commentairesFA });

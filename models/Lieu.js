@@ -37,7 +37,7 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    lieu.hasOne(models.pays);
+                    lieu.hasOne(model.pays);
                     lieu.belongsToMany(model.personne);
                 }
             }

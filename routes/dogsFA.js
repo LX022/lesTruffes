@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', async function (req, res, next) {
     if(req.session.privilege == 3)
     {
-        //liste des personnes
+        //liste des personnes qui sont fa
         let personnes = await models.personne.findAll({where:{fa:1}});
 
         //liste des chiens
@@ -44,8 +44,8 @@ router.post('/', async function (req, res, next) {
 
     //INSERT new FA
     if(req.body.nomFA!==undefined){
-        await models.personne.create({nomP: req.body.nomFA, prenomP:req.body.prenomFA, facebookP:req.body.FacebookPage, telDomicileP:req.body.telDomicile, telPortableP:req.body.telPortable, telAutreP:req.body.autreTel, emailP:req.body.email,  fa:1});
-
+        let p = await models.personne.create({nomP: req.body.nomFA, prenomP:req.body.prenomFA, facebookP:req.body.FacebookPage, telDomicileP:req.body.telDomicile, telPortableP:req.body.telPortable, telAutreP:req.body.autreTel, emailP:req.body.email,  fa:1});
+        await models.familleAccueil.create({idPersonne:p.idPersonne});
     }
 
     //INSERT lien dog/fa
@@ -81,7 +81,7 @@ router.post('/', async function (req, res, next) {
         dogsFA = await models.animalHasFa.findAll({where:{idAnimal:req.body.idAnimal}});
         if(dogsFA.length<1){ info="Ce chien n'est pas dans une famille d'accueil";}else { info="Famille(s) d'accueil de ce chien";}
     }
-    //TODO Si c'est depuis la page FA
+
 
 
     res.render('dogsFA', {title: "Gestion des chiens en famille d'accueil", dogsFA:dogsFA, info:info, dogs:dogs, personnes:personnes, warning:warning, user:req.session});        //Page title
