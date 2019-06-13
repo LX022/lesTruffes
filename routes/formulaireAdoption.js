@@ -11,7 +11,7 @@ let dog;
 router.get('/', async function (req, res, next) {
 
     if(!req.session.loggedin)
-        res.render('about', {title: 'Veuillez vous loger pour adopter un chien'});
+        res.render('about', {title: 'Veuillez vous loguer pour adopter un chien'});
 
     id = req.query.idAnimalAdoption;
     dog = await models.animal.findByPk(id);
