@@ -11,6 +11,7 @@ router.get('/', async function (req, res, next) {
     let dogs = [];
     let isAdopted;
 
+
     // On envoie que les truffes non adoptées
     for (let i = 0; i < dogsToAdopt.length; i++) {
         isAdopted = false;
@@ -28,6 +29,8 @@ router.get('/', async function (req, res, next) {
 
         }
     }
+
+
     res.render('dogs', {title: 'Nos truffes à adopter', dogs: dogs,user:req.session});        //Page title
 });
 
