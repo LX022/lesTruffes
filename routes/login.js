@@ -12,12 +12,12 @@ var app = express();
 var router = express.Router();
 
 
-router.get('/', function(req,res,next){
-    console.log("--------------------------------------------------------------------------------------------------------------")
-    res.render('about');
-});
+//router.get('/', function(req,res,next){
+  //  console.log("--------------------------------------------------------------------------------------------------------------")
+   // res.render('about');
+//});
 
-router.post('/',  function(req, res, next) {
+router.post('/login',  function(req, res, next) {
 
     console.log("--------------------------------------------------------------------------------------------------------------")
 
