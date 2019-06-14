@@ -16,13 +16,13 @@ router.get('/', function(req,res,next){
     res.render('about');
 });
 
-router.post('/', async function(req, res, next) {
+router.post('/',  function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
 
     console.log("------------------------------------------------------" + username);
 
-    var results = await models.personne.findAll(
+    var results =  models.personne.findAll(
         {where: {username:username, password:password},
             attributes: ['idPersonne', 'username', 'password', 'privilege']});
 
