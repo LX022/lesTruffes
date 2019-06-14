@@ -32,7 +32,8 @@ router.get('/', async function(req, res, next) {
 /* UPDATE vet page. */
 router.post('/', async function (req, res) {
 
-
+    if(req.session.privilege >= 2)
+    {
 
     if(req.body.insertCP!==undefined && req.body.insertVille!==undefined && req.body.paysV!==undefined){
 
@@ -61,6 +62,9 @@ router.post('/', async function (req, res) {
 
 
     res.render('vet', { title: nom, veto : veto , lieux:lieux, lieu:lieu, pays:pays, user:req.session});        //Page title
+    }
+    else
+        res.render('about', {title: 'Vous ne pouvez pas afficher cette page car vous ne disposez pas des droits administrateurs.', user:req.session});
 
 });
 

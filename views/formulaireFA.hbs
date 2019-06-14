@@ -5,63 +5,12 @@
     <h2 style="color:green;">{{message}}</h2>
     <form id="insertLieu" action="/formulaireFA" method="post">
 
+            <input type="hidden" value="{{personne.idPersonne}}" name="idPersonne">
+
     <div class="row">
-    <div class="col-md-4">
-
-        <h2 style="color:darkmagenta">Coordonnées</h2>
-        <input type="hidden" value="{{personne.idPersonne}}" name="idPersonneFA">
-        <input type="hidden" value="{{personne.idLieu}}" name="idLieu">
-        <label>* Nom
-            <input type="text" value="{{personne.nomP}}" name="nomFA" placeholder="{{personne.nomP}}" required >
-        </label>
-
-        <label>* Prénom
-            <input type="text" value="{{personne.prenomP}}" name="prenomFA" placeholder="{{personne.prenomP}}" required >
-        </label>
-
-        <label>Email
-            <textarea type="mail" value="{{personne.emailP}}" name="emailFA" placeholder="{{personne.emailP}}" required >{{personne.emailP}}</textarea>
-        </label>
-
-        <label>Pseudo facebook
-            <input type="text" value="{{personne.facebookP}}" name="facebookFA" placeholder="{{personne.facebookP}}" ></input>
-        </label>
-
-        <label>Téléphone
-            <input type="tel" value="{{personne.telDomicileP}}" name="telephoneFA" placeholder="{{personne.telDomicileP}}" required ></input>
-        </label>
-
-        <label>Rue
-            <input type="text" value="{{personne.rueP}}" name="rueFA" placeholder="{{personne.rueP}}" required ></input>
-        </label>
-
-        <label>Pays
-
-            <input list="pays" value="{{lieu.idPays}}" name="localiteFA" placeholder="{{lieu.idPays}}" required ></input>
-            <datalist id="pays">{{#each pays}}
-                <option value="{{this.idPays}}">{{this.nomPays}}</option> {{/each}}
-            </datalist>
-        </label>
-
-        <label>Code postal
-            <input type="text" value="{{lieu.codePostal}}" name="npaFA" placeholder="{{lieu.codePostal}}" required ></input>
-        </label>
-
-        <label>Localité
-            <input type="text" value="{{lieu.ville}}" name="localiteFA" placeholder="{{lieu.ville}}" required ></input>
-        </label>
 
 
-
-        <label>Date de naissance
-            <input type="date" value="{{personne.dateNaissanceP}}"  name="datenaissanceFA" placeholder="{{personne.dateNaissanceP}}" required ></input>
-        </label>
-
-    </div>
-
-        <div class="col-md-4">
-
-
+        <div class="col-md-6">
 
         <h2 style="color:darkmagenta">Vos souhaits</h2>
 
@@ -75,10 +24,13 @@
 
 
 
+
             <textarea type="text" name="commentairesFA" placeholder="Commentaires"></textarea>
+            <br><br><br><br>
+            <img src="/images/fa.png" height="200px" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;">
         </div>
 
-        <div class="col-md-4" style="text-align: left;"> <h2 style="color:darkmagenta; text-align: left;">Votre environnement</h2>
+        <div class="col-md-6" style="text-align: left;"> <h2 style="color:darkmagenta; text-align: left;">Votre environnement</h2>
 
             <input type="text" name="typeLogementFA" placeholder="Appartement - maison - ..." ></input>
 
@@ -111,14 +63,14 @@
             <textarea type="text" name="possedeAnimauxFA" placeholder="Avez-vous actuellement des animaux ?"  ></textarea>
 
             <p></p>
-
+<br><br><br>
         </div>
 
 
 
 
-
-    </div><br> <br>
+<div class="col-md-9">
+   <br> <br>
     <div style="text-align: justify;">
         <h2 style="color:darkmagenta">Vos conditions</h2>
         <label for="propreteFA">Accepteriez-vous de parfaire son éducation si l'animal confié n'est pas propre ?</label>
@@ -165,7 +117,12 @@
         <input type="radio" name="solitudeFA" value="0"> Non</input>
         <p></p>
 
-</div><br>
+</div><br></div>
+        <div class="col-md-3">
+            <br><br><br><br><br>
+            <img src="/images/toutou.png" height="200px" style="-webkit-border-radius: 100px;-moz-border-radius: 100px;border-radius: 100px;">
+        </div>
+    </div>
     <div style="text-align: center;">
     <input style="background-color: darkmagenta;" class="btn" type="submit" value="M'inscrire en tant que famille d'accueil">
     </div>

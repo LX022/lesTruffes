@@ -5,7 +5,7 @@ var models  = require('../models');
 /* GET about page. */
 router.get('/', async function (req, res, next) {
 
-    if(req.session.privilege == 3)
+    if(req.session.privilege === 3)
     {
         //Liste des animauxAdoptants
         let animalAskedAdoptant = await models.animalAskedAdoptant.findAll();

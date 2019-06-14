@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET persons page. */
 router.get('/', async function (req, res, next) {
 
-    if(req.session.privilege == 3)
+    if(req.session.privilege === 3)
     {
         let persons = await models.personne.findAll({});
         res.render('persons', {title: 'Membres', persons: persons, user:req.session});        //Page title
@@ -26,7 +26,7 @@ router.post('/', async function (req, res) {
 
     if(req.body.personsFA!==undefined) {
         //Recherche les personnes par type FA ou pas
-        if(req.body.personsFA==2){
+        if(req.body.personsFA===2){
             persons = await models.personne.findAll();
         }else {
             persons = await models.personne.findAll({where:{fa:req.body.personsFA}});

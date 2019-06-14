@@ -24,6 +24,7 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false,
                 references: {
                     model: 'Pays',
+
                     key: 'codePays'
                 },
                 field: 'idPays'
@@ -37,8 +38,8 @@ module.exports = function (sequelize, DataTypes) {
         {
             classMethods: {
                 associate: function (models) {
-                    lieu.hasOne(model.pays);
-                    lieu.belongsToMany(model.personne);
+                    lieu.belongsToMany(models.pays);
+                    lieu.belongsToMany(models.personne);
                 }
             }
         }

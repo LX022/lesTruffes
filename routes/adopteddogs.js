@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET adopteddogs page. */
 router.get('/', async function(req, res, next) {
 
-    if(req.session.privilege == 3)
+    if(req.session.privilege === 3)
     {
         let adopteddogs = await models.Animal_asked_Adoptant.findAll({where:{adotionValidee:1}});
 
