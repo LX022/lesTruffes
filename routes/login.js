@@ -20,9 +20,9 @@ router.post('/', async function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
 
-    await sleep(5000);
 
-    console.log("------------------------------------------------------" + username);
+    res.send(username);
+
 
     var results = await models.personne.findAll(
         {where: {username:username, password:password},
