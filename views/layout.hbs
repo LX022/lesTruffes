@@ -102,18 +102,23 @@
                     class="fa fa-search"></i></a>
 
             {{#if user.loggedin }}
-                <li>
+
                     <a onclick="document.getElementById('id02').style.display='block'"
                        style="cursor: pointer; margin-left:52px;color:deeppink"
                        class="w3-bar-item w3-right w3-button w3-hide-small ">{{user.username}}</a>
                     <body>
-                    <div id="id02" class="modal">
+                    <div id="id02" class="modal" >
+
                         <form class="modal-content animate" action="/logout" method="post">
-                            <button type="submit" class="btn">D&eacute;connexion</button>
+
+                           <div class="imgcontainer" style="text-align: center;">
+                               <p style="color:darkmagenta">Cliquer en dehors de la fenêtre pour rester connecté</p>
+                               <button type="submit" class="btn" style="background-color: darkmagenta">D&eacute;connexion</button></div>
+
                         </form>
                     </div>
                     </body>
-                </li>
+
             {{else}}
                 <!-- gestion du login -->
                 <!--<li>-->

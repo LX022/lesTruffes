@@ -59,24 +59,30 @@ models.sequelize.sync(
     }
 ).then(function() {
     console.log(`Database & tables structure created!`)
-}).then( function() {
+})
+   .then( function() {
     sequelize.query(disFKcheck);
 }).then( function() {
+    sequelize.query(popPays);
+})
+
+    .then( function() {
     sequelize.query(popAnim);
 }).then( function() {
        sequelize.query(popPers);
     sequelize.query(popNico);
-}).then( function() {
-    sequelize.query(popPays);
-})
-    .then( function() {
-        sequelize.query(popLieux);
-    }) .then( function() {
+}) .then( function() {
 
     sequelize.query(popVeto);
+}) .then( function() {
+
     sequelize.query(popFamilleAccueil);
 });
 
 setTimeout(function popAAA() {
     sequelize.query(popAnimAskedAdopt)
-},2000)
+},3000)
+
+setTimeout(function popAAA() {
+    sequelize.query(popLieux)
+},6000)
