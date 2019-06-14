@@ -6,6 +6,20 @@
         <div class="row">
             <div class="main_mix_content text-center margin-top-30">
                 <div>
+                    <form id="tris" action="/dogs" method="post">
+                        <input list="tri" name="tri" required>
+                        <datalist id="tri">
+                            <option value="1">Ordre alphabétique</option>
+                            <option value="2">Ordre alphabétique inversé</option>
+                            <option value="3">Date de naissance DESC</option>
+                            <option value="4">Date de naissance ASC</option>
+                        </datalist>
+                        <input class="w3-btn w3-blue-grey" type="submit"  value="Trier">
+                    </form>
+                </div>
+
+                <br><br><br>
+            <div>
                     <table class="table">
                             {{#each dogs}}
                             <form id="onedog" action="/dog" method="get">
