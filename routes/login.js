@@ -20,11 +20,13 @@ router.post('/',  function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
 
-    console.log("------------------------------------------------------" + username);
+
 
     var results =  models.personne.findAll(
         {where: {username:username, password:password},
             attributes: ['idPersonne', 'username', 'password', 'privilege']});
+
+    console.log("------------------------------------------------------" + username);
 
     if (username && password) {
 
