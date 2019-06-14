@@ -17,14 +17,15 @@ router.get('/', function(req,res,next){
 });
 
 router.post('/', async function(req, res, next) {
-    var insertedUsername = req.body.username;
-    var insertedPassword = req.body.password;
+    let username1 = req.body.username;
+    var password = req.body.password;
 
+    
     var results = await models.personne.findAll(
-        {where: {username:insertedUsername, password:insertedPassword},
+        {where: {username:username1, password:password},
             attributes: ['idPersonne', 'username', 'password', 'privilege']});
 
-    if (insertedUsername && insertedPassword) {
+    if (username1 && password) {
 
         if (results != null) {
             req.session.loggedin = true;
