@@ -13,6 +13,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var i18n = require('i18n-2');
 
 //Routers
 var routes = require('./routes');
@@ -68,6 +69,13 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
+// translation
+i18n.expressBind(app, {
+    locales: ['en', 'fr'],
+    defaultLocale: 'en',
+    cookieName: 'locale',
+    extension: '.json'
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -86,6 +94,17 @@ app.use('/img',express.static(path.join(__dirname, 'public/images')));
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
+
+// set up the middleware
+app.use(function(req, res, next) {
+    if (req.query.lang) {
+        req.i18n.setLocaleFromQuery();
+        res.cookie('locale', req.i18n.getLocale());
+    } else {
+        req.i18n.setLocaleFromCookie();
+    }
+    next();
+});
 
 app.use('/', routes);
 app.use('/about', about);
@@ -137,5 +156,6 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
 
 module.exports = app;
